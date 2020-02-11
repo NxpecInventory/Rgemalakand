@@ -1,0 +1,140 @@
+﻿@model PagedList.IPagedList<RGECMS.Models.Students>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .pagination {
+        /*display: inline-block;*/
+    }
+
+        .pagination a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            .pagination a.active {
+                background-color: #4CbF50;
+                color: white;
+            }
+
+            .pagination a:hover:not(.active) {
+                background-color: dodgerblue;
+            }
+</style>
+
+
+
+<h3 style="color:black;">RGE College Student Registration Pannel</h3>
+<div class="alert alert-info" role="alert">
+    <h4 style="color:black;">Register New Student By Providing Below Details Please Fill The Registration For Deleting And Updating Any Record You Need Administration Permissions.</h4>
+</div>
+@if (TempData["regsuccess"]!=null)
+{
+<div class="alert alert-success" role="alert">
+    <h5 style="color:black;">Student Is Registered SuccessFully In Rge College Record with Following Details {@TempData["regsuccess"]}</h5>
+</div>
+}
+@using (Html.BeginForm("index", "Students", FormMethod.Get))
+{
+    <p>
+        <label style="color:black;">Student Registration/Enrollment No:</label>@Html.TextBox("search")
+        <input type="submit" value="Search Student" class="btn btn-success card-hover" />
+    </p>
+
+
+}
+<div class="alert alert-success" role="alert">
+    <h4 style="color:black;">Total Students Found Are:- @TempData["Totaluser"]  </h4>
+</div>
+
+
+<p>
+    @Html.ActionLink("Register New Student", "Create")
+</p>
+<table class="table-bordered table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayName("RegNo")
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Classes.ClassName)
+        </th>*@
+        <th>
+            @Html.DisplayName("Student Name")
+        </th>
+        <th>
+            @Html.DisplayName("Gurdian Name")
+        </th>
+        <th>
+            @Html.DisplayName("Address")
+        </th>
+        <th>
+            @Html.DisplayName("Contact Information")
+        </th>
+        <th>
+            @Html.DisplayName("Current Sem/Class")
+        </th>
+      
+        <th>
+            @Html.DisplayName("Admission Date")
+        </th>
+        <th>
+            @Html.DisplayName("Program")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GuardianName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactInfo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentSemclass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddmissionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Programs.ProgramName)
+        </td>
+        @if (User.IsInRole("Administration"))
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        }
+        else
+        {
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+            </td>
+            }
+
+</tr>
+}
+
+</table>
+<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

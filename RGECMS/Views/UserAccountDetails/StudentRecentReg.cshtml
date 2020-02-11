@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "StudentRecentReg";
+}
+@model IEnumerable<RGECMS.Models.StudentCoursesBucket>
+
+<div class="alert alert-info" role="alert">
+    <h3 style="color:black;">Current/Recent Registered Class/Semester Pannel</h3>
+</div>
+
+<table class="table-bordered table-hover table table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayName("Registration Date")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Regid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Studentid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Regid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Studentid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year)
+            </td>
+
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.ActionLink("View Attendance", "AttendanceRecord", new { id = item.ClassId }, new { @class = "btn btn-success" })
+                @Html.ActionLink("View All Subjects", "SubjectRecord", new { id = item.ClassId }, new { @class = "btn btn-info" })
+
+            </td>
+        </tr>
+    }
+
+</table>
+@if (@TempData["curmsg"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <h4 style="color:black;">@TempData["curmsg"]</h4>
+    </div>
+}
+
+
+

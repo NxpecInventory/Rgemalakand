@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "ShowFeeReport";
+}
+
+@model IEnumerable<RGECMS.Models.StudentFeeRecords>
+<script language="javascript">
+    // for printing specific area of the page int x = (int)System.Web.HttpContext.Current.Session["MyValue"];
+    function printdiv(printpage) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + printpage).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+    }
+</script>
+<div id="div_print">
+    <h3>Rehman Group Of Education College Student Monthly/Yearly Fees Income Report</h3>
+    <div class="alert alert-info"><b style="color:black">Student Fees Report Generated On @DateTime.Now.Date.ToShortDateString()</b></div>
+
+
+
+    @if (TempData["Getlist"] != null)
+    {
+        <p style="color:black">
+            @TempData["Count"]
+        </p>
+        <p style="color:black">Total Fee Amount:: @TempData["TotalAmount"] Rupees</p>
+        <p style="color:black">Total Student Submitted Fees In Given Year And Month Are=@TempData["Countno"]</p>
+        <table class=" table-bordered table-hover table-responsive">
+            <tr>
+                <th>
+                    @Html.DisplayName("SlipId")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Students.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FatherName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SemesterClass)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubmissionDate)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.GrossTotalAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Payingstatus)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Students.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FatherName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SemesterClass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubmissionDate)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GrossTotalAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Payingstatus)
+                    </td>
+
+
+                </tr>
+            }
+
+        </table>
+
+
+
+    }
+    else
+    {
+        <div class="alert alert-danger"><b style="color:black">No Student Fee Record Found For The Give Year And Month</b></div>
+    }
+</div>
+<div>
+    @Html.ActionLink("Back to Generate Page", "StudentFeesReport")
+    <input type="button" style="width:100px;" value="Print Slip" onclick="printdiv('div_print')" class="btn btn-success" />
+</div>

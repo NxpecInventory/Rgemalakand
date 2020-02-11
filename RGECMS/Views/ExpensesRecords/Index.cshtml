@@ -1,0 +1,133 @@
+﻿@model PagedList.IPagedList<RGECMS.Models.ExpensesRecords>
+@using PagedList.Mvc;
+<style>
+    .pagination {
+        /*display: inline-block;*/
+    }
+
+        .pagination a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            .pagination a.active {
+                background-color: #4CbF50;
+                color: white;
+            }
+
+            .pagination a:hover:not(.active) {
+                background-color: dodgerblue;
+            }
+</style>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3 style="color:black;">Rahman Group Of Education Inventory Expense Management System</h3>
+<div class="alert alert-success">
+    <h4 style="color:black">
+     Create and Add inventory ,Fruniture and Advertising Related Expense and all Other College Expenses.
+    </h4>
+</div>
+@using (Html.BeginForm("index", "ExpensesRecords", FormMethod.Get))
+{
+    <p>
+        @*@Html.TextBox("search")*@
+        <label style="color:black;">Select Expense Category:</label> @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+        <input type="submit" value="Search Expenses Records" class="btn btn-success card-hover" />
+    </p>
+
+
+}
+
+    @Html.ActionLink("Create New", "Create", new { @class = "btn btn-primary" })
+
+<table class="table-bordered table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayName("Slip Id")
+        </th>
+        <th>
+            @Html.DisplayName("Expense Category")
+        </th>
+        <th>
+            @Html.DisplayName("Reciever Name")
+        </th>
+        <th>
+            @Html.DisplayName("Paying Date")
+        </th>
+        <th>
+            @Html.DisplayName("Item Quantity")
+        </th>
+        <th>
+            @Html.DisplayName("Item Name")
+        </th>
+      
+        <th>
+            @Html.DisplayName("Paid Amount")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.collegeExpenseCategories.Categories)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecieverName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemName)
+        </td>
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.PaidAmount)
+        </td>
+        @if (User.IsInRole("Administration"))
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+                </td>
+                }
+</tr>
+}
+    <tr>
+        <td>Showing(Current Page)Total Amount</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+
+
+        <td>
+            @Model.Sum(i => i.PaidAmount) RS
+        </td>
+    </tr>
+</table>
+<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

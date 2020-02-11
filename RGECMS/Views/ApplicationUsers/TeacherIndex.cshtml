@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "TeacherIndex";
+}
+
+@model IEnumerable<RGECMS.Models.ApplicationUser>
+
+<div class="alert alert-success" role="alert">
+
+
+    <h3 style="color:black;">Rahman Group Of Education Registered Teachers Users System</h3>
+</div>
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <h4>@TempData["success"]</h4>
+    </div>
+}
+@if (TempData["delmsg"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <h4>@TempData["delmsg"]</h4>
+    </div>
+}
+<div class="alert alert-success" role="alert">
+    <h4>Total Registered Teachers Accounts:= @TempData["Totalt"]</h4>
+</div>
+<table class="table-bordered table-responsive table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationNo)
+        </th>
+
+
+
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationNo)
+            </td>
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+
+
+            @if (User.IsInRole("Administration"))
+                {
+                <td>
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+        </tr>
+    }
+
+
+</table>
+
+
+
+

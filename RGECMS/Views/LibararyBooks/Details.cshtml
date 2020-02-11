@@ -1,0 +1,105 @@
+﻿@model RGECMS.Models.LibararyBooks
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Libarary Books</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LibararyDepCat.DepartmentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LibararyDepCat.DepartmentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublisherPlace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublisherPlace)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Program)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Program)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pages)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CallNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CallNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EditionVolume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EditionVolume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shelf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shelf)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AddedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

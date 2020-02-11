@@ -1,0 +1,126 @@
+﻿@model PagedList.IPagedList<RGECMS.Models.StudentFeeRecords>
+@using PagedList.Mvc;
+<style>
+    .pagination {
+        /*display: inline-block;*/
+    }
+
+        .pagination a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            .pagination a.active {
+                background-color: #4CbF50;
+                color: white;
+            }
+
+            .pagination a:hover:not(.active) {
+                background-color: dodgerblue;
+            }
+</style>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="alert alert-info"><h3>Students College Fees Records Pannel</h3></div>
+
+<div class="alert alert-success" role="alert">
+    <h4 style="color:black;">Total Student Fees Record Found Are:- @TempData["Totaluser"]  </h4>
+</div>
+@using (Html.BeginForm("index", "StudentFeeRecords", FormMethod.Get))
+{
+    <p>
+        <label style="color:black;">Student Registration No:</label>@Html.TextBox("search")
+        <input type="submit" value="Search Student Fees" class="btn btn-success card-hover" />
+    </p>
+
+
+}
+<p>
+@Html.ActionLink("Create New", "Create", new { @class = "btn btn-primary" })
+</p>
+<table class=" table-bordered table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayName("SlipId")
+        </th>
+        <th>
+            @Html.DisplayName("Student Id")
+        </th>
+        <th>
+            @Html.DisplayName("Student Name")
+        </th>
+        <th>
+            @Html.DisplayName("Father Name")
+        </th>
+        <th>
+            @Html.DisplayName("Semester/Class")
+        </th>
+        <th>
+            @Html.DisplayName("Submission Date")
+        </th>
+      
+        <th>
+            @Html.DisplayName("Total Paid Amount")
+        </th>
+        <th>
+            @Html.DisplayName("Paying Status")
+        </th>
+     
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Students.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FatherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SemesterClass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubmissionDate)
+        </td>
+       
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.GrossTotalAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payingstatus)
+        </td>
+        @if (User.IsInRole("Administration"))
+        {
+            <td>
+                @Html.ActionLink("Update", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+            </td>
+        }
+       
+    </tr>
+}
+
+</table>
+<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

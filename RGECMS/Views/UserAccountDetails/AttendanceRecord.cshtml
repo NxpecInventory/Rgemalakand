@@ -1,0 +1,72 @@
+﻿@model IEnumerable<RGECMS.Models.AttendanceRecordsdata>
+@{
+    ViewBag.Title = "AttendanceRecord";
+}
+
+
+
+<div class="alert alert-success" role="alert">
+    <h3 style="color:black;">Rehman Group Of Education College Student Attendance Records</h3>
+</div>
+
+
+
+<table class="table-bordered table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayName("Attendance Marking Date")
+        </th>
+        <th>
+            @Html.DisplayName("Class Name")
+        </th>
+        <th>
+            @Html.DisplayName("Student Name")
+        </th>
+    
+        <th>
+            @Html.DisplayName("Student Registration No")
+        </th>
+
+        <th>
+            @Html.DisplayName("Attendance Status")
+        </th>
+        <th>
+            @Html.DisplayName("Attendance Remarks")
+        </th>
+      
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataofattendance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Classname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Studentid)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.Attendanceoptions.Options)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+           
+        </tr>
+    }
+
+</table>
+@if (TempData["attendancerec"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <h4 style="color:black;">@TempData["attendancerec"]</h4>
+    </div>
+}
+

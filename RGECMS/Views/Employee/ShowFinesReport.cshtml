@@ -1,0 +1,105 @@
+﻿@model IEnumerable<RGECMS.Models.Finerecords>
+@{
+    ViewBag.Title = "ShowFinesReport";
+}
+<script language="javascript">
+    // for printing specific area of the page
+    function printdiv(printpage) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + printpage).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+    }
+</script>
+<div id="div_print">
+    <div class="alert alert-info" role="alert">
+
+        <h3 style="color:black;">RGE College Students Fines Records Report Generated On:@DateTime.Now.Date.ToShortDateString()</h3>
+    </div>
+    @if (TempData["finelist"] != null)
+    {
+        <p style="color:black">
+            @TempData["Count"]
+        </p>
+        <p style="color:black">Total College Fines Amount Paid By Students: @TempData["TotalAmount"] Rupees</p>
+        <p style="color:black">Total No Of Students Fines Payed In Given Year And Month Are=@TempData["Countno"]</p>
+
+        <table class="table-bordered table-hover table-responsive" >
+            <tr>
+                <th>
+                    @Html.DisplayName("ChallanId")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Students.StudentName)
+                </th>
+                <th>
+                    @Html.DisplayName("RegNo")
+                </th>
+              
+                <th>
+                    @Html.DisplayNameFor(model => model.SemesterClass)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubmissionDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FineAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Payingstatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Remarks)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Students.StudentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SemesterClass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubmissionDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FineAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Payingstatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Remarks)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-danger"><b style="color:black">No College Fines Record Found For The Give Year And Month</b></div>
+    }
+    </div>
+    <div>
+        @Html.ActionLink("Back to Generate Page", "FineReport")
+        <input type="button" style="width:100px;" value="Print Slip" onclick="printdiv('div_print')" class="btn btn-success" />
+    </div>

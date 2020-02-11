@@ -1,0 +1,193 @@
+﻿
+@{
+    ViewBag.Title = "IncomeOutcomeReportslip";
+}
+
+<script language="javascript">
+    // for printing specific area of the page
+    function printdiv(printpage) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + printpage).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+    }
+</script>
+<div id="div_print">
+    <div class="alert alert-info" role="alert">
+
+        <h3 style="color:black;">RGE College Income And OutCome Report Generated On:@DateTime.Now.Date.ToShortDateString()</h3>
+    </div>
+    @if (TempData["TotalnoofTeacherSalary"] != null || TempData["TotalnoofemployeeSalary"]!=null|| TempData["Totalnoofexpense"]!=null)
+    {
+        
+        <h5 style="color:black;">
+       Rahman Group Of Education Income And Outcome transactions Report,This Report Includes the Student Fees,Student Fine As College Income 
+            And Employee ,Teachers And Colleges Expense As The OutCome Transactions.
+            The Report Also Generates the Total Available Balance Of the Rahman Group Of Education In Given Month And Year.
+        </h5>
+        <h3 style="color:black;">@TempData["Count"]</h3>
+        <h4 style="color:black;">Rahman Group Of Education College Income Report</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+
+                    <th style="color:black;" scope="col">Total Students Fees Paid</th>
+                    <th style="color:black;" scope="col">@TempData["NoOfStudents"]</th>
+
+                </tr>
+            </thead>
+            
+            <thead>
+                <tr>
+
+                    <th style="color:black;" scope="col">Total Students Fine Paid</th>
+                    <th style="color:black;" scope="col">@TempData["Nooffines"]</th>
+
+                </tr>
+            </thead>
+          
+            <thead>
+                <tr>
+                    <th style="color:black;" scope="col">Total Fees Amount:</th>
+                    <th style="color:black;" scope="col">@TempData["TotalFeesAmount"] Rs</th>
+                </tr>
+            </thead>
+           
+            <thead>
+                <tr>
+
+
+
+                    <th style="color:black;" scope="col">Total Fine Amount:</th>
+                    <th style="color:black;" scope="col">@TempData["TotalFineAmount"] Rs</th>
+                </tr>
+            </thead>
+           
+            <thead>
+                <tr>
+
+
+                    <th style="color:black;" scope="col">Current Income Balance (Fees and Fine):</th>
+                    <th style="color:black;" scope="col">@TempData["TotalIncomeAmount"] Rs</th>
+
+                </tr>
+            </thead>
+           
+        </table>
+    <h4 style="color:black;">Rahman Group Of Education College OutGoings Transactions Report</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+
+                <th style="color:black;" scope="col">Total No Of Teachers Salaries Paid:</th>
+                <th style="color:black;" scope="col">@TempData["TotalnoofTeacherSalary"]</th>
+
+            </tr>
+        </thead>
+
+        <thead>
+            <tr>
+
+                <th style="color:black;" scope="col">Total No OF Employee Salaries Paid</th>
+                <th style="color:black;" scope="col">@TempData["TotalnoofemployeeSalary"]</th>
+
+            </tr>
+        </thead>
+
+        <thead>
+            <tr>
+                <th style="color:black;" scope="col">Total No Of Expenses Paid:</th>
+                <th style="color:black;" scope="col">@TempData["Totalnoofexpense"]</th>
+            </tr>
+        </thead>
+
+     
+
+        <thead>
+            <tr>
+
+
+                <th style="color:black;" scope="col">Total Teachers Salaries Paid Amount: :</th>
+                <th style="color:black;" scope="col">@TempData["TotalTeacherSalary"] Rs</th>
+
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+
+
+                <th style="color:black;" scope="col">Total Employees Salaries Paid Amount: :</th>
+                <th style="color:black;" scope="col">@TempData["TotalEmployeeSalary"] Rs</th>
+
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+
+
+                <th style="color:black;" scope="col">Total Expenses  Paid Amount: :</th>
+                <th style="color:black;" scope="col">@TempData["TotalExpense"] Rs</th>
+
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+
+
+                <th style="color:black;" scope="col">Total College Income Amount: :</th>
+                <th style="color:black;" scope="col">@TempData["TotalIncomeAmount"] Rs</th>
+
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+
+
+                <th style="color:black;" scope="col">Total College OutGoings Amount: :</th>
+                <th style="color:black;" scope="col">@TempData["TotalOutComeAmount"] Rs</th>
+
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+
+
+                <th style="color:black;" scope="col">Total Current College Balance Amount: :</th>
+                <th style="color:black;" scope="col">@TempData["TotalCurrent"] Rs</th>
+
+
+            </tr>
+            <tr>
+
+
+                
+
+            </tr>
+
+        </thead>
+
+
+    </table>
+    <div class="alert alert-dismissible alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4>  Note:
+    The Total Current College Balance Amount is based on the Subtracting OutGoing Transactions Amount From
+    Incoming Amount based on the specific Given Year And The Given Month For Generating The Report and Current
+    College balance Is Shown According To That Month And Year Incoming And Out Going Transaction Record.</h4>
+    </div>
+  
+
+
+    }
+    else
+    {
+        <div class="alert alert-danger"><b style="color:black">No Transaction Incoming Out Going Records Record Found For The Give Year And Month</b></div>
+    }
+</div>
+<div>
+    @Html.ActionLink("Back to Generate Page", "IncomeOutcomeReport")
+    <input type="button" style="width:100px;" value="Print Slip" onclick="printdiv('div_print')" class="btn btn-success" />
+</div>
+
+

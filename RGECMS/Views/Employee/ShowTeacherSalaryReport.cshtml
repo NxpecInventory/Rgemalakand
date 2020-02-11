@@ -1,0 +1,116 @@
+﻿
+@model IEnumerable<RGECMS.Models.TeacherSalaryRecords>
+
+@{
+    ViewBag.Title = "Index";
+}
+<script language="javascript">
+    // for printing specific area of the page 
+    function printdiv(printpage) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + printpage).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+    }
+</script>
+<div id="div_print">
+    <div class="alert alert-info" role="alert">
+
+        <h3 style="color:black;">RGE College Teachers Salary/Pay Records Report Generated On:@DateTime.Now.Date.ToShortDateString()</h3>
+    </div>
+    @if (TempData["list"] != null)
+    {
+        <p style="color:black">
+            @TempData["Count"]
+        </p>
+        <p style="color:black">Total Salary/Pay Amount Piad: @TempData["TotalAmount"] Rupees</p>
+        <p style="color:black">Total No Of Teachers Salarys Payed In Given Year And Month Are=@TempData["Countno"]</p>
+        <table class="table-bordered table-hover table-responsive">
+            <tr>
+                <th>
+                    @Html.DisplayName("Challan No")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Teachers.TeacherName)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Teachers.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TeacherDepartment)
+                </th>
+                <th>
+                    @Html.DisplayName("Paying Date")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PayingAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OverTime)
+                </th>
+             
+           
+                <th>
+                    @Html.DisplayNameFor(model => model.GrossTotalAmount)
+                </th>
+             
+               
+                <th>
+                    @Html.DisplayNameFor(model => model.Remarks)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teachers.TeacherName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teachers.Id)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TeacherDepartment)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubmissionDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PayingAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OverTime)
+                    </td>
+                  
+                 
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GrossTotalAmount)
+                    </td>
+                 
+                  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Remarks)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
+    }
+    else
+    {
+        <div class="alert alert-danger"><b style="color:black">No Teacher Salary Record Found For The Give Year And Month</b></div>
+    }
+</div>
+<div>
+    @Html.ActionLink("Back to Generate Page", "TeacherSalaryReport")
+    <input type="button" style="width:100px;" value="Print Slip" onclick="printdiv('div_print')" class="btn btn-success" />
+</div>

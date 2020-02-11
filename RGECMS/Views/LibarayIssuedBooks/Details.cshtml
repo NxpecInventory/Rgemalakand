@@ -1,0 +1,138 @@
+﻿@model RGECMS.Models.LibarayIssuedBooks
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LibarayIssuedBooks</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudedRegId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudedRegId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentDepartment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentDepartment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentClass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fineComment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fineComment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceivedStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReceivedStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Receiveddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Receiveddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fineslipid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fineslipid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.finestatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.finestatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

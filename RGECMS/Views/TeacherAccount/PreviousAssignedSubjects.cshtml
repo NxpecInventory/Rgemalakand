@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "PreviousAssignedSubjects";
+}
+
+
+@model IEnumerable<RGECMS.Models.TeacherCoursesRecord>
+
+
+<div class="alert alert-success" role="alert">
+
+
+    <h3><strong>Teacher Previous Assigned Courses Records</strong></h3>
+
+</div>
+@if (TempData["Countp"] != null)
+{
+<div class="alert alert-success" role="alert">
+
+
+    <h3><strong>Total Previous Assigned Courses Are:- @TempData["Counttt"] </strong></h3>
+
+</div>
+}
+
+<table class="table-bordered table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teacherid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Assignedprocessid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssignedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjectName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacherid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assignedprocessid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgramName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectName)
+            </td>
+
+            <td>
+
+
+                @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+@if (TempData["Countp"].ToString() == "0")
+{
+    <div class="alert alert-danger" role="alert">
+
+
+        <h3><strong>Opps It Seems You Are In Rahman Group Of Education From One Year And did not Spent One year in Rahman Group Of Education After Passing One Year In College Your Allocated Records Will Moved Towards Here As A Subject Allocated History </strong></h3>
+
+    </div>
+}
+
+

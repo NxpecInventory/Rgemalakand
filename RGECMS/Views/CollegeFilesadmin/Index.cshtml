@@ -1,0 +1,56 @@
+﻿@model IEnumerable<RGECMS.Models.CollegeFiles>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="alert alert-info" role="alert">
+    <h4>RGE College Administartion Uploaded Files List Including  Notifactions,Alerts And Examination Date Sheet Files</h4>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table-bordered  table-responsive table-hover" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UploadingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileDescription)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.FileCat)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Uploadername)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="alert-success">
+        <td>
+            @Html.DisplayFor(modelItem => item.UploadingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileCat)
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.Uploadername)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "btn btn-danger" })
+            <a href="@item.filepath" class=" btn btn-success">Download</a>
+        </td>
+    </tr>
+}
+
+</table>

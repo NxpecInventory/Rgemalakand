@@ -1,0 +1,125 @@
+﻿@model PagedList.IPagedList<RGECMS.Models.ApplicationUser>
+@using PagedList.Mvc;
+<style>
+    .pagination {
+        /*display: inline-block;*/
+    }
+
+        .pagination a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            .pagination a.active {
+                background-color: #4CbF50;
+                color: white;
+            }
+
+            .pagination a:hover:not(.active) {
+                background-color: crimson;
+            }
+</style>
+
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="alert alert-success" role="alert">
+
+
+    <h3 style="color:black;">Rahman Group Of Education Registered Users System</h3>
+</div>
+@if (TempData["success"] != null)
+{
+<div class="alert alert-success" role="alert">
+    <h4>@TempData["success"]</h4>
+    </div>
+}
+@if (TempData["delmsg"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <h4>@TempData["delmsg"]</h4>
+    </div>
+}
+<div class="alert alert-success" role="alert">
+    <h4>Users Accounts Found:=@TempData["Totaluser"]</h4>
+</div>
+@using (Html.BeginForm("index", "ApplicationUsers", FormMethod.Get))
+{
+    <p>
+        <label style="color:black;"> User Registration No:</label>@Html.TextBox("search")
+        <input type="submit" value="Search User" class="btn btn-success card-hover" />
+    </p>
+
+
+}
+
+    <table class="table-bordered table-responsive table-hover">
+        <tr>
+            <th>
+                @Html.DisplayName("User Email")
+            </th>
+            <th>
+                @Html.DisplayName("User Registration No")
+            </th>
+
+
+
+
+
+            <th>
+                @Html.DisplayName("User Name")
+            </th>
+        
+            <th>
+                @Html.DisplayName("Account Type")
+            </th>
+            <th>Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+          
+          
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrationNo)
+                </td>
+
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+            
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleName)
+                </td>
+             
+                @if (User.IsInRole("Administration"))
+                {
+                    <td>
+  
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    </td>
+                }
+                else
+                {
+                   <td></td>
+                }
+            </tr>
+            }
+        
+
+    </table>
+<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

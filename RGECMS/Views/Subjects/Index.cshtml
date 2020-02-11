@@ -1,0 +1,46 @@
+﻿@model IEnumerable<RGECMS.Models.Subjects>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="alert alert-info"><h3>Rehman Group Of Education College Subjects Creation Pannel</h3></div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table-responsive table-hover table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Classes.ClassName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjectName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classes.ClassName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjectName)
+        </td>
+        @if (User.IsInRole("Administration"))
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        }
+        else
+        {
+            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+        }
+    </tr>
+}
+
+</table>

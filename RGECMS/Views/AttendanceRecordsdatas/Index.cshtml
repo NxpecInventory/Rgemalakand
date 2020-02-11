@@ -1,0 +1,90 @@
+﻿@model IEnumerable<RGECMS.Models.AttendanceRecordsdata>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="alert alert-info" role="alert">
+    <h4 style="color:black;">Attendance Marking Sheet of Class/Semester:@TempData["classname"].</h4>
+</div>
+<h2 style="color:black;">Attendance Marking Sheet</h2>
+@if (TempData["found"] !=null&& TempData["found"].ToString()!="0")
+{
+ <h4 style="color:black;">Total Enrolled Student In Class/Semester:@TempData["found"]</h4>
+<table class="table-bordered table-hover table-responsive">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Studentid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayName("Class/Semester")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassId)
+        </th>
+        <th>
+            @Html.DisplayName("Attendance Date")
+        </th>
+        <th>
+            @Html.DisplayName("Attendance Status")
+        </th>
+        <th>
+            @Html.DisplayName("Attendance Remarks")
+        </th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Studentid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Classname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataofattendance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attendanceoptions.Options)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+            <td>
+                @Html.ActionLink("Mark", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
+                @*@Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+            </td>
+        </tr>
+    }
+
+
+</table>
+
+    using (Html.BeginForm("ConfirmMark", "AttendanceRecordsdatas", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+  
+        <input type="submit" value=" Confirm Attendance Marking" class="btn btn-success" />
+           
+    }
+}
+
+else
+{
+    <div class="alert alert-danger" role="alert">
+       @TempData["notfound"] Click Here To For Going @Html.ActionLink("Back to Attendance Marking Page", "NotFound")
+    </div>
+}

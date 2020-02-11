@@ -1,0 +1,175 @@
+﻿@model RGECMS.Models.Finerecords
+@{
+    ViewBag.Title = "PrintfineSlip";
+}
+
+
+
+<script language="javascript">
+    // for printing specific area of the page
+    function printdiv(printpage) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + printpage).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+    }
+</script>
+<div id="div_print">
+    <h2>Rahman Group Of Education College Batkhela,Malakand Kpk.</h2>
+    <br />
+    <h4>Rahman Group Of Education Student Fine Challan (Student Copy)</h4>
+    <h5>Challan No # @Html.DisplayFor(model => model.Id)</h5>
+    <h5>Printing Date:@DateTime.Now.Date.ToShortDateString()</h5>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+
+                <th scope="col">Student Name</th>
+                <th scope="col">Class/Semester</th>
+                <th scope="col">Enrollment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.Name)</td>
+                <td>@Html.DisplayFor(model => model.SemesterClass)</td>
+                <td>@Html.DisplayFor(model => model.Students.Id)</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+
+                <th scope="col">Submission Date</th>
+                <th scope="col">Remarks</th>
+                <th scope="col">Paying Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.SubmissionDate)</td>
+                <td>@Html.DisplayFor(model => model.Remarks)</td>
+                <td>@Html.DisplayFor(model => model.Payingstatus)</td>
+            </tr>
+        </tbody>
+
+
+        <thead>
+            <tr>
+
+
+                <th scope="col"> Person Category</th>
+                <th scope="col">Slip Category</th>
+                <th scope="col">Fine Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>Student</td>
+                <td>Fine Slip</td>
+                <td>@Html.DisplayFor(model => model.FineAmount)</td>
+            </tr>
+            <tr>
+
+
+                <td colspan="2">Total Paid Amount</td>
+
+                <td>@Html.DisplayFor(model => model.TotalAmount) Rupees</td>
+            </tr>
+            <tr>
+
+
+                <td colspan="2">Reciever/Account Manager Signature</td>
+
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    <h2>Rahman Group Of Education College Batkhela,Malakand Kpk.</h2>
+    <br />
+    <h4>Rahman Group Of Education Student Fine Challan (Department Copy)</h4>
+    <h5>Challan No # @Html.DisplayFor(model => model.Id)</h5>
+    <h5>Printing Date:@DateTime.Now.Date.ToShortDateString()</h5>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+
+                <th scope="col">Student Name</th>
+                <th scope="col">Class/Semester</th>
+                <th scope="col">Enrollment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.Name)</td>
+                <td>@Html.DisplayFor(model => model.SemesterClass)</td>
+                <td>@Html.DisplayFor(model => model.Students.Id)</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+
+                <th scope="col">Submission Date</th>
+                <th scope="col">Remarks</th>
+                <th scope="col">Paying Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.SubmissionDate)</td>
+                <td>@Html.DisplayFor(model => model.Remarks)</td>
+                <td>@Html.DisplayFor(model => model.Payingstatus)</td>
+            </tr>
+        </tbody>
+
+
+        <thead>
+            <tr>
+
+
+                <th scope="col"> Person Category</th>
+                <th scope="col">Slip Category</th>
+                <th scope="col">Fine Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>Student</td>
+                <td>Fine Slip</td>
+                <td>@Html.DisplayFor(model => model.FineAmount)</td>
+            </tr>
+            <tr>
+
+
+                <td colspan="2">Total Paid Amount</td>
+
+                <td>@Html.DisplayFor(model => model.TotalAmount) Rupees</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+
+</div>
+
+<p>
+    @Html.ActionLink(" Back To Fine Page", "Index", new { @class = "btn btn-primary" })
+    <input type="button" style="width:100px;" value="Print Slip" onclick="printdiv('div_print')" class="btn btn-success" />
+
+
+</p>
+
+
+

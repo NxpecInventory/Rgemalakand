@@ -1,0 +1,235 @@
+﻿@model RGECMS.Models.EmployeeSalary
+@{
+    ViewBag.Title = "EmployeeSalarySlip";
+}
+
+<script language="javascript">
+    // for printing specific area of the page int x = (int)System.Web.HttpContext.Current.Session["MyValue"];
+    function printdiv(printpage) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + printpage).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+    }
+</script>
+
+<div id="div_print">
+    <h3 style="color:black">Rahman Group Of Education College Employee Salary Challan(Employee Copy)</h3>
+    <h5 style="color:black">Challan No # @Html.DisplayFor(model => model.Id)</h5>
+    <h5 style="color:black">Printing Date:@DateTime.Now.Date.ToLocalTime()</h5>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+
+                <th scope="col">Employee Name</th>
+                <th scope="col">Father Name</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.Name)</td>
+                <td>@Html.DisplayFor(model => model.FatherName)</td>
+
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+
+                <th scope="col">RegNo</th>
+                <th scope="col">Employee Designation</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.EmployeeId)</td>
+                <td>@TempData["Empdes"]</td>
+
+
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th scope="col">PaymentMethod</th>
+                <th scope="col">Recieving Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+
+
+                <td>@Html.DisplayFor(model => model.PaymentMethod)</td>
+                <td>@Html.DisplayFor(model => model.Recievingstatus)</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+
+
+
+                <th scope="col">Remarks</th>
+                <th scope="col">Payment Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.Remarks)</td>
+                <td>@Html.DisplayFor(model => model.SubmissionDate)</td>
+            </tr>
+
+        </tbody>
+        <thead>
+            <tr>
+
+
+                <th scope="col">Paying/Salary Amount</th>
+                <th scope="col">Over Time Amount</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.PayingAmount)</td>
+                <td>@Html.DisplayFor(model => model.OverTime)</td>
+
+            </tr>
+            <tr>
+
+
+                <td colspan="1">Total Paid/Salary Amount</td>
+
+                <td>@Html.DisplayFor(model => model.GrossTotalAmount) Rupees</td>
+            </tr>
+            <tr>
+
+
+                <td colspan="2">Account Manager Signature:</td>
+
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    <h3 style="color:black">Rahman Group Of Education College Employee Salary Challan(Employee Copy)</h3>
+    <h5 style="color:black">Challan No # @Html.DisplayFor(model => model.Id)</h5>
+    <h5 style="color:black">Printing Date:@DateTime.Now.Date.ToLocalTime()</h5>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+
+                <th scope="col">Employee Name</th>
+                <th scope="col">Father Name</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.Name)</td>
+                <td>@Html.DisplayFor(model => model.FatherName)</td>
+
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+
+                <th scope="col">RegNo</th>
+                <th scope="col">Employee Designation</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.EmployeeId)</td>
+                <td>@TempData["Empdes"]</td>
+
+
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th scope="col">PaymentMethod</th>
+                <th scope="col">Recieving Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+
+
+                <td>@Html.DisplayFor(model => model.PaymentMethod)</td>
+                <td>@Html.DisplayFor(model => model.Recievingstatus)</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+
+
+
+                <th scope="col">Remarks</th>
+                <th scope="col">Payment Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.Remarks)</td>
+                <td>@Html.DisplayFor(model => model.SubmissionDate)</td>
+            </tr>
+
+        </tbody>
+        <thead>
+            <tr>
+
+
+                <th scope="col">Paying/Salary Amount</th>
+                <th scope="col">Over Time Amount</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.PayingAmount)</td>
+                <td>@Html.DisplayFor(model => model.OverTime)</td>
+
+            </tr>
+            <tr>
+
+
+                <td colspan="1">Total Paid/Salary Amount</td>
+
+                <td>@Html.DisplayFor(model => model.GrossTotalAmount) Rupees</td>
+            </tr>
+      
+
+        </tbody>
+    </table>
+
+
+</div>
+
+<p>
+    @Html.ActionLink(" Go Back To Employee Salary Record Page", "Index", new { @class = "btn btn-primary" })
+    <input type="button" style="width:100px;" value="Print Slip" onclick="printdiv('div_print')" class="btn btn-success" />
+</p>
+
+
+
+

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<RGECMS.Models.Registrationcontrolling>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="alert alert-purple">
+    <h4 style="color:black">
+        RGE College Registration Controlling Pannel,Here you Controls all the Registration process like open,close or temporary stops the
+         Registration process.
+
+    </h4>
+</div>
+@if (TempData["status"] != null)
+{
+<div class="alert alert-success">
+    <h4 style="color:black">
+       @TempData["status"]
+
+    </h4>
+</div>
+}
+
+    <table class="table-bordered table-hover table-responsive">
+        <tr>
+            <th>
+                @Html.DisplayName("Registration Status")
+            </th>
+            <th>
+                @Html.DisplayName("Registration Comment")
+            </th>
+            <th>
+                @Html.DisplayName("Registration Updation Date")
+            </th>
+            <th>Open/Close Registration</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+
+
+            <tr >
+                <td>
+                    @Html.DisplayFor(modelItem => item.regclosingcat.RegOptions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Updationdate)
+                </td>
+                <td>
+                    @Html.ActionLink("Registration Action", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
+
+                </td>
+            </tr>
+
+        }
+
+    </table>
+@if (TempData["controlmsg"]!=null)
+{
+<div class="alert alert-success">
+    <h4 style="color:black">
+        RGE COllege Registration Status Updated Sucessfully!.
+
+    </h4>
+</div>
+}

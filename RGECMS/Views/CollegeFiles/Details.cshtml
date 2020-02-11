@@ -1,0 +1,58 @@
+﻿@model RGECMS.Models.CollegeFiles
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CollegeFiles</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FileDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.file)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.file)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileCat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileCat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uploderid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uploderid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uploadername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uploadername)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,116 @@
+﻿@model IEnumerable<RGECMS.Models.TeacherSalaryRecords>
+@{
+    ViewBag.Title = "TeacherSalaryRecords";
+}
+
+<div class="alert alert-info" role="alert">
+
+    <h3 style="color:black;">RGE College Salary/Pay Records</h3>
+</div>
+@if (TempData["Countt"].ToString()!="0")
+{
+
+
+<table class="table-bordered table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayName("Paying Date")
+        </th>
+        <th>
+            @Html.DisplayName("Challan No")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teachers.TeacherName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FatherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherDepartment)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.PayingAmount)
+        </th>
+        <th>
+            @Html.DisplayName("Extra Classes Amount")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentMethod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.checkNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GrossTotalAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Recievingstatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmissionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teachers.TeacherName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.FatherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherDepartment)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.PayingAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OverTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.checkNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrossTotalAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recievingstatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+            
+        </tr>
+    }
+
+</table>
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+
+        <h4 style="color:black;">Your Salary/Pay Records Not Found because yet you are not taken online generated salary from this Management system or you may newly Join Rehman Group Of Education College</h4>
+    </div>
+}

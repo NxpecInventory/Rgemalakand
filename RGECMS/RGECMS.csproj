@@ -1,0 +1,1067 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E8B48096-DC4B-4587-BF64-E7C3FCF113FD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RGECMS</RootNamespace>
+    <AssemblyName>RGECMS</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Description, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Description.1.0.0\lib\Description.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ProductivityTools.PSCmdlet, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ProductivityTools.PSCmdlet.0.0.6\lib\v4.6.1\ProductivityTools.PSCmdlet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministrationController.cs" />
+    <Compile Include="Controllers\ApplicationRolesController.cs" />
+    <Compile Include="Controllers\ApplicationUsersController.cs" />
+    <Compile Include="Controllers\AttendanceMarkingController.cs" />
+    <Compile Include="Controllers\AttendanceOfficeController.cs" />
+    <Compile Include="Controllers\AttendanceoptionsController.cs" />
+    <Compile Include="Controllers\AttendanceRecordsdatasController.cs" />
+    <Compile Include="Controllers\AttendanceRecordsPannelController.cs" />
+    <Compile Include="Controllers\ClassesController.cs" />
+    <Compile Include="Controllers\CollegeEmployeesController.cs" />
+    <Compile Include="Controllers\collegeExpenseCategoriesController.cs" />
+    <Compile Include="Controllers\CollegeFilesstudentController.cs" />
+    <Compile Include="Controllers\CollegeFilesadminController.cs" />
+    <Compile Include="Controllers\CollegeFilesController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\employeeDesignationCategoriesController.cs" />
+    <Compile Include="Controllers\EmployeeSalariesController.cs" />
+    <Compile Include="Controllers\ExpenseOutgoingRecordsController.cs" />
+    <Compile Include="Controllers\ExpensesRecordsController.cs" />
+    <Compile Include="Controllers\FinerecordsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LibararyBooksController.cs" />
+    <Compile Include="Controllers\LibararyDepCatsController.cs" />
+    <Compile Include="Controllers\LibarayIssuedBooksController.cs" />
+    <Compile Include="Controllers\LibarayShelfCatsController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NotificationsController.cs" />
+    <Compile Include="Controllers\ProgramsController.cs" />
+    <Compile Include="Controllers\PublicmessagesController.cs" />
+    <Compile Include="Controllers\regclosingcatsController.cs" />
+    <Compile Include="Controllers\RegistrationcontrollingsController.cs" />
+    <Compile Include="Controllers\RegistrationOfficeController.cs" />
+    <Compile Include="Controllers\StudentClassAssigningSystemsController.cs" />
+    <Compile Include="Controllers\StudentCourseRegistrationHistoriesController.cs" />
+    <Compile Include="Controllers\StudentCoursesBucketsController.cs" />
+    <Compile Include="Controllers\StudentFeeRecordsController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\SubjectsController.cs" />
+    <Compile Include="Controllers\TeacherAccountController.cs" />
+    <Compile Include="Controllers\TeacherclassAssigningsController.cs" />
+    <Compile Include="Controllers\TeacherCoursesRecordsController.cs" />
+    <Compile Include="Controllers\teacherdesignationcategoriesController.cs" />
+    <Compile Include="Controllers\TeacherProfileController.cs" />
+    <Compile Include="Controllers\TeacherSalaryRecordsController.cs" />
+    <Compile Include="Controllers\TeachersController.cs" />
+    <Compile Include="Controllers\transactionrecordsController.cs" />
+    <Compile Include="Controllers\UserAccountDetailsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810082211379_userup.cs" />
+    <Compile Include="Migrations\201810082211379_userup.Designer.cs">
+      <DependentUpon>201810082211379_userup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810131440534_updated.cs" />
+    <Compile Include="Migrations\201810131440534_updated.Designer.cs">
+      <DependentUpon>201810131440534_updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810131505184_updatedusercoloum.cs" />
+    <Compile Include="Migrations\201810131505184_updatedusercoloum.Designer.cs">
+      <DependentUpon>201810131505184_updatedusercoloum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810142221560_studentsandclassesadded.cs" />
+    <Compile Include="Migrations\201810142221560_studentsandclassesadded.Designer.cs">
+      <DependentUpon>201810142221560_studentsandclassesadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810170713476_studenttableupdate.cs" />
+    <Compile Include="Migrations\201810170713476_studenttableupdate.Designer.cs">
+      <DependentUpon>201810170713476_studenttableupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810171423537_attendance1.cs" />
+    <Compile Include="Migrations\201810171423537_attendance1.Designer.cs">
+      <DependentUpon>201810171423537_attendance1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810172127216_updatedrecatt.cs" />
+    <Compile Include="Migrations\201810172127216_updatedrecatt.Designer.cs">
+      <DependentUpon>201810172127216_updatedrecatt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810191538129_updatemodel.cs" />
+    <Compile Include="Migrations\201810191538129_updatemodel.Designer.cs">
+      <DependentUpon>201810191538129_updatemodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810191559027_updatemodel2.cs" />
+    <Compile Include="Migrations\201810191559027_updatemodel2.Designer.cs">
+      <DependentUpon>201810191559027_updatemodel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810272239439_modelsupwithsec.cs" />
+    <Compile Include="Migrations\201810272239439_modelsupwithsec.Designer.cs">
+      <DependentUpon>201810272239439_modelsupwithsec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810272351279_modelbatchadd.cs" />
+    <Compile Include="Migrations\201810272351279_modelbatchadd.Designer.cs">
+      <DependentUpon>201810272351279_modelbatchadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810280930292_modelfeeup.cs" />
+    <Compile Include="Migrations\201810280930292_modelfeeup.Designer.cs">
+      <DependentUpon>201810280930292_modelfeeup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810281226554_dateupdatefee.cs" />
+    <Compile Include="Migrations\201810281226554_dateupdatefee.Designer.cs">
+      <DependentUpon>201810281226554_dateupdatefee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810281402127_feeagainup.cs" />
+    <Compile Include="Migrations\201810281402127_feeagainup.Designer.cs">
+      <DependentUpon>201810281402127_feeagainup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810302115534_tranrecmodeladded.cs" />
+    <Compile Include="Migrations\201810302115534_tranrecmodeladded.Designer.cs">
+      <DependentUpon>201810302115534_tranrecmodeladded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810302123362_studentsupdate.cs" />
+    <Compile Include="Migrations\201810302123362_studentsupdate.Designer.cs">
+      <DependentUpon>201810302123362_studentsupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810302332130_expenseandexpensecatadded.cs" />
+    <Compile Include="Migrations\201810302332130_expenseandexpensecatadded.Designer.cs">
+      <DependentUpon>201810302332130_expenseandexpensecatadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811011400001_finemodeladded.cs" />
+    <Compile Include="Migrations\201811011400001_finemodeladded.Designer.cs">
+      <DependentUpon>201811011400001_finemodeladded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811011412056_finemodeladdedupdate.cs" />
+    <Compile Include="Migrations\201811011412056_finemodeladdedupdate.Designer.cs">
+      <DependentUpon>201811011412056_finemodeladdedupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811041603568_no.cs" />
+    <Compile Include="Migrations\201811041603568_no.Designer.cs">
+      <DependentUpon>201811041603568_no.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811052153571_userimproved.cs" />
+    <Compile Include="Migrations\201811052153571_userimproved.Designer.cs">
+      <DependentUpon>201811052153571_userimproved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811052214223_userimp.cs" />
+    <Compile Include="Migrations\201811052214223_userimp.Designer.cs">
+      <DependentUpon>201811052214223_userimp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811071952049_teacheremployeeadded.cs" />
+    <Compile Include="Migrations\201811071952049_teacheremployeeadded.Designer.cs">
+      <DependentUpon>201811071952049_teacheremployeeadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811102059064_teachercouseregandrecordadded.cs" />
+    <Compile Include="Migrations\201811102059064_teachercouseregandrecordadded.Designer.cs">
+      <DependentUpon>201811102059064_teachercouseregandrecordadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811112149012_teachercouseregandrecordadded1.cs" />
+    <Compile Include="Migrations\201811112149012_teachercouseregandrecordadded1.Designer.cs">
+      <DependentUpon>201811112149012_teachercouseregandrecordadded1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811121710228_teachercouseregandrecordadded2.cs" />
+    <Compile Include="Migrations\201811121710228_teachercouseregandrecordadded2.Designer.cs">
+      <DependentUpon>201811121710228_teachercouseregandrecordadded2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811122044590_teachercouseregandrecordadded3.cs" />
+    <Compile Include="Migrations\201811122044590_teachercouseregandrecordadded3.Designer.cs">
+      <DependentUpon>201811122044590_teachercouseregandrecordadded3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811130949094_Studentcoursessystemadded.cs" />
+    <Compile Include="Migrations\201811130949094_Studentcoursessystemadded.Designer.cs">
+      <DependentUpon>201811130949094_Studentcoursessystemadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811131015058_Studentcoursessystemupdated1.cs" />
+    <Compile Include="Migrations\201811131015058_Studentcoursessystemupdated1.Designer.cs">
+      <DependentUpon>201811131015058_Studentcoursessystemupdated1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811171629445_casual.cs" />
+    <Compile Include="Migrations\201811171629445_casual.Designer.cs">
+      <DependentUpon>201811171629445_casual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811181350265_Attendance.cs" />
+    <Compile Include="Migrations\201811181350265_Attendance.Designer.cs">
+      <DependentUpon>201811181350265_Attendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811181618193_attupdate.cs" />
+    <Compile Include="Migrations\201811181618193_attupdate.Designer.cs">
+      <DependentUpon>201811181618193_attupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811242117251_attendanceup.cs" />
+    <Compile Include="Migrations\201811242117251_attendanceup.Designer.cs">
+      <DependentUpon>201811242117251_attendanceup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811251628404_sturegupdate.cs" />
+    <Compile Include="Migrations\201811251628404_sturegupdate.Designer.cs">
+      <DependentUpon>201811251628404_sturegupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811281352058_accountsoutcomeexpenseadded.cs" />
+    <Compile Include="Migrations\201811281352058_accountsoutcomeexpenseadded.Designer.cs">
+      <DependentUpon>201811281352058_accountsoutcomeexpenseadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811291330094_teachersalaryadded.cs" />
+    <Compile Include="Migrations\201811291330094_teachersalaryadded.Designer.cs">
+      <DependentUpon>201811291330094_teachersalaryadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812021542158_updations.cs" />
+    <Compile Include="Migrations\201812021542158_updations.Designer.cs">
+      <DependentUpon>201812021542158_updations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812081513459_publicmessagesadded.cs" />
+    <Compile Include="Migrations\201812081513459_publicmessagesadded.Designer.cs">
+      <DependentUpon>201812081513459_publicmessagesadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812081528244_publicmessagesadd.cs" />
+    <Compile Include="Migrations\201812081528244_publicmessagesadd.Designer.cs">
+      <DependentUpon>201812081528244_publicmessagesadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812081532351_publicmessagesad.cs" />
+    <Compile Include="Migrations\201812081532351_publicmessagesad.Designer.cs">
+      <DependentUpon>201812081532351_publicmessagesad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812091242134_fileadded.cs" />
+    <Compile Include="Migrations\201812091242134_fileadded.Designer.cs">
+      <DependentUpon>201812091242134_fileadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812091418220_fileadupdated.cs" />
+    <Compile Include="Migrations\201812091418220_fileadupdated.Designer.cs">
+      <DependentUpon>201812091418220_fileadupdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812092243093_overallupdate.cs" />
+    <Compile Include="Migrations\201812092243093_overallupdate.Designer.cs">
+      <DependentUpon>201812092243093_overallupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812151423015_regcontrolleradded.cs" />
+    <Compile Include="Migrations\201812151423015_regcontrolleradded.Designer.cs">
+      <DependentUpon>201812151423015_regcontrolleradded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812191235299_notificationadded.cs" />
+    <Compile Include="Migrations\201812191235299_notificationadded.Designer.cs">
+      <DependentUpon>201812191235299_notificationadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812191239308_notadded.cs" />
+    <Compile Include="Migrations\201812191239308_notadded.Designer.cs">
+      <DependentUpon>201812191239308_notadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812191617522_notupdate.cs" />
+    <Compile Include="Migrations\201812191617522_notupdate.Designer.cs">
+      <DependentUpon>201812191617522_notupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812242239072_notup.cs" />
+    <Compile Include="Migrations\201812242239072_notup.Designer.cs">
+      <DependentUpon>201812242239072_notup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812281330527_studentsupallthe.cs" />
+    <Compile Include="Migrations\201812281330527_studentsupallthe.Designer.cs">
+      <DependentUpon>201812281330527_studentsupallthe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812281430073_studentsupallt.cs" />
+    <Compile Include="Migrations\201812281430073_studentsupallt.Designer.cs">
+      <DependentUpon>201812281430073_studentsupallt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903101246424_libraryadded.cs" />
+    <Compile Include="Migrations\201903101246424_libraryadded.Designer.cs">
+      <DependentUpon>201903101246424_libraryadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903111237208_libraryup.cs" />
+    <Compile Include="Migrations\201903111237208_libraryup.Designer.cs">
+      <DependentUpon>201903111237208_libraryup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912182227154_newone.cs" />
+    <Compile Include="Migrations\201912182227154_newone.Designer.cs">
+      <DependentUpon>201912182227154_newone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912221615580_newupdated.cs" />
+    <Compile Include="Migrations\201912221615580_newupdated.Designer.cs">
+      <DependentUpon>201912221615580_newupdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Attendanceoptions.cs" />
+    <Compile Include="Models\AttendanceRecordsdata.cs" />
+    <Compile Include="Models\AttendanceViewModel.cs" />
+    <Compile Include="Models\Classes.cs" />
+    <Compile Include="Models\CollegeEmployees.cs" />
+    <Compile Include="Models\collegeExpenseCategories.cs" />
+    <Compile Include="Models\CollegeFiles.cs" />
+    <Compile Include="Models\employeeDesignationCategory.cs" />
+    <Compile Include="Models\EmployeeSalary.cs" />
+    <Compile Include="Models\EmployeeSalaryList.cs" />
+    <Compile Include="Models\Employeesalaryreportviewmodel.cs" />
+    <Compile Include="Models\ExpenseOutgoingRecords.cs" />
+    <Compile Include="Models\expensereportviewmodel.cs" />
+    <Compile Include="Models\ExpensesRecords.cs" />
+    <Compile Include="Models\Finerecords.cs" />
+    <Compile Include="Models\IncomeOutcomeviewmodel.cs" />
+    <Compile Include="Models\LibararyBooks.cs" />
+    <Compile Include="Models\LibararyDepCat.cs" />
+    <Compile Include="Models\LibarayIssuedBooks.cs" />
+    <Compile Include="Models\LibarayShelfCat.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\Publicmessages.cs" />
+    <Compile Include="Models\regclosingcat.cs" />
+    <Compile Include="Models\Registrationcontrolling.cs" />
+    <Compile Include="Models\ReportViewModel.cs" />
+    <Compile Include="Models\StudentClassAssigningSystem.cs" />
+    <Compile Include="Models\StudentCourseRegistrationHistory.cs" />
+    <Compile Include="Models\StudentCoursesBucket.cs" />
+    <Compile Include="Models\Studentfinereportviewmodel.cs" />
+    <Compile Include="Models\TeacherclassAssigning.cs" />
+    <Compile Include="Models\TeacherCoursesRecord.cs" />
+    <Compile Include="Models\teacherdesignationcategory.cs" />
+    <Compile Include="Models\teacherreportviewmodel.cs" />
+    <Compile Include="Models\Teachers.cs" />
+    <Compile Include="Models\TeacherSalaryRecords.cs" />
+    <Compile Include="Models\transactionrecords.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Programs.cs" />
+    <Compile Include="Models\RoleViewModel.cs" />
+    <Compile Include="Models\StudentFeeRecords.cs" />
+    <Compile Include="Models\Students.cs" />
+    <Compile Include="Models\Subjects.cs" />
+    <Compile Include="Models\uploadingfileviewmodel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrationactionsclass.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\aspnet-RGECMS-20181004120349.mdf" />
+    <Content Include="App_Data\aspnet-RGECMS-20181004120349_log.ldf">
+      <DependentUpon>aspnet-RGECMS-20181004120349.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fontawesome-all.css" />
+    <Content Include="Content\material-design-iconic-font.css" />
+    <Content Include="Content\materialdesignicons.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\preloader.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\style.min.css" />
+    <Content Include="Content\themify-icons.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fa-brands-400.svg" />
+    <Content Include="fonts\fa-regular-400.svg" />
+    <Content Include="fonts\fa-solid-900.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="fonts\materialdesignicons-webfont.svg" />
+    <Content Include="fonts\themify.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\favicon.png" />
+    <Content Include="Images\first.jpg" />
+    <Content Include="Images\fourth.png" />
+    <Content Include="Images\logo-icon.png" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="Images\logobig.png" />
+    <Content Include="Images\RGE.jpg" />
+    <Content Include="Images\second.jpg" />
+    <Content Include="Images\softlogo.png" />
+    <Content Include="fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="fonts\materialdesignicons-webfont.woff" />
+    <Content Include="fonts\materialdesignicons-webfont.eot" />
+    <Content Include="fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\themify.eot" />
+    <Content Include="fonts\themify.ttf" />
+    <Content Include="fonts\themify.woff" />
+    <Content Include="fonts\fa-brands-400.eot" />
+    <Content Include="fonts\fa-brands-400.ttf" />
+    <Content Include="fonts\fa-brands-400.woff" />
+    <Content Include="fonts\fa-brands-400.woff2" />
+    <Content Include="fonts\fa-regular-400.eot" />
+    <Content Include="fonts\fa-regular-400.ttf" />
+    <Content Include="fonts\fa-regular-400.woff" />
+    <Content Include="fonts\fa-regular-400.woff2" />
+    <Content Include="fonts\fa-solid-900.eot" />
+    <Content Include="fonts\fa-solid-900.ttf" />
+    <Content Include="fonts\fa-solid-900.woff" />
+    <Content Include="fonts\fa-solid-900.woff2" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Images\third.png" />
+    <Content Include="Images\Updatedimagelogo.JPG" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\custom.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\preloader.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\sidebarmenu.js" />
+    <Content Include="Scripts\waves.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Logins.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ApplicationRoles\Create.cshtml" />
+    <Content Include="Views\ApplicationRoles\Delete.cshtml" />
+    <Content Include="Views\ApplicationRoles\Details.cshtml" />
+    <Content Include="Views\ApplicationRoles\Edit.cshtml" />
+    <Content Include="Views\ApplicationRoles\Index.cshtml" />
+    <Content Include="Views\Programs\Create.cshtml" />
+    <Content Include="Views\Programs\Delete.cshtml" />
+    <Content Include="Views\Programs\Details.cshtml" />
+    <Content Include="Views\Programs\Edit.cshtml" />
+    <Content Include="Views\Programs\Index.cshtml" />
+    <Content Include="Views\Classes\Create.cshtml" />
+    <Content Include="Views\Classes\Delete.cshtml" />
+    <Content Include="Views\Classes\Details.cshtml" />
+    <Content Include="Views\Classes\Edit.cshtml" />
+    <Content Include="Views\Classes\Index.cshtml" />
+    <Content Include="Views\Attendanceoptions\Create.cshtml" />
+    <Content Include="Views\Attendanceoptions\Delete.cshtml" />
+    <Content Include="Views\Attendanceoptions\Details.cshtml" />
+    <Content Include="Views\Attendanceoptions\Edit.cshtml" />
+    <Content Include="Views\Attendanceoptions\Index.cshtml" />
+    <Content Include="Views\Subjects\Create.cshtml" />
+    <Content Include="Views\Subjects\Delete.cshtml" />
+    <Content Include="Views\Subjects\Details.cshtml" />
+    <Content Include="Views\Subjects\Edit.cshtml" />
+    <Content Include="Views\Subjects\Index.cshtml" />
+    <Content Include="Views\StudentFeeRecords\Create.cshtml" />
+    <Content Include="Views\StudentFeeRecords\Delete.cshtml" />
+    <Content Include="Views\StudentFeeRecords\Details.cshtml" />
+    <Content Include="Views\StudentFeeRecords\Edit.cshtml" />
+    <Content Include="Views\StudentFeeRecords\Index.cshtml" />
+    <Content Include="Views\StudentFeeRecords\PrintSlip.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\transactionrecords\Create.cshtml" />
+    <Content Include="Views\transactionrecords\Delete.cshtml" />
+    <Content Include="Views\transactionrecords\Details.cshtml" />
+    <Content Include="Views\transactionrecords\Edit.cshtml" />
+    <Content Include="Views\transactionrecords\Index.cshtml" />
+    <Content Include="Views\collegeExpenseCategories\Create.cshtml" />
+    <Content Include="Views\collegeExpenseCategories\Delete.cshtml" />
+    <Content Include="Views\collegeExpenseCategories\Details.cshtml" />
+    <Content Include="Views\collegeExpenseCategories\Edit.cshtml" />
+    <Content Include="Views\collegeExpenseCategories\Index.cshtml" />
+    <Content Include="Views\ExpensesRecords\Create.cshtml" />
+    <Content Include="Views\ExpensesRecords\Delete.cshtml" />
+    <Content Include="Views\ExpensesRecords\Details.cshtml" />
+    <Content Include="Views\ExpensesRecords\Edit.cshtml" />
+    <Content Include="Views\ExpensesRecords\Index.cshtml" />
+    <Content Include="Views\Finerecords\Create.cshtml" />
+    <Content Include="Views\Finerecords\Delete.cshtml" />
+    <Content Include="Views\Finerecords\Details.cshtml" />
+    <Content Include="Views\Finerecords\Edit.cshtml" />
+    <Content Include="Views\Finerecords\Index.cshtml" />
+    <Content Include="Views\Finerecords\PrintfineSlip.cshtml" />
+    <Content Include="Views\ApplicationUsers\Create.cshtml" />
+    <Content Include="Views\ApplicationUsers\Delete.cshtml" />
+    <Content Include="Views\ApplicationUsers\Details.cshtml" />
+    <Content Include="Views\ApplicationUsers\Edit.cshtml" />
+    <Content Include="Views\ApplicationUsers\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_StudentPartial.cshtml" />
+    <Content Include="Views\employeeDesignationCategories\Create.cshtml" />
+    <Content Include="Views\employeeDesignationCategories\Delete.cshtml" />
+    <Content Include="Views\employeeDesignationCategories\Details.cshtml" />
+    <Content Include="Views\employeeDesignationCategories\Edit.cshtml" />
+    <Content Include="Views\employeeDesignationCategories\Index.cshtml" />
+    <Content Include="Views\CollegeEmployees\Create.cshtml" />
+    <Content Include="Views\CollegeEmployees\Delete.cshtml" />
+    <Content Include="Views\CollegeEmployees\Details.cshtml" />
+    <Content Include="Views\CollegeEmployees\Edit.cshtml" />
+    <Content Include="Views\CollegeEmployees\Index.cshtml" />
+    <Content Include="Views\TeacherCoursesRecords\Delete.cshtml" />
+    <Content Include="Views\TeacherCoursesRecords\Details.cshtml" />
+    <Content Include="Views\TeacherCoursesRecords\Index.cshtml" />
+    <Content Include="Views\TeacherclassAssignings\Create.cshtml" />
+    <Content Include="Views\TeacherclassAssignings\Delete.cshtml" />
+    <Content Include="Views\TeacherclassAssignings\Details.cshtml" />
+    <Content Include="Views\TeacherclassAssignings\Edit.cshtml" />
+    <Content Include="Views\TeacherclassAssignings\Index.cshtml" />
+    <Content Include="Views\StudentClassAssigningSystems\Create.cshtml" />
+    <Content Include="Views\StudentClassAssigningSystems\Delete.cshtml" />
+    <Content Include="Views\StudentClassAssigningSystems\Details.cshtml" />
+    <Content Include="Views\StudentClassAssigningSystems\Edit.cshtml" />
+    <Content Include="Views\StudentClassAssigningSystems\Index.cshtml" />
+    <Content Include="Views\StudentCoursesBuckets\Delete.cshtml" />
+    <Content Include="Views\StudentCoursesBuckets\Details.cshtml" />
+    <Content Include="Views\StudentCoursesBuckets\Edit.cshtml" />
+    <Content Include="Views\StudentCoursesBuckets\Index.cshtml" />
+    <Content Include="Views\StudentCourseRegistrationHistories\Delete.cshtml" />
+    <Content Include="Views\StudentCourseRegistrationHistories\Details.cshtml" />
+    <Content Include="Views\StudentCourseRegistrationHistories\Edit.cshtml" />
+    <Content Include="Views\StudentCourseRegistrationHistories\Index.cshtml" />
+    <Content Include="Views\UserAccountDetails\UserProfile.cshtml" />
+    <Content Include="Views\UserAccountDetails\CollegeFeeRecords.cshtml" />
+    <Content Include="Views\UserAccountDetails\FineRecords.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\AttendanceMarking\MarkAttendance.cshtml" />
+    <Content Include="Views\AttendanceRecordsdatas\Create.cshtml" />
+    <Content Include="Views\AttendanceRecordsdatas\Delete.cshtml" />
+    <Content Include="Views\AttendanceRecordsdatas\Details.cshtml" />
+    <Content Include="Views\AttendanceRecordsdatas\Edit.cshtml" />
+    <Content Include="Views\AttendanceRecordsdatas\Index.cshtml" />
+    <Content Include="Views\AttendanceRecordsPannel\Create.cshtml" />
+    <Content Include="Views\AttendanceRecordsPannel\Delete.cshtml" />
+    <Content Include="Views\AttendanceRecordsPannel\Details.cshtml" />
+    <Content Include="Views\AttendanceRecordsPannel\Edit.cshtml" />
+    <Content Include="Views\AttendanceRecordsPannel\Index.cshtml" />
+    <Content Include="Views\UserAccountDetails\StudentCoursesbucket.cshtml" />
+    <Content Include="Views\UserAccountDetails\StudentRecentReg.cshtml" />
+    <Content Include="Views\UserAccountDetails\AttendanceRecord.cshtml" />
+    <Content Include="Views\UserAccountDetails\SubjectRecord.cshtml" />
+    <Content Include="Views\TeacherProfile\TeacherProfile.cshtml" />
+    <Content Include="Views\ExpenseOutgoingRecords\Create.cshtml" />
+    <Content Include="Views\ExpenseOutgoingRecords\Delete.cshtml" />
+    <Content Include="Views\ExpenseOutgoingRecords\Details.cshtml" />
+    <Content Include="Views\ExpenseOutgoingRecords\Edit.cshtml" />
+    <Content Include="Views\ExpenseOutgoingRecords\Index.cshtml" />
+    <Content Include="Views\TeacherSalaryRecords\Create.cshtml" />
+    <Content Include="Views\TeacherSalaryRecords\Delete.cshtml" />
+    <Content Include="Views\TeacherSalaryRecords\Details.cshtml" />
+    <Content Include="Views\TeacherSalaryRecords\Edit.cshtml" />
+    <Content Include="Views\TeacherSalaryRecords\Index.cshtml" />
+    <Content Include="Views\TeacherSalaryRecords\PrintSalarySlip.cshtml" />
+    <Content Include="Views\Teachers\Create.cshtml" />
+    <Content Include="Views\Teachers\Delete.cshtml" />
+    <Content Include="Views\Teachers\Details.cshtml" />
+    <Content Include="Views\Teachers\Edit.cshtml" />
+    <Content Include="Views\Teachers\Index.cshtml" />
+    <Content Include="Views\teacherdesignationcategories\Create.cshtml" />
+    <Content Include="Views\teacherdesignationcategories\Delete.cshtml" />
+    <Content Include="Views\teacherdesignationcategories\Details.cshtml" />
+    <Content Include="Views\teacherdesignationcategories\Edit.cshtml" />
+    <Content Include="Views\teacherdesignationcategories\Index.cshtml" />
+    <Content Include="Views\Shared\_AccountsPartial.cshtml" />
+    <Content Include="Views\Employee\EmployeeProfile.cshtml" />
+    <Content Include="Views\Employee\StudentFeesReport.cshtml" />
+    <Content Include="Views\Employee\ShowFeeReport.cshtml" />
+    <Content Include="Views\Employee\TeacherSalaryReport.cshtml" />
+    <Content Include="Views\Employee\ShowTeacherSalaryReport.cshtml" />
+    <Content Include="Views\Employee\FineReport.cshtml" />
+    <Content Include="Views\Employee\ShowFinesReport.cshtml" />
+    <Content Include="Views\EmployeeSalaries\Create.cshtml" />
+    <Content Include="Views\EmployeeSalaries\Delete.cshtml" />
+    <Content Include="Views\EmployeeSalaries\Details.cshtml" />
+    <Content Include="Views\EmployeeSalaries\Edit.cshtml" />
+    <Content Include="Views\EmployeeSalaries\Index.cshtml" />
+    <Content Include="Views\EmployeeSalaries\EmployeeSalarySlip.cshtml" />
+    <Content Include="Views\Employee\InventoryExpenseReport.cshtml" />
+    <Content Include="Views\Employee\InventoryExpenseslip.cshtml" />
+    <Content Include="Views\Employee\IncomeOutcomeReport.cshtml" />
+    <Content Include="Views\Employee\IncomeOutcomeReportslip.cshtml" />
+    <Content Include="Views\Shared\_AttendanceOfficePartial.cshtml" />
+    <Content Include="Views\AttendanceOffice\AttendanceProfile.cshtml" />
+    <Content Include="Views\RegistrationOffice\ProfileRegistration.cshtml" />
+    <Content Include="Views\Shared\_RegistrationOfficePartial.cshtml" />
+    <Content Include="Views\Publicmessages\Create.cshtml" />
+    <Content Include="Views\Publicmessages\Delete.cshtml" />
+    <Content Include="Views\Publicmessages\Details.cshtml" />
+    <Content Include="Views\Publicmessages\Index.cshtml" />
+    <Content Include="Views\CollegeFiles\Create.cshtml" />
+    <Content Include="Views\CollegeFiles\Delete.cshtml" />
+    <Content Include="Views\CollegeFiles\Details.cshtml" />
+    <Content Include="Views\CollegeFiles\Edit.cshtml" />
+    <Content Include="Views\CollegeFiles\Index.cshtml" />
+    <Content Include="Views\TeacherAccount\ProfileTeacher.cshtml" />
+    <Content Include="Views\TeacherAccount\TeacherSalaryRecords.cshtml" />
+    <Content Include="Views\Shared\_TeacherPartialView.cshtml" />
+    <Content Include="Views\UserAccountDetails\UploadedFiles.cshtml" />
+    <Content Include="Views\Administration\AdminProfile.cshtml" />
+    <Content Include="Views\Shared\_AdministrationPartial.cshtml" />
+    <Content Include="Views\CollegeFilesadmin\Create.cshtml" />
+    <Content Include="Views\CollegeFilesadmin\Delete.cshtml" />
+    <Content Include="Views\CollegeFilesadmin\Details.cshtml" />
+    <Content Include="Views\CollegeFilesadmin\Edit.cshtml" />
+    <Content Include="Views\CollegeFilesadmin\Index.cshtml" />
+    <Content Include="Views\CollegeFilesstudent\Index.cshtml" />
+    <Content Include="Views\Registrationcontrollings\Create.cshtml" />
+    <Content Include="Views\Registrationcontrollings\Delete.cshtml" />
+    <Content Include="Views\Registrationcontrollings\Details.cshtml" />
+    <Content Include="Views\Registrationcontrollings\Edit.cshtml" />
+    <Content Include="Views\Registrationcontrollings\Index.cshtml" />
+    <Content Include="Views\regclosingcats\Create.cshtml" />
+    <Content Include="Views\regclosingcats\Delete.cshtml" />
+    <Content Include="Views\regclosingcats\Details.cshtml" />
+    <Content Include="Views\regclosingcats\Edit.cshtml" />
+    <Content Include="Views\regclosingcats\Index.cshtml" />
+    <Content Include="Views\Notifications\Create.cshtml" />
+    <Content Include="Views\Notifications\Delete.cshtml" />
+    <Content Include="Views\Notifications\Details.cshtml" />
+    <Content Include="Views\Notifications\Index.cshtml" />
+    <Content Include="Views\Notifications\Previuos.cshtml" />
+    <Content Include="Views\TeacherAccount\AssignedSubjects.cshtml" />
+    <Content Include="Views\TeacherAccount\PreviousAssignedSubjects.cshtml" />
+    <Content Include="Views\ApplicationUsers\StudentsIndex.cshtml" />
+    <Content Include="Views\ApplicationUsers\EmployeeIndex.cshtml" />
+    <Content Include="Views\ApplicationUsers\TeacherIndex.cshtml" />
+    <Content Include="Views\Employee\EmployeeSalaryReport.cshtml" />
+    <Content Include="Views\Employee\ShowEmployeeSalaryReport.cshtml" />
+    <Content Include="Views\LibarayShelfCats\Create.cshtml" />
+    <Content Include="Views\LibarayShelfCats\Delete.cshtml" />
+    <Content Include="Views\LibarayShelfCats\Details.cshtml" />
+    <Content Include="Views\LibarayShelfCats\Edit.cshtml" />
+    <Content Include="Views\LibarayShelfCats\Index.cshtml" />
+    <Content Include="Views\LibararyDepCats\Create.cshtml" />
+    <Content Include="Views\LibararyDepCats\Delete.cshtml" />
+    <Content Include="Views\LibararyDepCats\Details.cshtml" />
+    <Content Include="Views\LibararyDepCats\Edit.cshtml" />
+    <Content Include="Views\LibararyDepCats\Index.cshtml" />
+    <Content Include="Views\LibararyBooks\Create.cshtml" />
+    <Content Include="Views\LibararyBooks\Delete.cshtml" />
+    <Content Include="Views\LibararyBooks\Details.cshtml" />
+    <Content Include="Views\LibararyBooks\Edit.cshtml" />
+    <Content Include="Views\LibararyBooks\Index.cshtml" />
+    <Content Include="Views\LibararyBooks\IndexTitle.cshtml" />
+    <Content Include="Views\LibararyBooks\IndexDepart.cshtml" />
+    <Content Include="Views\LibararyBooks\Assign.cshtml" />
+    <Content Include="Views\LibararyBooks\ConfirmAssign.cshtml" />
+    <Content Include="Views\LibararyBooks\PrintSlip.cshtml" />
+    <Content Include="Views\Shared\_LibraryPartial.cshtml" />
+    <Content Include="Views\LibarayIssuedBooks\Create.cshtml" />
+    <Content Include="Views\LibarayIssuedBooks\Delete.cshtml" />
+    <Content Include="Views\LibarayIssuedBooks\Details.cshtml" />
+    <Content Include="Views\LibarayIssuedBooks\Edit.cshtml" />
+    <Content Include="Views\LibarayIssuedBooks\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UploadedFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810082211379_userup.resx">
+      <DependentUpon>201810082211379_userup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810131440534_updated.resx">
+      <DependentUpon>201810131440534_updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810131505184_updatedusercoloum.resx">
+      <DependentUpon>201810131505184_updatedusercoloum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810142221560_studentsandclassesadded.resx">
+      <DependentUpon>201810142221560_studentsandclassesadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810170713476_studenttableupdate.resx">
+      <DependentUpon>201810170713476_studenttableupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810171423537_attendance1.resx">
+      <DependentUpon>201810171423537_attendance1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810172127216_updatedrecatt.resx">
+      <DependentUpon>201810172127216_updatedrecatt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810191538129_updatemodel.resx">
+      <DependentUpon>201810191538129_updatemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810191559027_updatemodel2.resx">
+      <DependentUpon>201810191559027_updatemodel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810272239439_modelsupwithsec.resx">
+      <DependentUpon>201810272239439_modelsupwithsec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810272351279_modelbatchadd.resx">
+      <DependentUpon>201810272351279_modelbatchadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810280930292_modelfeeup.resx">
+      <DependentUpon>201810280930292_modelfeeup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810281226554_dateupdatefee.resx">
+      <DependentUpon>201810281226554_dateupdatefee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810281402127_feeagainup.resx">
+      <DependentUpon>201810281402127_feeagainup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810302115534_tranrecmodeladded.resx">
+      <DependentUpon>201810302115534_tranrecmodeladded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810302123362_studentsupdate.resx">
+      <DependentUpon>201810302123362_studentsupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810302332130_expenseandexpensecatadded.resx">
+      <DependentUpon>201810302332130_expenseandexpensecatadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811011400001_finemodeladded.resx">
+      <DependentUpon>201811011400001_finemodeladded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811011412056_finemodeladdedupdate.resx">
+      <DependentUpon>201811011412056_finemodeladdedupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811041603568_no.resx">
+      <DependentUpon>201811041603568_no.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811052153571_userimproved.resx">
+      <DependentUpon>201811052153571_userimproved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811052214223_userimp.resx">
+      <DependentUpon>201811052214223_userimp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811071952049_teacheremployeeadded.resx">
+      <DependentUpon>201811071952049_teacheremployeeadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811102059064_teachercouseregandrecordadded.resx">
+      <DependentUpon>201811102059064_teachercouseregandrecordadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811112149012_teachercouseregandrecordadded1.resx">
+      <DependentUpon>201811112149012_teachercouseregandrecordadded1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811121710228_teachercouseregandrecordadded2.resx">
+      <DependentUpon>201811121710228_teachercouseregandrecordadded2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811122044590_teachercouseregandrecordadded3.resx">
+      <DependentUpon>201811122044590_teachercouseregandrecordadded3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811130949094_Studentcoursessystemadded.resx">
+      <DependentUpon>201811130949094_Studentcoursessystemadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811131015058_Studentcoursessystemupdated1.resx">
+      <DependentUpon>201811131015058_Studentcoursessystemupdated1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811171629445_casual.resx">
+      <DependentUpon>201811171629445_casual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811181350265_Attendance.resx">
+      <DependentUpon>201811181350265_Attendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811181618193_attupdate.resx">
+      <DependentUpon>201811181618193_attupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811242117251_attendanceup.resx">
+      <DependentUpon>201811242117251_attendanceup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811251628404_sturegupdate.resx">
+      <DependentUpon>201811251628404_sturegupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811281352058_accountsoutcomeexpenseadded.resx">
+      <DependentUpon>201811281352058_accountsoutcomeexpenseadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811291330094_teachersalaryadded.resx">
+      <DependentUpon>201811291330094_teachersalaryadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812021542158_updations.resx">
+      <DependentUpon>201812021542158_updations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812081513459_publicmessagesadded.resx">
+      <DependentUpon>201812081513459_publicmessagesadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812081528244_publicmessagesadd.resx">
+      <DependentUpon>201812081528244_publicmessagesadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812081532351_publicmessagesad.resx">
+      <DependentUpon>201812081532351_publicmessagesad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812091242134_fileadded.resx">
+      <DependentUpon>201812091242134_fileadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812091418220_fileadupdated.resx">
+      <DependentUpon>201812091418220_fileadupdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812092243093_overallupdate.resx">
+      <DependentUpon>201812092243093_overallupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812151423015_regcontrolleradded.resx">
+      <DependentUpon>201812151423015_regcontrolleradded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812191235299_notificationadded.resx">
+      <DependentUpon>201812191235299_notificationadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812191239308_notadded.resx">
+      <DependentUpon>201812191239308_notadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812191617522_notupdate.resx">
+      <DependentUpon>201812191617522_notupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812242239072_notup.resx">
+      <DependentUpon>201812242239072_notup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812281330527_studentsupallthe.resx">
+      <DependentUpon>201812281330527_studentsupallthe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812281430073_studentsupallt.resx">
+      <DependentUpon>201812281430073_studentsupallt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903101246424_libraryadded.resx">
+      <DependentUpon>201903101246424_libraryadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903111237208_libraryup.resx">
+      <DependentUpon>201903111237208_libraryup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912182227154_newone.resx">
+      <DependentUpon>201912182227154_newone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912221615580_newupdated.resx">
+      <DependentUpon>201912221615580_newupdated.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>12967</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:12967/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

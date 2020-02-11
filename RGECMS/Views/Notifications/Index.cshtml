@@ -1,0 +1,128 @@
+﻿@model IEnumerable<RGECMS.Models.Notification>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="alert alert-primary" role="alert">
+    <h3 style="color:black;">
+        Rahman Group Of Education College Notification Pannel
+    </h3>
+</div>
+@if (User.IsInRole("Administration"))
+{
+<p >
+    @Html.ActionLink("Create New Notification", "Create")
+</p>
+}
+@if (TempData["chck"]==null)
+{
+    <div class="alert alert-success" role="alert">
+        <h5 style="color:black;">
+         You Do Not Have New Notifications From Rahman Group Of Education College!
+        </h5>
+    </div>
+    @Html.ActionLink("View Previuos Notifications", "Previuos", new { @class = "btn btn-primary" })
+}
+else
+{
+<table class="table-bordered table-hover table-responsive">
+@if (User.IsInRole("Administration"))
+{
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NotificationMessage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NotificationDate)
+        </th>
+        <th>
+            @Html.DisplayName("Notification Alert For")
+        </th>
+        <th>
+            @Html.DisplayName("General Notification")
+        </th>
+       
+        <th></th>
+    </tr>
+}
+else
+{
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.NotificationDate)
+        </th>
+        <th>
+            @Html.DisplayName("Notification Alert For")
+        </th>
+     
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+    </tr>
+}
+@foreach (var item in Model)
+{
+    if (User.IsInRole("Administration"))
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotificationMessage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotificationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotificationSpecific)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotificationAll)
+        </td>
+       
+     
+        <td>
+    
+          
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            
+        </td>
+    
+    
+    </tr>
+    }
+    else
+    {
+        if (item.status == "Unread")
+        {
+            <tr class="alert alert-danger">
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.NotificationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NotificationSpecific)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+
+                <td>
+
+                    @Html.ActionLink("See Notification", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })
+
+
+                </td>
+
+
+            </tr>
+        }
+    }
+
+}
+
+
+</table>
+}

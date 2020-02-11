@@ -1,0 +1,86 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm"}))
+    {
+    @Html.AntiForgeryToken()
+          <!-- =======================here user profile Bounce Box======================================= -->
+        <ul class="navbar-nav float-right">
+            <!-- ============================================================== -->
+            <!-- messages btn -->
+            <!-- ============================================================== -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="../../Images/1.jpg" alt="user" class="rounded-circle" width="31">
+                
+                </a>
+                <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
+                    <ul class="list-style-none">
+                        <li>
+                            <div class="">
+                                <!-- Message 1 -->
+                                <a href="javascript:void(0)" class="link border-top">
+                                    <div class="d-flex no-block align-items-center p-10">
+                                        <span class="btn btn-success btn-circle"><i ></i></span>
+                                        <div class="m-l-10">
+                                            <h5 class="m-b-0">@User.Identity.GetUserName()</h5>
+                                            <span class="mail-desc">RGE User Account Name</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- Message 2 -->
+                                <a href="javascript:void(0)" class="link border-top">
+                                    <div class="d-flex no-block align-items-center p-10">
+                                        <span class="btn btn-info btn-circle"><i ></i></span>
+                                        <div class="m-l-10">
+                                            <h5 class="m-b-0">User Status</h5>
+                                            <span class="mail-desc">User Is Online</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- Message 3-->
+                          
+
+                                <a href=" @Url.Action( "Index", "Manage")" class="link border-top">
+                                    <div class="d-flex no-block align-items-center p-10">
+                                        <span class="btn btn-success btn-circle"><i ></i></span>
+                                        <div class="m-l-10">
+                                            <h5 class="m-b-0">Account Settings</h5>
+                                            <span class="mail-desc">Manage Account Passwords</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="javascript:document.getElementById('logoutForm').submit()" class="link border-top">
+                                    <div class="d-flex no-block align-items-center p-10">
+                                        <span class="btn btn-primary btn-circle"><i></i></span>
+                                        <div class="m-l-10">
+                                            <h5 class="m-b-0">SignOut</h5>
+                                            <span class="mail-desc">SignOut From RGE Account!</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- Message 4 removed  -->
+                                <a href="javascript:void(0)" class="link border-top">
+                                    <div class="d-flex no-block align-items-center p-10">
+                                        <span class="btn btn-info btn-circle"><i></i></span>
+                                        <div class="m-l-10">
+                                            <h5 class="m-b-0">Close Menu</h5>
+                                            <span class="mail-desc">Click To Close The Menu</span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            </ul>
+
+
+            }
+            }
+            else
+            {
+            <div class="p-l-30 p-10"><a href="@Url.Action("Login", "Account")" class="btn btn-sm btn-success btn-rounded">Log In</a></div>
+            }

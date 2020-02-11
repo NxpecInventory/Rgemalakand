@@ -1,0 +1,132 @@
+﻿@model RGECMS.Models.StudentFeeRecords
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="alert alert-info">
+    <h3>Students Fees Details</h3>
+    </div>
+
+    <div>
+        <h4>Student Fee Challan</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Students.StudentName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Students.StudentName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FatherName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FatherName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SemesterClass)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SemesterClass)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SubmissionDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SubmissionDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AdmissionFeeTutionFee)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AdmissionFeeTutionFee)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HostelFee)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HostelFee)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SecFee)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SecFee)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PaymentMethod)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PaymentMethod)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GrossTotalAmount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GrossTotalAmount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Payingstatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Payingstatus)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.batch)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.batch)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Remarks)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+        @Html.ActionLink("Back to List", "Index")
+    </p>

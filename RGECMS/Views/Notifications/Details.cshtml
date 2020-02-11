@@ -1,0 +1,62 @@
+﻿@model RGECMS.Models.Notification
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="alert alert-primary" role="alert">
+    <h3 style="color:black;">
+        Rahman Group Of Education College Notification Pannel
+    </h3>
+</div>
+
+<div>
+    <h4 style="color:black;">College Notification</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NotificationMessage)
+        </dt>
+
+        <dd class="alert alert-success">
+            <h4 style="color:black;">   @Html.DisplayFor(model => model.NotificationMessage)</h4>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotificationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotificationDate)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.NotificationSpecific)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotificationSpecific)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotificationAll)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotificationAll)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

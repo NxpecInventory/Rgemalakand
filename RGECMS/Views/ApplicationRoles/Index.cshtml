@@ -1,0 +1,47 @@
+﻿@model IEnumerable<RGECMS.Models.ApplicationRole>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="alert alert-primary" role="alert">
+    <h3 style="color:black;">
+        Rahman Group Of Education College Application Roles Pannel
+    </h3>
+</div>
+<div class="alert alert-info" role="alert">
+    <p style="color:black;">
+    Note:These roles are directly controlling all the application roles and access related operations these are the 
+        application module access in case of any attack or insecurity you can simply delete the module access for 
+        closing the working of any of the module or to close the fully acess of any module please do not delete any of the module acces 
+        after deleting that deleted module will close and for reopening of that module you need to contact the developer of this system.
+    </p>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table-bordered table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+
+
+        </td>
+    </tr>
+}
+
+</table>

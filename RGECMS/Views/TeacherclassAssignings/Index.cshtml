@@ -1,0 +1,108 @@
+﻿@model PagedList.IPagedList<RGECMS.Models.TeacherclassAssigning>
+@using PagedList.Mvc;
+<style>
+    .pagination {
+        /*display: inline-block;*/
+    }
+
+        .pagination a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            .pagination a.active {
+                background-color: #4CbF50;
+                color: white;
+            }
+
+            .pagination a:hover:not(.active) {
+             background-color:dodgerblue;
+            }
+</style>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="alert alert-success" role="alert">
+    <h3> Rahman Group Of Educationn College Teacher Subject Assigning System</h3>
+</div>
+<div class="alert alert-success" role="alert">
+    <h4 style="color:black;">Total Teacher Assigned Courses Record Found Are:- @TempData["Totaluser"]  </h4>
+</div>
+@using (Html.BeginForm("index", "TeacherclassAssignings", FormMethod.Get))
+{
+    <p>
+        <label style="color:black;">Teachers Registration No:</label>@Html.TextBox("search")
+        <input type="submit" value="Search Teacher Courses" class="btn btn-success card-hover" />
+    </p>
+
+
+}
+<p>
+    @Html.ActionLink("Assign New Courses", "Create")
+</p>
+<table class="table-bordered table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayName("Program Name")
+        </th>
+        <th>
+            @Html.DisplayName("Teacher Reg No")
+        </th>
+        <th>
+            @Html.DisplayName("Teacher Name")
+        </th>
+        <th>
+            @Html.DisplayName("Asingning Date")
+        </th>
+        <th>
+            @Html.DisplayName("Class Name")
+        </th>
+        <th>
+            @Html.DisplayName("Subject/Course Name")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgramName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacherid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssignedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjectName)
+        </td>
+        @if (User.IsInRole("Administration"))
+        {
+            <td>
+                
+                @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
+                </td>
+                }
+</tr>
+}
+
+</table>
+<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

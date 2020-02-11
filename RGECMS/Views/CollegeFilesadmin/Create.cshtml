@@ -1,0 +1,60 @@
+﻿@model RGECMS.Models.uploadingfileviewmodel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="alert alert-info" role="alert">
+    <h3>RGE College Administration Files Bucket</h3>
+</div>
+
+
+@using (Html.BeginForm("Create", "CollegeFilesadmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h5>Upload Colleges Files</h5>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Description", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FileDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FileDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Uploaded File", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model=>model.file, new {  type = "file" ,accept = ".pdf,.docx,.ppt,.xls,.xlsx" })
+                @Html.ValidationMessageFor(model => model.file)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("File Category", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FileCat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FileCat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Upload Confirm" class="btn btn-success" />
+            </div>
+        </div>
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

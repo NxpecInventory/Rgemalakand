@@ -1,0 +1,66 @@
+﻿@model RGECMS.Models.AttendanceRecordsdata
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AttendanceRecordsdata</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Attendanceoptions.Options)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Attendanceoptions.Options)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Studentid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Studentid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataofattendance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataofattendance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

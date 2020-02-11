@@ -1,0 +1,140 @@
+﻿@model PagedList.IPagedList<RGECMS.Models.EmployeeSalary>
+@using PagedList.Mvc;
+<style>
+    .pagination {
+        /*display: inline-block;*/
+    }
+
+        .pagination a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            .pagination a.active {
+                background-color: #4CbF50;
+                color: white;
+            }
+
+            .pagination a:hover:not(.active) {
+                background-color: dodgerblue;
+            }
+</style>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="alert alert-info"><h3>Rahman Group Of Education College Employee Salary Records Pannel</h3></div>
+<div class="alert alert-success" role="alert">
+    <h4 style="color:black;">Total College Employee Salary Found Are:- @TempData["Totaluser"]  </h4>
+</div>
+@using (Html.BeginForm("index", "EmployeeSalaries", FormMethod.Get))
+{
+    <p>
+        <label style="color:black;">Employee Registration No:</label>@Html.TextBox("search")
+        <input type="submit" value="Search Employee Salary" class="btn btn-success card-hover" />
+    </p>
+
+
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table-bordered table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayName("ChallonId")
+        </th>
+        <th>
+            @Html.DisplayName("EmployeeId")
+        </th>
+        <th>
+            @Html.DisplayName("Employee Name")
+        </th>
+     
+      
+        <th>
+            @Html.DisplayName("Payment Date")
+        </th>
+        <th>
+            @Html.DisplayName("Paying Amount")
+        </th>
+        <th>
+            @Html.DisplayName("Over Time")
+        </th>
+
+      
+        <th>
+            @Html.DisplayName("Total Paid Amount")
+        </th>
+        <th>
+            @Html.DisplayName("Recieving Status")
+        </th>
+      
+        <th>
+            @Html.DisplayName("Remarks")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CollegeEmployees.EmployeeName)
+        </td>
+      
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.SubmissionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayingAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OverTime)
+        </td>
+     
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.GrossTotalAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Recievingstatus)
+        </td>
+   
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        @if (User.IsInRole("Administration"))
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+            </td>
+                }
+
+
+
+</tr>
+}
+
+</table>
+<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

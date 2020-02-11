@@ -1,0 +1,115 @@
+﻿@model RGECMS.Models.TeacherclassAssigning
+@{
+    ViewBag.Title = "Create";
+}
+<script src="~/Scripts/jquery.min.js" type="text/javascript"></script>
+<h2>Teacher Courses Registration System</h2>
+<script type="text/javascript">
+    $(document).ready(function() {
+        //Dropdownlist Selectedchange event
+        $("#ProgramId").change(function() {
+            $("#ClassId").empty();
+            $("#ClassId").append('<option value="0">--Select--</option>');
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Getallclassess")', // we are calling json method
+                dataType: 'json',
+                data: { id: $("#ProgramId").val() },
+                success: function (subjects) {
+                    // states contains the JSON formatted list
+                    // of states passed from the controller
+                    $.each(subjects,
+                        function(i, state) {
+                            //alert(JSON.stringify(state));
+                            $("#ClassId").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                        }); // here we are adding option for classes
+                },
+                error: function(ex) {
+                    alert('Failed to retrieve Available  Clasess.' + ex);
+                }
+            });
+            return false;
+        });
+    });
+
+</script>
+<script type="text/javascript">
+  //this is for the subjects
+    $(document).ready(function () {
+        //Dropdownlist Selectedchange event
+        $("#ClassId").change(function () {
+            $("#SubjectId").empty();
+            $("#SubjectId").append('<option value="0">--Select--</option>');
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Getallsubjects")', // we are calling json method
+                dataType: 'json',
+                data: { id: $("#ClassId").val() },
+                success: function (clases) {
+                // states contains the JSON formatted list
+                // of states passed from the controller
+                $.each(clases,
+                function (i, state) {
+                //alert(JSON.stringify(state));
+                $("#SubjectId").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                }); // here we are adding option for classes
+                },
+                error: function (ex) {
+                alert('Failed to retrieve Available  Subjects.' + ex);
+                }
+                });
+                return false;
+                });
+    });
+</script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>TeacherclassAssigning</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProgramId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ProgramId", null, "---Select Program---", htmlAttributes: new { @class = "form -control" })
+                @Html.ValidationMessageFor(model => model.ProgramId, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClassId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ClassId", new SelectList(string.Empty, "Value", "Text"), "---Select Class---", htmlAttributes: new { @class = "form -control" })
+                @Html.ValidationMessageFor(model => model.ClassId, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubjectId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SubjectId", new SelectList(string.Empty, "Value", "Text"), "---Select Subject---", htmlAttributes: new { @class = "form -control" })
+                @Html.ValidationMessageFor(model => model.SubjectId, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Teacherid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TeacherId", null, "---Select Teacher---", htmlAttributes: new { @class = "form -control" })
+                @Html.ValidationMessageFor(model => model.Teacherid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

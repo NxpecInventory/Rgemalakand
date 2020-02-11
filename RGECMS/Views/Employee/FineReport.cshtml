@@ -1,0 +1,46 @@
+﻿@model RGECMS.Models.Studentfinereportviewmodel
+
+@{
+    ViewBag.Title = "FineReport";
+}
+<h3 style="color:black;">Students Submitted Fines Income Reports Generating Pannel</h3>
+<div class="alert alert-success">
+    <b style="color:black">
+        Generate Student College Fine Reports On
+        The basis Of Month and Year,give the month and year Detail for generating specifically that year and month Fine Reports.
+    </b>
+</div>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+   
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control", @placeholder = "Example 2019 " } })
+                @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Month, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Month, new { htmlAttributes = new { @class = "form-control", @placeholder = "Example August " } })
+                @Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Generate Fine Report" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+

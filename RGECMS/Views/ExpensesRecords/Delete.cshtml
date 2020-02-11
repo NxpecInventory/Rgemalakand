@@ -1,0 +1,82 @@
+﻿@model RGECMS.Models.ExpensesRecords
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Confirmation</h2>
+<div class="alert alert-dismissible alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Are you sure you want to delete this Transaction No=@Html.DisplayFor(model => model.Id) Of This Type @Html.DisplayFor(model => model.collegeExpenseCategories.Categories)?</strong>
+</div>
+<div>
+    <h4>ExpensesRecords</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.collegeExpenseCategories.Categories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.collegeExpenseCategories.Categories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecieverName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecieverName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransactionYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaidAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaidAmount)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

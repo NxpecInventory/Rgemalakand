@@ -1,0 +1,120 @@
+﻿@model IEnumerable<RGECMS.Models.StudentFeeRecords>
+@{
+    ViewBag.Title = "CollegeFeeRecords";
+}
+
+
+<div class="alert alert-info" role="alert"><h3 style="color:black;">Rahman Group Of Education College Student Submitted Fees Details</h3></div>
+
+@*@if (TempData["Feerec"] == null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Feerec"]
+        </div>
+}
+else
+{*@
+        <table class="table-bordered  table-hover table-responsive">
+            <tr>
+                <th>
+                    @Html.DisplayName("SlipId")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Students.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FatherName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SemesterClass)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubmissionDate)
+                </th>
+                <th>
+                    @Html.DisplayName("AdmissionFee/TutionFee")
+                </th>
+                <th>
+                    @Html.DisplayName("HostelFee")
+                </th>
+                <th>
+                    @Html.DisplayName("SecCharges")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GrossTotalAmount)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.PaymentMethod)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Remarks)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Payingstatus)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Students.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FatherName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SemesterClass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubmissionDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdmissionFeeTutionFee)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HostelFee)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SecFee)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GrossTotalAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaymentMethod)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Remarks)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Payingstatus)
+                    </td>
+
+
+                </tr>
+            }
+
+
+        </table>
+@*}*@
+        <hr />
+
+        <div class="alert alert-info" role="alert"><b>In Case Of Further Fees Details Contact Your College Administration For more Details About Fees Records</b></div>

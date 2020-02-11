@@ -1,0 +1,202 @@
+﻿@model RGECMS.Models.StudentFeeRecords
+
+
+
+<script language="javascript">
+    // for printing specific area of the page int x = (int)System.Web.HttpContext.Current.Session["MyValue"];
+    function printdiv(printpage) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + printpage).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+    }
+</script>
+
+<div id="div_print">
+    <h2>Rahman Group Of Education College Student Fees Challan(Student Copy)</h2>
+    <h3>Challan No # @Html.DisplayFor(model => model.Id)</h3>
+    <h3>Printing Date:@DateTime.Now.Date.ToShortDateString()</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+    
+                <th scope="col">Student Name</th>
+                <th scope="col">Father Name</th>
+                <th scope="col">Enrollment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.Name)</td>
+                <td>@Html.DisplayFor(model => model.FatherName)</td>
+                <td>@Html.DisplayFor(model => model.Students.Id)</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+              
+                <th scope="col">Class</th>
+                <th scope="col">Batch</th>
+                <th scope="col">PaymentMethod</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.SemesterClass)</td>
+                <td>@Html.DisplayFor(model => model.batch)</td>
+                <td>@Html.DisplayFor(model => model.PaymentMethod)</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+
+               
+                <th scope="col">Paying Status</th>
+                <th scope="col">Remarks</th>
+                <th scope="col">Submission Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.Payingstatus)</td>
+                <td>@Html.DisplayFor(model => model.Remarks)</td>
+                <td>@Html.DisplayFor(model => model.SubmissionDate)</td>
+                </tr>
+
+        </tbody>
+        <thead>
+            <tr>
+
+
+                <th scope="col">Admission/Tution Fees</th>
+                <th scope="col">Hostel Fees</th>
+                <th scope="col">Sec Fees</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.AdmissionFeeTutionFee)</td>
+                <td>@Html.DisplayFor(model => model.HostelFee)</td>
+                <td>@Html.DisplayFor(model => model.SecFee)</td>
+            </tr>
+            <tr>
+
+              
+                <td colspan="2">Total Paid Amount</td>
+                
+                <td>@Html.DisplayFor(model => model.GrossTotalAmount) Rupees</td>
+            </tr>
+            <tr>
+
+
+                <td colspan="2">Reciever/Account Manager Signature</td>
+
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    <h2>Rahman Group Of Education College Student Fees Challan(Department Copy)</h2>
+    <h3>Challan No # @Html.DisplayFor(model => model.Id)</h3>
+    <h3>Printing Date:@DateTime.Now.Date.ToShortDateString()</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+
+                <th scope="col">Student Name</th>
+                <th scope="col">Father Name</th>
+                <th scope="col">Enrollment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.Name)</td>
+                <td>@Html.DisplayFor(model => model.FatherName)</td>
+                <td>@Html.DisplayFor(model => model.Students.Id)</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+
+                <th scope="col">Class</th>
+                <th scope="col">Batch</th>
+                <th scope="col">PaymentMethod</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.SemesterClass)</td>
+                <td>@Html.DisplayFor(model => model.batch)</td>
+                <td>@Html.DisplayFor(model => model.PaymentMethod)</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+
+
+                <th scope="col">Paying Status</th>
+                <th scope="col">Remarks</th>
+                <th scope="col">Submission Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.Payingstatus)</td>
+                <td>@Html.DisplayFor(model => model.Remarks)</td>
+                <td>@Html.DisplayFor(model => model.SubmissionDate)</td>
+            </tr>
+
+        </tbody>
+        <thead>
+            <tr>
+
+
+                <th scope="col">Admission/Tution Fees</th>
+                <th scope="col">Hostel Fees</th>
+                <th scope="col">Sec Fees</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Html.DisplayFor(model => model.AdmissionFeeTutionFee)</td>
+                <td>@Html.DisplayFor(model => model.HostelFee)</td>
+                <td>@Html.DisplayFor(model => model.SecFee)</td>
+            </tr>
+            <tr>
+
+
+                <td colspan="2">Total Paid Amount</td>
+
+                <td>@Html.DisplayFor(model => model.GrossTotalAmount) Rupees</td>
+            </tr>
+          
+
+        </tbody>
+    </table>
+
+   
+</div>
+
+<p>
+    @Html.ActionLink("Go Back To Student Fee Generate Pannel", "Index", new { @class = "btn btn-primary" })
+    <input type="button" style="width:100px;" value="Print Slip" onclick="printdiv('div_print')" class="btn btn-success" />
+    </p>
+
+
+
+

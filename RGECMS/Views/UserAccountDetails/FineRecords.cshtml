@@ -1,0 +1,88 @@
+﻿@model IEnumerable<RGECMS.Models.Finerecords>
+@{
+    ViewBag.Title = "FineRecords";
+}
+
+
+
+<div class="alert alert-info" role="alert"><h3 style="color:black;">Rahman Group OF Education Students College Fine Records</h3></div>
+@*@if (TempData["Finerec"] == null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Finerec"]
+    </div>
+}
+else
+{*@
+<table class="table-bordered table-hover table-responsive" >
+    <tr>
+        <th>
+            @Html.DisplayName("FineSlipId")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Students.StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SemesterClass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubmissionDate)
+        </th>
+     
+        <th>
+            @Html.DisplayNameFor(model => model.FineAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalAmount)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Payingstatus)
+        </th>
+ 
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Students.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SemesterClass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmissionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FineAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAmount)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payingstatus)
+            </td>
+           
+        </tr>
+    }
+
+</table>
+
+@*}*@

@@ -1,0 +1,58 @@
+﻿@model RGECMS.Models.Notification
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="alert alert-danger" role="alert">
+    <h3 style="color:black;">Are you sure you want to delete this Notification?</h3>
+    </div>
+        <div>
+            <h4>Delete College Notification</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.NotificationMessage)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NotificationMessage)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NotificationDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NotificationDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NotificationSpecific)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NotificationSpecific)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NotificationAll)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NotificationAll)
+                </dd>
+
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
+        </div>

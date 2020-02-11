@@ -1,0 +1,83 @@
+﻿@model RGECMS.Models.TeacherCoursesRecord
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="alert alert-success" role="alert">
+    <h3> Teacher Subject Assigning Details</h3>
+</div>
+
+<div>
+    <h4>Teacher Assigned Courses Record</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Teacherid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Teacherid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Assignedprocessid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Assignedprocessid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProgramName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProgramName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubjectName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,88 @@
+﻿@model RGECMS.Models.StudentCourseRegistrationHistory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StudentCourseRegistrationHistory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.id)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Regid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Regid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Studentid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Studentid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProgramId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProgramId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

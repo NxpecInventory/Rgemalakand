@@ -1,0 +1,113 @@
+﻿@model PagedList.IPagedList<RGECMS.Models.transactionrecords>
+@using PagedList.Mvc;
+<style>
+    .pagination {
+        /*display: inline-block;*/
+    }
+
+        .pagination a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            .pagination a.active {
+                background-color: #4CbF50;
+                color: white;
+            }
+
+            .pagination a:hover:not(.active) {
+                background-color: dodgerblue;
+            }
+</style>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="alert alert-info"><h3>Rahman Group Of Education College Income Transactions Including (Students Fees and Student Fines) Records</h3></div>
+<div class="alert alert-success" role="alert">
+    <h4 style="color:black;">Total Transactions Records Found Are:- @TempData["Totaluser"]  </h4>
+</div>
+@using (Html.BeginForm("index", "transactionrecords", FormMethod.Get))
+{
+    <p>
+        <label style="color:black;">Person Id(Student Registration No ):</label>@Html.TextBox("search")
+        <input type="submit" value="Search Records" class="btn btn-success card-hover" />
+    </p>
+
+
+}
+
+
+<table class="table-responsive table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayName("Transaction Date")
+        </th>
+        <th>
+            @Html.DisplayName("Transaction Type")
+        </th>
+        <th>
+            @Html.DisplayName("Person Id")
+        </th>
+        <th>
+            @Html.DisplayName("Transaction Year")
+        </th>
+        <th>
+            @Html.DisplayName("Transaction Amount")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransactionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransactionType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransactionYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransactionAmount)
+        </td>
+        @if (User.IsInRole("Administration"))
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        }
+        else
+        {
+            <td>
+
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+            </td>
+        }
+    </tr>
+}
+    <tr>
+        <td>Showing(Current Page)Total Transactions Amount</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        
+
+        <td>
+            @Model.Sum(i=>i.TransactionAmount) RS
+        </td>
+    </tr>
+
+</table>
+<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

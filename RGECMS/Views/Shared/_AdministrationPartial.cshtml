@@ -1,0 +1,160 @@
+﻿
+<aside class="left-sidebar" data-sidebarbg="skin5">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav" class="p-t-30">
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action( "Index", "Home")" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Administration Home</span></a></li>
+              
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Application Roles</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "ApplicationRoles")" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu">User Access Roles</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">User Accounts</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Register", "Account")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Create User Accounts</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Profile</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action("AdminProfile", "Administration")"  class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Administration Profile </span></a></li>
+                        
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Public Messages</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "Publicmessages")" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Query/Messages List</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Notifications</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "Notifications")" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu">College Notifications</span></a></li>
+
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Students Pannel</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "Students")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Registered Students Records</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "StudentFeeRecords")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Students Fees Records</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "Finerecords")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Students Fine Records</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "StudentClassAssigningSystems")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Current Register Courses</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "StudentCourseRegistrationHistories")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Student Reg History</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Teachers Pannel</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "Teachers")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Registered Teacher Records</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "TeacherSalaryRecords")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Teacher Salary Records</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "teacherdesignationcategories")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Teacher Department</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "TeacherclassAssignings")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Current Assigned Courses</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "TeacherCoursesRecords")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Assigned Courses History</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Employee Pannel</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "CollegeEmployees")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Registered Employee Records</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "EmployeeSalaries")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Employee Salary Records</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "employeeDesignationCategories")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Employee Designation</span></a></li>
+
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Ciriculam Pannel</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "Programs")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Register Programs</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "Classes")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Register Classes/Semester</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "Subjects")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Register Subjects</span></a></li>
+
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Financial (Income/OutCome)</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "transactionrecords")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Income Transactions Records</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "ExpenseOutgoingRecords")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">OutGoing Transactions Records</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "ExpensesRecords")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Inventory Expenses Records</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "collegeExpenseCategories")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Inventory Categories</span></a></li>
+                        
+
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Attendance Pannel</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "AttendanceRecordsPannel")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Attendance Records</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "Attendanceoptions")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Create Attendance Fields</span></a></li>
+
+
+
+                    </ul>
+                </li>
+                  
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Income&OutGoing Report</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "IncomeOutcomeReport", "Employee")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Generate Financial Report</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Registration Controlling</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "Registrationcontrollings")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Control Registration</span></a></li>
+
+
+
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Upload Files</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "CollegeFilesadmin")" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Upload College Files</span></a></li>
+
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">College Users</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "ApplicationUsers")" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu">All Users Accounts</span></a></li>
+                        @*<li class="sidebar-item"><a href="@Url.Action( "TeacherIndex", "ApplicationUsers")" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Registered Teacher Users</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "StudentsIndex", "ApplicationUsers")" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Registered Students Users</span></a></li>
+                        <li class="sidebar-item"><a href="@Url.Action( "EmployeeIndex", "ApplicationUsers")" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Registered Employee Users</span></a></li>*@
+
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Manage Account</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href=" @Url.Action( "Index", "Manage")" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu">Account Password</span></a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>
+

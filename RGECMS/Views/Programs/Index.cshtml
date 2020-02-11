@@ -1,0 +1,48 @@
+﻿@model IEnumerable<RGECMS.Models.Programs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="alert alert-primary" role="alert">
+    <h4 style="color:black;">
+        Rahman Group Of Education 4 Years Programs/ 2 Programs Pannel
+    </h4>
+</div>
+<div class="alert alert-success" role="alert">
+    <h5 style="color:black;">
+     Here You Can Create the College Programs Of 4 Years 2 Years According to the Program Duration.
+    </h5>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table-hover table-bordered table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramStartingDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgramName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgramStartingDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

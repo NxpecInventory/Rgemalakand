@@ -1,0 +1,92 @@
+﻿@using RGECMS.Models
+@model LoginViewModel
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+<script>
+    function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
+<link rel="icon" type="image/png" sizes="16x16" href="~/Images/favicon.png">
+<title>RGE Login</title>
+
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
+    
+  
+        <div class="auth-box bg-dark border-top border-secondary">
+            <h3 style="color:white;">Rahman Group Of Education College Batkhela,Malakand</h3>
+            <div class="text-center p-t-20 p-b-20">
+
+
+            </div>
+            <div id="loginform">
+
+                <!-- Form -->
+                @if (!Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    { @Html.AntiForgeryToken()
+                        <form class="form-horizontal m-t-20" id="loginform">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            <p class="text-danger">@ViewBag.errorMessage</p>
+                            <div class="row p-b-30">
+                                <div class="col-12">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+
+                                            <span class="input-group-text bg-success text-white" id="basic-addon1"><i @*class="ti-user"*@></i></span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control card-hover", @placeholder = "User Name" })
+
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-warning text-white" id="basic-addon2"><i @*class="ti-pencil"*@></i></span>
+                                        </div>
+                                        @Html.PasswordFor(m => m.Password, new {@id= "myInput", @class = "form-control card-hover", @placeholder = "Password"  })
+
+                                    </div>
+                                </div>
+                                <input type="checkbox"  onclick="myFunction()"><label style="color:white;" >Show Password</label>
+                            </div>
+                            <div class="row border-top border-secondary">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <div class="p-t-20">
+                                            <a class="btn btn-info card-hover" href="@Url.Action("ForgotPassword", "Account")"> Forget password?</a>
+                                            <button class="btn btn-success card-hover float-right" type="submit">Login</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </form>
+                    }
+                }
+            </div>
+
+
+        </div>
+    </div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/Scripts1")
+@Scripts.Render("~/bundles/Scripts2")
+
+
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

@@ -1,0 +1,82 @@
+﻿@using RGECMS.Models
+@model LoginViewModel
+@{
+    Layout = null;
+}
+
+
+
+
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
+    <div class="auth-box bg-dark border-top border-secondary">
+        <div id="loginform">
+            <div class="text-center p-t-20 p-b-20">
+                <span class="db"><img src="../../assets/images/logo.png" alt="logo" /></span>
+            </div>
+            <!-- Form -->
+
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@Html.AntiForgeryToken()
+            <form class="form-horizontal m-t-20" id="loginform">
+                @Html.AntiForgeryToken()
+                <div class="row p-b-30">
+                    <div class="col-12">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                    
+                                <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
+                            </div>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row border-top border-secondary">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="p-t-20">
+                                <button class="btn btn-info" id="to-recover" type="button"><i class="fa fa-lock m-r-5"></i> Lost password?</button>
+                                <button class="btn btn-success float-right" type="submit">Login</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </form>
+            }
+        </div>
+        
+        <div id="recoverform">
+            <div class="text-center">
+                <span class="text-white">Enter your e-mail address below and we will send you instructions how to recover a password.</span>
+            </div>
+            <div class="row m-t-20">
+                <!-- Form -->
+                <form class="col-12">
+                    <!-- email -->
+                    
+                    <!-- pwd -->
+                    <div class="row m-t-20 p-t-20 border-top border-secondary">
+                        <div class="col-12">
+                            <a class="btn btn-success" href="#" id="to-login" name="action">Back To Login</a>
+                        
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @"text-danger")
+}

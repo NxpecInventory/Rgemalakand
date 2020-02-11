@@ -1,0 +1,152 @@
+﻿@model PagedList.IPagedList<RGECMS.Models.TeacherSalaryRecords>
+@using PagedList.Mvc;
+<style>
+    .pagination {
+        /*display: inline-block;*/
+    }
+
+        .pagination a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            .pagination a.active {
+                background-color: #4CbF50;
+                color: white;
+            }
+
+            .pagination a:hover:not(.active) {
+                background-color: crimson;
+            }
+</style>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="alert alert-info" role="alert">
+
+    <h3 style="color:black;">RGE College Teachers Salary/Pay Records Pannel</h3>
+</div>
+<div class="alert alert-success" role="alert">
+    <h4 style="color:black;">Total Teacher Salary Record Found Are:- @TempData["Totaluser"]  </h4>
+</div>
+@using (Html.BeginForm("index", "TeacherSalaryRecords", FormMethod.Get))
+{
+    <p>
+        <label style="color:black;">Teachers Registration No:</label>@Html.TextBox("search")
+        <input type="submit" value="Search Teacher Salary" class="btn btn-success card-hover" />
+    </p>
+
+
+}
+<p>
+    @Html.ActionLink("Create New Salary Record", "Create")
+</p>
+<table class="table-bordered table-hover table-responsive" >
+    <tr>
+        <th>
+            @Html.DisplayName("Challan No")
+        </th>
+        <th>
+            @Html.DisplayName("Teacher Name")
+        </th>
+        <th>
+            @Html.DisplayName("Teacher Id")
+        </th>
+        @*<th>
+            @Html.DisplayName("Father Name")
+        </th>*@
+        <th>
+            @Html.DisplayName("Teacher Department")
+        </th>
+        <th>
+            @Html.DisplayName("Paying Date")
+        </th>
+        @*<th>
+            @Html.DisplayName("Paying Amount")
+        </th>*@
+        <th>
+            @Html.DisplayName("Extra Classes Amounts")
+        </th>
+        @*<th>
+            @Html.DisplayName("Paying Method")
+        </th>*@
+     
+        <th>
+            @Html.DisplayName("Gross Total Amount")
+        </th>
+        <th>
+            @Html.DisplayName("Recieving Status")
+        </th>
+      
+        <th>
+            @Html.DisplayName("Remarks")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teachers.TeacherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teachers.Id)
+        </td>
+      
+        @*<td>
+            @Html.DisplayFor(modelItem => item.FatherName)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.TeacherDepartment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubmissionDate)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.PayingAmount)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.OverTime)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.PaymentMethod)
+        </td>*@
+    
+        <td>
+            @Html.DisplayFor(modelItem => item.GrossTotalAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Recievingstatus)
+        </td>
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        @if (User.IsInRole("Administration"))
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+            </td>
+        }
+    </tr>
+}
+
+</table>
+<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

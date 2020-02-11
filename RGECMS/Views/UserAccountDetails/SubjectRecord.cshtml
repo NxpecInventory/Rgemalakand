@@ -1,0 +1,48 @@
+﻿@model IEnumerable<RGECMS.Models.Subjects>
+@{
+    ViewBag.Title = "SubjectRecord";
+}
+<div class="alert alert-info" role="alert">
+<h3 style="color:black;">Registered Class Subjects/Courses List</h3>
+</div>
+
+
+<table class="table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayName("Subject Id/Code")
+        </th>
+        <th>
+            @Html.DisplayName("Subject Name")
+        </th>
+        <th>
+            @Html.DisplayName("Class/Course Name")
+        </th>
+        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Classes.ClassName)
+            </td>
+          
+            <td>
+        </tr>
+    }
+
+</table>
+@if (TempData["subject"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <h4 style="color:black;">@TempData["subject"]</h4>
+    </div>
+}

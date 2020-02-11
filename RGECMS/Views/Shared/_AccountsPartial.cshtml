@@ -1,0 +1,116 @@
+﻿<aside class="left-sidebar" data-sidebarbg="skin5">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav" class="p-t-30">
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action( "Index", "Home")" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Accounts Home</span></a></li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Profile Information </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "EmployeeProfile", "Employee")" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu"> Employee Profile </span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Notifications</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "Notifications")" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu">College Notifications</span></a></li>
+
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Student College Fees </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "StudentFeeRecords")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Generate Student Fees</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Student College Fine</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "Finerecords")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Generate Student Fines</span></a></li>
+
+                    </ul>
+                </li>
+
+
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">College Expense Records </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "ExpensesRecords")" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Inventory Expenses Records</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">Teacher Salary Record</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "TeacherSalaryRecords")" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">College Teacher Salary</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">College Employee Salary</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "Index", "EmployeeSalaries")" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Generate Employee Salary</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Income&OutGoing Report</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "IncomeOutcomeReport", "Employee")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Generate Financial Report</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Student Fees Reports </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "StudentFeesReport", "Employee")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Generate Fee Reports</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Fines Reports </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "FineReport", "Employee")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Generate Fine Reports</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Teachers Salary Reports </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "TeacherSalaryReport", "Employee")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Generate Salary Reports</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Employee Reports </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "EmployeeSalaryReport", "Employee")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Employee Salary Reports</span></a></li>
+                        EmployeeSalaryReport
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Inventory/Expense Reports </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="@Url.Action( "InventoryExpenseReport", "Employee")" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu">Expense Outcome Reports</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Manage Account</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href=" @Url.Action( "Index", "Manage")" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu">Account Password</span></a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>
+

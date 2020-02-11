@@ -1,0 +1,81 @@
+﻿@model IEnumerable<RGECMS.Models.Publicmessages>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3 style="color:black;">
+    Rahman Group Of Education Public  Questions/Query Messages.
+</h3>
+<div class="alert alert-primary" role="alert">
+    <h5 style="color:black;">
+       Here You Can See The Peoples who Visted Rehman Group Of Education Website And has issues Questions and any Query For Viewing The Mesage Please Click The View Button To see the New Messages 
+        (Note The Message Status Will Describe The Status Of The Message If You Seen The message It Will Mark As A readed And iF it is not seen It will marked as a unreaded Message.)
+    </h5>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table-bordered table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MessageDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fullname)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+
+    if (item.status == "UnReaded")
+    {
+            <tr class="alert-danger" role="alert">
+                <td>
+                    @Html.DisplayFor(modelItem => item.MessageDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fullname)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+           
+                    @Html.ActionLink("View Message", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+                
+            </tr>
+    }
+    else
+    {
+    <tr class="alert-success" role="alert">
+        <td>
+            @Html.DisplayFor(modelItem => item.MessageDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fullname)
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+      
+            @Html.ActionLink("View Message", "Details", new { id = item.Id }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+        </td>
+
+    </tr>
+    }
+}
+
+</table>

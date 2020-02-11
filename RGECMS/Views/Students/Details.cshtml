@@ -1,0 +1,89 @@
+﻿@model RGECMS.Models.Students
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="alert alert-info" role="alert">
+    <h4 style="color:black;">Registered RGE College Student Records.</h4>
+    </div>
+    <div>
+        <h4>Students Registration Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayName("Student Registration No")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Programs.ProgramName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Programs.ProgramName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StudentName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GuardianName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GuardianName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ContactInfo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ContactInfo)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Student Status")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+            <dt>
+                @Html.DisplayName("Current Student Semester/Class")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CurrentSemclass)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AddmissionDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AddmissionDate)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        
+        @Html.ActionLink("Back to List", "Index")
+    </p>
