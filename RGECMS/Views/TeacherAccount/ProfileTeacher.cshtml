@@ -3,76 +3,129 @@
     ViewBag.Title = "ProfileTeacher";
 }
 
-<div>
-    <div class="alert alert-primary" role="alert">
-        <h3>RGE College Teacher Profile Information</h3>
-    </div>
-    <hr />
-    <dl class="dl-horizontal">
-      
+<div class="alert alert-primary" role="alert">
+    <h3>RGE College Teacher Profile Information</h3>
+</div>
+<div class="container">
+    <div class="form-horizontal">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TeacherName)
-        </dt>
+        <hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.TeacherName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FatherName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FatherName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.teacherdesignationcategory.DepartmentName)
-        </dt>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.TeacherName)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.teacherdesignationcategory.DepartmentName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.TeacherName)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactInfo)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.FatherName)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.ContactInfo)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.FatherName)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.teacherdesignationcategory.DepartmentName)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.teacherdesignationcategory.DepartmentName)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.JoiningDate)
-        </dt>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
 
-        <dd>
-            @Html.DisplayFor(model => model.JoiningDate)
-        </dd>
+                    @Html.DisplayNameFor(model => model.Address)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Specialization)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Address)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Specialization)
-        </dd>
+                </div>
+            </div>
 
-    </dl>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.ContactInfo)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.ContactInfo)
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Status)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Status)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <div class="control-label col-sm-4">
+                    @Html.DisplayNameFor(model => model.JoiningDate)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.JoiningDate)
+                    </div>
+
+                </div>
+            </div>
+
+           
+                <div class="form-group col-sm-4">
+                    <div class="control-label col-sm-4">
+                        @Html.DisplayNameFor(model => model.Specialization)
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.Specialization)
+                        </div>
+
+                    </div>
+                </div>
+
+          </div>
+          
 </div>
 
+  
+    </div>

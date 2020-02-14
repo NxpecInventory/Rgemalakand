@@ -2,110 +2,129 @@
 @{
     ViewBag.Title = "TeacherSalaryRecords";
 }
+<style>
+    table#example.dataTable thead:hover {
+        background-color: #8fa5c7;
+    }
+
+    table#example.dataTable tbody tr:hover {
+        background-color: #b6b6b8;
+    }
+
+        table#example.dataTable tbody tr:hover > .sorting_1 {
+            background-color: #b6b6b8;
+        }
+</style>
+<script src="~/Scripts/jquery.min.js"></script>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
 <div class="alert alert-info" role="alert">
 
     <h3 style="color:black;">RGE College Salary/Pay Records</h3>
 </div>
-@if (TempData["Countt"].ToString()!="0")
+@if (TempData["Countt"].ToString() != "0")
 {
 
 
-<table class="table-bordered table-hover table-responsive">
-    <tr>
-        <th>
-            @Html.DisplayName("Paying Date")
-        </th>
-        <th>
-            @Html.DisplayName("Challan No")
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Teachers.TeacherName)
-        </th>
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Paying Date")
+                </th>
+                <th>
+                    @Html.DisplayName("Challan No")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Teachers.TeacherName)
+                </th>
 
-        <th>
-            @Html.DisplayNameFor(model => model.FatherName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TeacherDepartment)
-        </th>
-      
-        <th>
-            @Html.DisplayNameFor(model => model.PayingAmount)
-        </th>
-        <th>
-            @Html.DisplayName("Extra Classes Amount")
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PaymentMethod)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.checkNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GrossTotalAmount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Recievingstatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Year)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Remarks)
-        </th>
-        <th></th>
-    </tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FatherName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TeacherDepartment)
+                </th>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubmissionDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Teachers.TeacherName)
-            </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.PayingAmount)
+                </th>
+                <th>
+                    @Html.DisplayName("Extra Classes Amount")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PaymentMethod)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.checkNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GrossTotalAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Recievingstatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Remarks)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.FatherName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeacherDepartment)
-            </td>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.PayingAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OverTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentMethod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.checkNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GrossTotalAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Recievingstatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Year)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Remarks)
-            </td>
-            
-        </tr>
-    }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubmissionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Teachers.TeacherName)
+                </td>
 
-</table>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FatherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeacherDepartment)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PayingAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OverTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentMethod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.checkNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GrossTotalAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Recievingstatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+
+            </tr>
+        }
+
+    </table>
 }
 else
 {
@@ -113,4 +132,25 @@ else
 
         <h4 style="color:black;">Your Salary/Pay Records Not Found because yet you are not taken online generated salary from this Management system or you may newly Join Rehman Group Of Education College</h4>
     </div>
+}
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+@*.................Script side datatable searching and pagination...................*@
+@section scripts{
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable()
+
+
+
+
+        });
+
+    </script>
 }
