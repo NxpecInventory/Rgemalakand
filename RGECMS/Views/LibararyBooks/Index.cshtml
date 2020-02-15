@@ -23,94 +23,110 @@
             .pagination a:hover:not(.active) {
                 background-color: dodgerblue;
             }
+    table#example.dataTable thead:hover {
+        background-color: #8fa5c7;
+    }
+    table#example.dataTable tbody tr:hover {
+        background-color: #b6b6b8;
+    }
+
+        table#example.dataTable tbody tr:hover > .sorting_1 {
+            background-color: #b6b6b8;
+        }
 </style>
 <h3>RGE LIBRARY MANAGEMENT BOOKS RECORDS</h3>
 
-@using (Html.BeginForm("index", "LibararyBooks", FormMethod.Get))
-{
-    <p>
-        <label style="color:black;">Call No:</label>@Html.TextBox("search")
-        <input type="submit" value="Search Book By Call No" placeholder="Enter Call No" class="btn btn-success card-hover" />
-    </p>
+@*@using (Html.BeginForm("index", "LibararyBooks", FormMethod.Get))
+    {
+        <p>
+            <label style="color:black;">Call No:</label>@Html.TextBox("search")
+            <input type="submit" value="Search Book By Call No" placeholder="Enter Call No" class="btn btn-success card-hover" />
+        </p>
 
 
-}
-@using (Html.BeginForm("IndexTitle", "LibararyBooks", FormMethod.Get))
-{
-    <p>
-        <label style="color:black;">Department Name:</label>@Html.TextBox("searchtitle")
-        <input type="submit" value="Search Book By Department Name" placeholder="Enter Department Name" class="btn btn-success card-hover" />
-    </p>
+    }
+    @using (Html.BeginForm("IndexTitle", "LibararyBooks", FormMethod.Get))
+    {
+        <p>
+            <label style="color:black;">Department Name:</label>@Html.TextBox("searchtitle")
+            <input type="submit" value="Search Book By Department Name" placeholder="Enter Department Name" class="btn btn-success card-hover" />
+        </p>
 
 
-}
-@using (Html.BeginForm("IndexDepart", "LibararyBooks", FormMethod.Get))
-{
-    <p>
-        <label style="color:black;">Title Name:</label>@Html.TextBox("searchdep")
-        <input type="submit" value="Search Book By Title Name" placeholder="Enter Book Title" class="btn btn-success card-hover" />
-    </p>
+    }
+    @using (Html.BeginForm("IndexDepart", "LibararyBooks", FormMethod.Get))
+    {
+        <p>
+            <label style="color:black;">Title Name:</label>@Html.TextBox("searchdep")
+            <input type="submit" value="Search Book By Title Name" placeholder="Enter Book Title" class="btn btn-success card-hover" />
+        </p>
 
 
-}
+    }
 
-@if (TempData["msgnot"] != null)
-{
-    <div class="alert alert-dismissible alert-danger">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong style="color:black">@TempData["msgnot"]</strong>
-    </div>
+    @if (TempData["msgnot"] != null)
+    {
+        <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong style="color:black">@TempData["msgnot"]</strong>
+        </div>
 
-}
-@if (TempData["msg"] != null)
-{
-    <div class="alert alert-dismissible alert-success">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong style="color:black">@TempData["msg"]</strong>
-    </div>
+    }
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong style="color:black">@TempData["msg"]</strong>
+        </div>
 
-}
+    }*@
+<script src="~/Scripts/jquery.min.js"></script>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayName("DepartmentName")
-        </th>
-        <th>
-            @Html.DisplayName("Author")
-        </th>
-        <th>
-            @Html.DisplayName("Title")
-        </th>
-        <th>
-            @Html.DisplayName("Publisher/Place")
-        </th>
-        <th>
-            @Html.DisplayName("Program")
-        </th>
-        <th>
-            @Html.DisplayName("Year")
-        </th>
-        <th>
-            @Html.DisplayName("Pages")
-        </th>
-        <th>
-            @Html.DisplayName("Call No")
-        </th>
-        <th>
-            @Html.DisplayName("EditionVolume")
-        </th>
-        <th>
-            @Html.DisplayName("Shelf")
-        </th>
-        <th>
-            @Html.DisplayName("Date")
-        </th>
-        <th></th>
-    </tr>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<div class="form-group">
+    <a class="btn btn-primary mt-10" @Html.ActionLink("Add new", "Create")</a>
+</div>
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Department Name")
+            </th>
+            <th>
+                @Html.DisplayName("Author ")
+            </th>
+            <th>
+                @Html.DisplayName("Title ")
+            </th>
+            <th>
+                @Html.DisplayName("Publisher/Place ")
+            </th>
+            <th>
+                @Html.DisplayName("Program ")
+            </th>
+            <th>
+                @Html.DisplayName("Year ")
+            </th>
+            <th>
+                @Html.DisplayName("Pages ")
+            </th>
+            <th>
+                @Html.DisplayName("Call No")
+            </th>
+            <th>
+                @Html.DisplayName("Edition Volume")
+            </th>
+            <th>
+                @Html.DisplayName("Shelf ")
+            </th>
+            <th>
+                @Html.DisplayName("Date ")
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
 
     @foreach (var item in Model)
     {
@@ -124,42 +140,69 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PublisherPlace)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Program)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Year)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pages)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CallNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EditionVolume)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Shelf)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddedDate)
-            </td>
-            <td>
-                @Html.ActionLink("Assign", "Assign", new { id = item.Id })
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+     
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.PublisherPlace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Program)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+       
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Pages)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CallNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EditionVolume)
+        </td>
+      
 
-            </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shelf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddedDate)
+        </td>
+        <td>
+            <a class="btn btn-primary" href="@Url.Action("Assign", "LibararyBooks", new { id = item.Id })"><span class="glyphicon glyphicon-share"></span></a>
+            <a class="btn btn-warning" href="@Url.Action("Edit", "LibararyBooks", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
+            <a class="btn btn-success" href="@Url.Action("Details", "LibararyBooks", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
+            <a class="btn btn-danger" href="@Url.Action("Delete", "LibararyBooks", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
+
+        </td>
         </tr>
     }
 
 </table>
-<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
+@*<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>*@
 
 
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+@*@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+@*.................Script side datatable searching and pagination...................*@
+@section scripts{
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable()
+
+
+
+
+        });
+
+    </script>
+}

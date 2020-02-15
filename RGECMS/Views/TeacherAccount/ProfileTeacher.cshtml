@@ -3,6 +3,21 @@
     ViewBag.Title = "ProfileTeacher";
 }
 
+<style>
+    dt {
+        float: left;
+        clear: left;
+        margin-right: 5px;
+        font-weight: bold;
+        width:180px;
+        font-size:20px;
+    }
+
+    dd {
+        margin-left: 0px;
+        font-size:20px;
+    }
+</style>
 <div>
     <div class="alert alert-primary" role="alert">
         <h3>RGE College Teacher Profile Information</h3>
@@ -12,7 +27,7 @@
       
 
         <dt>
-            @Html.DisplayNameFor(model => model.TeacherName)
+            @Html.DisplayNameFor(model => model.TeacherName):
         </dt>
 
         <dd>
@@ -20,21 +35,21 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FatherName)
+            @Html.DisplayNameFor(model => model.FatherName):
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.FatherName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.teacherdesignationcategory.DepartmentName)
+            @Html.DisplayNameFor(model => model.teacherdesignationcategory.DepartmentName):
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.teacherdesignationcategory.DepartmentName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
+            @Html.DisplayNameFor(model => model.Address):
         </dt>
 
         <dd>
@@ -42,7 +57,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ContactInfo)
+            @Html.DisplayNameFor(model => model.ContactInfo):
         </dt>
 
         <dd>
@@ -50,7 +65,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Status)
+            @Html.DisplayNameFor(model => model.Status):
         </dt>
 
         <dd>
@@ -58,7 +73,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.JoiningDate)
+            @Html.DisplayNameFor(model => model.JoiningDate):
         </dt>
 
         <dd>
@@ -66,7 +81,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Specialization)
+            @Html.DisplayNameFor(model => model.Specialization):
         </dt>
 
         <dd>

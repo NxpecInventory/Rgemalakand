@@ -6,133 +6,228 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>LibarayIssuedBooks</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.BookTitle)
-        </dt>
+<div class="container">
+    <div class="form-horizontal">
+        <h4>LibarayIssuedBooks</h4>
+        <hr />
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.BookTitle)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookTitle)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.BookTitle)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BookId)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookId)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.BookId)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AssignedBy)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.BookId)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.AssignedBy)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AssignedDate)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.AssignedBy)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.AssignedDate)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.AssignedBy)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ReturnDate)
-        </dt>
+                </div>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.ReturnDate)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudedRegId)
-        </dt>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.AssignedDate)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudedRegId)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.AssignedDate)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentName)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentName)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.ReturnDate)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentDepartment)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.ReturnDate)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentDepartment)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentClass)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.StudedRegId)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentClass)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.StudedRegId)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comments)
-        </dt>
+                </div>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comments)
-        </dd>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.StudentName)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.fineComment)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.StudentName)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.fineComment)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ReceivedStatus)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.StudentDepartment)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.ReceivedStatus)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.StudentDepartment)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Receiveddate)
-        </dt>
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.StudentClass)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Receiveddate)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.StudentClass)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.fineslipid)
-        </dt>
+                </div>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.fineslipid)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.finestatus)
-        </dt>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Comments)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.finestatus)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Comments)
+                    </div>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.fineComment)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.fineComment)
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.ReceivedStatus)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.ReceivedStatus)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Receiveddate)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Receiveddate)
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.fineslipid)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.fineslipid)
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.finestatus)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.finestatus)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm ">
+                <div class="col-md-offset-2 col-md-10 ">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    </div>
+                    <p>
+                       |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>

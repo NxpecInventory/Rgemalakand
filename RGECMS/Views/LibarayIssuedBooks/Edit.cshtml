@@ -10,60 +10,66 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>LibarayIssuedBooks</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
-        @Html.HiddenFor(model => model.BookTitle)
-        @Html.HiddenFor(model => model.BookId)
-        @Html.HiddenFor(model => model.AssignedBy)
-        @Html.HiddenFor(model => model.AssignedDate)
-        @Html.HiddenFor(model => model.ReturnDate)
-        @Html.HiddenFor(model => model.StudedRegId)
-        @Html.HiddenFor(model => model.ReceivedStatus)
-        @Html.HiddenFor(model => model.finestatus)
-       
+    <div class="container">
+
+        <div class="form-horizontal">
+            <h4>LibarayIssuedBooks</h4>
+            <hr />
+            <div class="row">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.BookTitle)
+                @Html.HiddenFor(model => model.BookId)
+                @Html.HiddenFor(model => model.AssignedBy)
+                @Html.HiddenFor(model => model.AssignedDate)
+                @Html.HiddenFor(model => model.ReturnDate)
+                @Html.HiddenFor(model => model.StudedRegId)
+                @Html.HiddenFor(model => model.ReceivedStatus)
+                @Html.HiddenFor(model => model.finestatus)
 
 
-       
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
+
+
+                <div class="form-group col-sm">
+                    @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-sm" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group col-sm">
+                    @Html.LabelFor(model => model.fineComment, htmlAttributes: new { @class = "control-label col-sm" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.fineComment, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.fineComment, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-sm">
+                        @Html.LabelFor(model => model.fineslipid, htmlAttributes: new { @class = "control-label col-sm" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.fineslipid, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.fineslipid, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-sm">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Receive" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
+        }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.fineComment, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.fineComment, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.fineComment, "", new { @class = "text-danger" })
-            </div>
+        <div>
+            @Html.ActionLink("Back to List", "Index")
         </div>
-
-  
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.fineslipid, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.fineslipid, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.fineslipid, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-       
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Receive" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

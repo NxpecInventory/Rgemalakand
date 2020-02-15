@@ -4,7 +4,19 @@
 }
 
 @model IEnumerable<RGECMS.Models.TeacherCoursesRecord>
+<style>
+    table#example.dataTable thead:hover {
+        background-color: #8fa5c7;
+    }
 
+    table#example.dataTable tbody tr:hover {
+        background-color: #b6b6b8;
+    }
+
+        table#example.dataTable tbody tr:hover > .sorting_1 {
+            background-color: #b6b6b8;
+        }
+</style>
 
 <div class="alert alert-success" role="alert">
 
@@ -18,34 +30,40 @@
     <h3><strong>Total Assigned Courses Are:- @TempData["Counttt"] </strong></h3>
 
 </div>
-<table class="table-bordered table-hover table-responsive">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Teacherid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Assignedprocessid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AssignedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProgramName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClassName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubjectName)
-        </th>
-        <th></th>
-    </tr>
+<script src="~/Scripts/jquery.min.js"></script>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teacherid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assignedprocessid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProgramName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
     @foreach (var item in Model)
     {
@@ -74,16 +92,37 @@
             <td>
                 @Html.DisplayFor(modelItem => item.SubjectName)
             </td>
-          
-                <td>
 
-           
+            <td>
+
+
                 @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
-                    </td>
-            
+            </td>
+
         </tr>
     }
 
 </table>
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+@*.................Script side datatable searching and pagination...................*@
+@section scripts{
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable()
+
+
+
+
+        });
+
+    </script>
+}
 
 
