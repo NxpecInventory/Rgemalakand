@@ -502,10 +502,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-RGECMS-20181004120349.mdf" />
-    <Content Include="App_Data\aspnet-RGECMS-20181004120349_log.ldf">
-      <DependentUpon>aspnet-RGECMS-20181004120349.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -852,6 +848,7 @@
     <Content Include="Views\LibarayIssuedBooks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
