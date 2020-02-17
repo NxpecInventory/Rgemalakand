@@ -2,51 +2,68 @@
 @{
     ViewBag.Title = "FineRecords";
 }
+<style>
+    table#example.dataTable thead:hover {
+        background-color: #8fa5c7;
+    }
 
+    table#example.dataTable tbody tr:hover {
+        background-color: #b6b6b8;
+    }
 
+        table#example.dataTable tbody tr:hover > .sorting_1 {
+            background-color: #b6b6b8;
+        }
+</style>
+<script src="~/Scripts/jquery.min.js"></script>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
 <div class="alert alert-info" role="alert"><h3 style="color:black;">Rahman Group OF Education Students College Fine Records</h3></div>
 @*@if (TempData["Finerec"] == null)
-{
-    <div class="alert alert-danger" role="alert">
-        @TempData["Finerec"]
-    </div>
-}
-else
-{*@
-<table class="table-bordered table-hover table-responsive" >
-    <tr>
-        <th>
-            @Html.DisplayName("FineSlipId")
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Students.StudentName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SemesterClass)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubmissionDate)
-        </th>
-     
-        <th>
-            @Html.DisplayNameFor(model => model.FineAmount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalAmount)
-        </th>
-      
-        <th>
-            @Html.DisplayNameFor(model => model.Remarks)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Payingstatus)
-        </th>
- 
-    </tr>
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Finerec"]
+        </div>
+    }
+    else
+    {*@
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("FineSlipId")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SemesterClass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubmissionDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FineAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payingstatus)
+            </th>
+
+        </tr>
+    </thead>
 
     @foreach (var item in Model)
     {
@@ -72,17 +89,38 @@ else
             <td>
                 @Html.DisplayFor(modelItem => item.TotalAmount)
             </td>
-         
+
             <td>
                 @Html.DisplayFor(modelItem => item.Remarks)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Payingstatus)
             </td>
-           
+
         </tr>
     }
 
 </table>
 
 @*}*@
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+@*.................Script side datatable searching and pagination...................*@
+@section scripts{
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable()
+
+
+
+
+        });
+
+    </script>
+}

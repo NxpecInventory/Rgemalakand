@@ -2,119 +2,159 @@
 @{
     ViewBag.Title = "CollegeFeeRecords";
 }
+<style>
+    table#example.dataTable thead:hover {
+        background-color: #8fa5c7;
+    }
 
+    table#example.dataTable tbody tr:hover {
+        background-color: #b6b6b8;
+    }
+
+        table#example.dataTable tbody tr:hover > .sorting_1 {
+            background-color: #b6b6b8;
+        }
+    }
+</style>
+<script src="~/Scripts/jquery.min.js"></script>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
 <div class="alert alert-info" role="alert"><h3 style="color:black;">Rahman Group Of Education College Student Submitted Fees Details</h3></div>
 
 @*@if (TempData["Feerec"] == null)
-{
-    <div class="alert alert-danger" role="alert">
-        @TempData["Feerec"]
-        </div>
-}
-else
-{*@
-        <table class="table-bordered  table-hover table-responsive">
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Feerec"]
+            </div>
+    }
+    else
+    {*@
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("SlipId")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SemesterClass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubmissionDate)
+            </th>
+            <th>
+                @Html.DisplayName("AdmissionFee/TutionFee")
+            </th>
+            <th>
+                @Html.DisplayName("HostelFee")
+            </th>
+            <th>
+                @Html.DisplayName("SecCharges")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GrossTotalAmount)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payingstatus)
+            </th>
+           
+        </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>
-                    @Html.DisplayName("SlipId")
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Students.Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FatherName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SemesterClass)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SubmissionDate)
-                </th>
-                <th>
-                    @Html.DisplayName("AdmissionFee/TutionFee")
-                </th>
-                <th>
-                    @Html.DisplayName("HostelFee")
-                </th>
-                <th>
-                    @Html.DisplayName("SecCharges")
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.GrossTotalAmount)
-                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Students.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FatherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SemesterClass)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubmissionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdmissionFeeTutionFee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HostelFee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecFee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GrossTotalAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentMethod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payingstatus)
+                </td>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.PaymentMethod)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Remarks)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Year)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Payingstatus)
-                </th>
-                <th></th>
+
             </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Students.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FatherName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SemesterClass)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SubmissionDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AdmissionFeeTutionFee)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.HostelFee)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SecFee)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GrossTotalAmount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PaymentMethod)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Remarks)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Year)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Payingstatus)
-                    </td>
+        }
 
 
-                </tr>
-            }
-
-
-        </table>
+</table>
 @*}*@
-        <hr />
+<hr />
 
-        <div class="alert alert-info" role="alert"><b>In Case Of Further Fees Details Contact Your College Administration For more Details About Fees Records</b></div>
+<div class="alert alert-info" role="alert"><b>In Case Of Further Fees Details Contact Your College Administration For more Details About Fees Records</b></div>
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+@*.................Script side datatable searching and pagination...................*@
+@section scripts{
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable()
+
+
+
+
+        });
+
+    </script>
+}

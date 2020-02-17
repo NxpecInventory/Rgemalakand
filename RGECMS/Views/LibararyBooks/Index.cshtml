@@ -23,9 +23,11 @@
             .pagination a:hover:not(.active) {
                 background-color: dodgerblue;
             }
+
     table#example.dataTable thead:hover {
         background-color: #8fa5c7;
     }
+
     table#example.dataTable tbody tr:hover {
         background-color: #b6b6b8;
     }
@@ -140,43 +142,43 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
-     
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.PublisherPlace)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Program)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Year)
-        </td>
-       
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.Pages)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CallNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EditionVolume)
-        </td>
-      
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Shelf)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddedDate)
-        </td>
-        <td>
-            <a class="btn btn-primary" href="@Url.Action("Assign", "LibararyBooks", new { id = item.Id })"><span class="glyphicon glyphicon-share"></span></a>
-            <a class="btn btn-warning" href="@Url.Action("Edit", "LibararyBooks", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
-            <a class="btn btn-success" href="@Url.Action("Details", "LibararyBooks", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
-            <a class="btn btn-danger" href="@Url.Action("Delete", "LibararyBooks", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
 
-        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherPlace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Program)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Pages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CallNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EditionVolume)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Shelf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddedDate)
+            </td>
+            <td>
+                <a class="btn btn-primary" href="@Url.Action("Assign", "LibararyBooks", new { id = item.Id })"><span class="glyphicon glyphicon-share"></span></a>
+                <a class="btn btn-warning" href="@Url.Action("Edit", "LibararyBooks", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
+                <a class="btn btn-success" href="@Url.Action("Details", "LibararyBooks", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
+                <a class="btn btn-danger" href="@Url.Action("Delete", "LibararyBooks", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
+
+            </td>
         </tr>
     }
 
