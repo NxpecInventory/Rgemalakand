@@ -10,27 +10,39 @@
     </h3>
 </div>
 
-<div>
-    <h4 style="color:black;">College Notification</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NotificationMessage)
-        </dt>
+<div class="container">
+    <div class="form-horizontal">
+        <h4 style="color:black;">College Notification</h4>
+        <hr />
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.NotificationMessage)
+                </div>
 
-        <dd class="alert alert-success">
-            <h4 style="color:black;">   @Html.DisplayFor(model => model.NotificationMessage)</h4>
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        <h4 style="color:black;">   @Html.DisplayFor(model => model.NotificationMessage)</h4>
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NotificationDate)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.NotificationDate)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.NotificationDate)
+                </div>
 
-        @*<dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.NotificationDate)
+                    </div>
+
+                </div>
+            </div>
+            </div>
+
+            @*<dt>
             @Html.DisplayNameFor(model => model.NotificationSpecific)
         </dt>
 
@@ -54,9 +66,10 @@
             @Html.DisplayFor(model => model.status)
         </dd>*@
 
-    </dl>
-</div>
-<p>
+           
+        </div>
+    </div>
 
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="form-group">
+    <a class="btn btn-danger mt-10" href="@Url.Action("Index", "Notifications")">Back to List</a>
+</div>

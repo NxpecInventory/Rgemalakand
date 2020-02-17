@@ -3,6 +3,23 @@
 @{
     ViewBag.Title = "Index";
 }
+<style>
+    table#example.dataTable thead:hover {
+        background-color: #8fa5c7;
+    }
+
+    table#example.dataTable tbody tr:hover {
+        background-color: #b6b6b8;
+    }
+
+        table#example.dataTable tbody tr:hover > .sorting_1 {
+            background-color: #b6b6b8;
+        }
+</style>
+<script src="~/Scripts/jquery.min.js"></script>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
 <div class="alert alert-primary" role="alert">
     <h3 style="color:black;">
@@ -11,118 +28,141 @@
 </div>
 @if (User.IsInRole("Administration"))
 {
-<p >
-    @Html.ActionLink("Create New Notification", "Create")
-</p>
+<div class="form-group">
+    <a class="btn btn-primary mt-10"href=" @Url.Action("Create", "Notifications")">Add new Notification</a>
+</div>
 }
-@if (TempData["chck"]==null)
+@if (TempData["chck"] == null)
 {
     <div class="alert alert-success" role="alert">
         <h5 style="color:black;">
-         You Do Not Have New Notifications From Rahman Group Of Education College!
+            You Do Not Have New Notifications From Rahman Group Of Education College!
         </h5>
     </div>
     @Html.ActionLink("View Previuos Notifications", "Previuos", new { @class = "btn btn-primary" })
 }
 else
 {
-<table class="table-bordered table-hover table-responsive">
-@if (User.IsInRole("Administration"))
-{
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NotificationMessage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NotificationDate)
-        </th>
-        <th>
-            @Html.DisplayName("Notification Alert For")
-        </th>
-        <th>
-            @Html.DisplayName("General Notification")
-        </th>
-       
-        <th></th>
-    </tr>
-}
-else
-{
-    <tr>
-       
-        <th>
-            @Html.DisplayNameFor(model => model.NotificationDate)
-        </th>
-        <th>
-            @Html.DisplayName("Notification Alert For")
-        </th>
-     
-        <th>
-            @Html.DisplayNameFor(model => model.status)
-        </th>
-        <th></th>
-    </tr>
-}
-@foreach (var item in Model)
-{
-    if (User.IsInRole("Administration"))
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NotificationMessage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NotificationDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NotificationSpecific)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NotificationAll)
-        </td>
-       
-     
-        <td>
-    
-          
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
-            
-        </td>
-    
-    
-    </tr>
-    }
-    else
-    {
-        if (item.status == "Unread")
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        @if (User.IsInRole("Administration"))
         {
-            <tr class="alert alert-danger">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NotificationMessage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NotificationDate)
+                    </th>
+                    <th>
+                        @Html.DisplayName("Notification Alert For")
+                    </th>
+                    <th>
+                        @Html.DisplayName("General Notification")
+                    </th>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.NotificationDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NotificationSpecific)
-                </td>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+        }
+        else
+        {
+            <tr>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.status)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.NotificationDate)
+                </th>
+                <th>
+                    @Html.DisplayName("Notification Alert For")
+                </th>
 
-                <td>
-
-                    @Html.ActionLink("See Notification", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })
-
-
-                </td>
-
-
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                <th></th>
             </tr>
         }
+        @foreach (var item in Model)
+        {
+            if (User.IsInRole("Administration"))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NotificationMessage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NotificationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NotificationSpecific)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NotificationAll)
+                    </td>
+
+
+                    <td>
+
+
+                        <a class="btn btn-danger" href="@Url.Action("Delete", "Notifications", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
+
+                    </td>
+
+
+                </tr>
+            }
+            else
+            {
+                if (item.status == "Unread")
+                {
+                    <tr class="alert alert-danger">
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NotificationDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NotificationSpecific)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.status)
+                        </td>
+
+                        <td>
+
+                            @Html.ActionLink("See Notification", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })
+
+
+                        </td>
+
+
+                    </tr>
+                }
+            }
+
+        }
+
+
+    </table>
+    <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+    <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+    @*.................Script side datatable searching and pagination...................*@
+    @section scripts{
+        <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('#example').DataTable()
+
+
+
+
+            });
+
+        </script>
     }
-
-}
-
-
-</table>
 }

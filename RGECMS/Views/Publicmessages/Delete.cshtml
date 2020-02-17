@@ -7,44 +7,73 @@
 <h2>Delete Messages Confirmation</h2>
 
 <h3>Are you sure you want to delete this Message?</h3>
-<div>
-    <h4>Messages</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Fullname)
-        </dt>
+<div class="container">
+    <div class="form-horizontal">
+        <h4>Messages</h4>
+        <hr />
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <div class="control-label col-sm-4">
+                    @Html.DisplayNameFor(model => model.Fullname)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fullname)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Fullname)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Message)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Message)
-        </dd>
+            <div class="form-group col-sm-4">
+                <div class="control-label col-sm-4">
+                    @Html.DisplayNameFor(model => model.Message)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MessageDate)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Message)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.MessageDate)
-        </dd>
+                </div>
+            </div>
 
-     
+            <div class="form-group col-sm-4">
+                <div class="control-label col-sm-4">
+                    @Html.DisplayNameFor(model => model.MessageDate)
+                </div>
 
-    </dl>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.MessageDate)
+                    </div>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+                </div>
+            </div>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
-            @Html.ActionLink("Back to List", "Index")
         </div>
-    }
+    </div>
 </div>
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="form-horizontal">
+            <div class="form-group col-sm-4">
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <a class="btn btn-danger mt-10" href="@Url.Action("Index", "Publicmessages")">Back to List</a>
+    </div>
+}
+

@@ -6,52 +6,51 @@
 
 <h2>Details</h2>
 
-    <div class="container">
-        <div class="form-horizontal">
-            <h4>LibarayShelfCat</h4>
-            <hr />
+<div class="container">
+    <div class="form-horizontal">
+        <h4>LibarayShelfCat</h4>
+        <hr />
 
-            <div class="row">
-                <div class="form-group col-sm">
-                    <div class="control-label col-sm">
-                        @Html.DisplayNameFor(model => model.ShelfName)
-                    </div>
-
-                    <div class="col-md-10">
-                        <div class="form-control">
-                            @Html.DisplayFor(model => model.ShelfName)
-
-                        </div>
-
-                    </div>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.ShelfName)
                 </div>
 
-                <div class="form-group col-sm">
-                    <div class="control-label col-sm">
-                        @Html.DisplayNameFor(model => model.Description)
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.ShelfName)
+
                     </div>
 
-                    <div class="col-md-10">
-                        <div class="form-control">
-                            @Html.DisplayFor(model => model.Description)
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="form-group col-sm ">
-                    <div class="col-md-offset-2 col-md-10 ">
-                        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
 
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Description)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Description)
                     </div>
                 </div>
-               
             </div>
         </div>
+        <div class="row">
+            <div class="form-group col-sm ">
+                <div class="col-md-offset-2 col-md-10 ">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
 
+                </div>
+            </div>
+
+        </div>
     </div>
 
-<p>
-    |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</div>
+
+<div class="form-group">
+    <a class="btn btn-danger mt-10" href="@Url.Action("Index", "LibarayShelfCats")">Back to List</a>
+</div>

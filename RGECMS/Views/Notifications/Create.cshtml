@@ -10,59 +10,65 @@
     </h3>
 </div>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4 style="color:black;"> Create College Notification</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.NotificationMessage, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NotificationMessage, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NotificationMessage, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NotificationDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NotificationDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NotificationDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NotificationSpecific, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.NotificationSpecific, new SelectList(ViewBag.RolesList, "Value", "Text"), new { htmlAttributes = new { @class = "form-control" } })
-
-            </div>
-        </div>
-
-        @*<div class="form-group">
-            <div class="alert alert-primary" role="alert">
-                <h5>Leave Empty this box if(its is not General Notification other wise write (For All)in the textbox.)</h5>
+    <div class="container">
+        <div class="form-horizontal">
+            <h4 style="color:black;"> Create College Notification</h4>
+            <hr />
+            <div class="row">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group col-sm">
+                    @Html.LabelFor(model => model.NotificationMessage, htmlAttributes: new { @class = "control-label col-sm" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NotificationMessage, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NotificationMessage, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            @Html.Label("Post To All College", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.NotificationAll, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.NotificationAll, "", new { @class = "text-danger" })
+
+                <div class="form-group col-sm">
+                    @Html.LabelFor(model => model.NotificationDate, htmlAttributes: new { @class = "control-label col-sm" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NotificationDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NotificationDate, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>*@
 
-      
+                <div class="form-group col-sm">
+                    @Html.LabelFor(model => model.NotificationSpecific, htmlAttributes: new { @class = "control-label col-sm" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.NotificationSpecific, new SelectList(ViewBag.RolesList, "Value", "Text"), new { htmlAttributes = new { @class = "form-control" } })
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Post Notification" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                <div class="alert alert-primary" role="alert">
+                    <h5>Leave Empty this box if(its is not General Notification other wise write (For All)in the textbox.)</h5>
+                    </div>
+                @Html.Label("Post To All College", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NotificationAll, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NotificationAll, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+
+            <div class="row">
+                <div class="form-group col-sm">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save Update Book Record" class="btn btn-default" />
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+
+<div class="form-group">
+    <a class="btn btn-danger mt-10" href="@Url.Action("Index", "Notifications")">Back to List</a>
 </div>

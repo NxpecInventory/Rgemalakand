@@ -9,61 +9,98 @@
  Public Messages To Rahman Group Of Education College Batkhela,Malakand
     </h4>
 </div>
-<div>
-  <h5 style="color:black;">Message To Rahman Group Of Education College</h5>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Fullname)
-        </dt>
+<div class="container">
+    <div class="form-horizontal">
+        <h5 style="color:black;">Message To Rahman Group Of Education College</h5>
+        <hr />
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Fullname)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fullname)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Fullname)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Email)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.phoneno)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Email)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.phoneno)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Message)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.phoneno)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Message)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.phoneno)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MessageDate)
-        </dt>
+                </div>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.MessageDate)
-        </dd>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Message)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.status)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Message)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.status)
-        </dd>
+                </div>
+            </div>
 
-    </dl>
-</div>
-<p>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.MessageDate)
+                </div>
 
-    @Html.ActionLink("Back to Message List", "Index")
-</p>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.MessageDate)
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.status)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.status)
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+        <div class="form-group col-sm">
+            <a class="btn btn-danger mt-10" @Html.ActionLink("Back to Message List", "Index")</a>
+        </div>
+        </div>
+    </div>
+    </div>
+       

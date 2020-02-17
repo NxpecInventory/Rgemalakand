@@ -23,118 +23,157 @@
             .pagination a:hover:not(.active) {
                 background-color: dodgerblue;
             }
+
+    table#example.dataTable thead:hover {
+        background-color: #8fa5c7;
+    }
+
+    table#example.dataTable tbody tr:hover {
+        background-color: #b6b6b8;
+    }
+
+        table#example.dataTable tbody tr:hover > .sorting_1 {
+            background-color: #b6b6b8;
+        }
 </style>
 
+<script src="~/Scripts/jquery.min.js"></script>
 
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
 <h3 style="color:black;">RGE College Student Registration Pannel</h3>
 <div class="alert alert-info" role="alert">
     <h4 style="color:black;">Register New Student By Providing Below Details Please Fill The Registration For Deleting And Updating Any Record You Need Administration Permissions.</h4>
 </div>
-@if (TempData["regsuccess"]!=null)
+@if (TempData["regsuccess"] != null)
 {
-<div class="alert alert-success" role="alert">
-    <h5 style="color:black;">Student Is Registered SuccessFully In Rge College Record with Following Details {@TempData["regsuccess"]}</h5>
-</div>
+    <div class="alert alert-success" role="alert">
+        <h5 style="color:black;">Student Is Registered SuccessFully In Rge College Record with Following Details {@TempData["regsuccess"]}</h5>
+    </div>
 }
-@using (Html.BeginForm("index", "Students", FormMethod.Get))
-{
-    <p>
-        <label style="color:black;">Student Registration/Enrollment No:</label>@Html.TextBox("search")
-        <input type="submit" value="Search Student" class="btn btn-success card-hover" />
-    </p>
+@*@using (Html.BeginForm("index", "Students", FormMethod.Get))
+    {
+        <p>
+            <label style="color:black;">Student Registration/Enrollment No:</label>@Html.TextBox("search")
+            <input type="submit" value="Search Student" class="btn btn-success card-hover" />
+        </p>
 
 
-}
+    }*@
 <div class="alert alert-success" role="alert">
     <h4 style="color:black;">Total Students Found Are:- @TempData["Totaluser"]  </h4>
 </div>
 
 
-<p>
-    @Html.ActionLink("Register New Student", "Create")
-</p>
-<table class="table-bordered table-hover table-responsive">
-    <tr>
-        <th>
-            @Html.DisplayName("RegNo")
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Classes.ClassName)
-        </th>*@
-        <th>
-            @Html.DisplayName("Student Name")
-        </th>
-        <th>
-            @Html.DisplayName("Gurdian Name")
-        </th>
-        <th>
-            @Html.DisplayName("Address")
-        </th>
-        <th>
-            @Html.DisplayName("Contact Information")
-        </th>
-        <th>
-            @Html.DisplayName("Current Sem/Class")
-        </th>
-      
-        <th>
-            @Html.DisplayName("Admission Date")
-        </th>
-        <th>
-            @Html.DisplayName("Program")
-        </th>
-        <th></th>
-    </tr>
+<div class="form-group">
+    <a class="btn btn-primary mt-10" @Html.ActionLink("Register New Student", "Create")</a>
+</div>
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("RegNo")
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Classes.ClassName)
+                </th>*@
+            <th>
+                @Html.DisplayName("Student Name")
+            </th>
+            <th>
+                @Html.DisplayName("Gurdian Name")
+            </th>
+            <th>
+                @Html.DisplayName("Address")
+            </th>
+            <th>
+                @Html.DisplayName("Contact Information")
+            </th>
+            <th>
+                @Html.DisplayName("Current Sem/Class")
+            </th>
 
-@foreach (var item in Model) {
-    <tr>
-     
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GuardianName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactInfo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentSemclass)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddmissionDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Programs.ProgramName)
-        </td>
-        @if (User.IsInRole("Administration"))
-        {
+            <th>
+                @Html.DisplayName("Admission Date")
+            </th>
+            <th>
+                @Html.DisplayName("Program")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
-                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
-        }
-        else
-        {
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
-            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GuardianName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentSemclass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddmissionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Programs.ProgramName)
+            </td>
+            @if (User.IsInRole("Administration"))
+            {
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a class="btn btn-success" href="@Url.Action("Details", "Students", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a class="btn btn-success" href="@Url.Action("Details", "Students", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
+                </td>
             }
 
-</tr>
-}
+        </tr>
+    }
 
 </table>
-<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
+@*<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
 
 
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+@*.................Script side datatable searching and pagination...................*@
+@section scripts{
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable()
+
+
+
+
+        });
+
+    </script>
+}
