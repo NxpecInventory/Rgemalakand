@@ -1,120 +1,163 @@
 ﻿@model PagedList.IPagedList<RGECMS.Models.StudentCourseRegistrationHistory>
 @using PagedList.Mvc;
 <style>
-    .pagination {
-        /*display: inline-block;*/
+    /*.pagination {
+        /*display: inline-block;
     }
 
-        .pagination a {
+        /*.pagination a {
             color: black;
             padding: 8px 16px;
             text-decoration: none;
-        }
+        }*/
 
-            .pagination a.active {
+    /*.pagination a.active {
                 background-color: #4CbF50;
                 color: white;
-            }
+            }*/
 
-            .pagination a:hover:not(.active) {
-                background-color: dodgerblue;
-            }
+
+
+    table#example.dataTable thead:hover {
+        background-color: #8fa5c7;
+    }
+
+    table#example.dataTable tbody tr:hover {
+        background-color: #b6b6b8;
+    }
+
+        table#example.dataTable tbody tr:hover > .sorting_1 {
+            background-color: #b6b6b8;
+        }
 </style>
+
 
 @{
     ViewBag.Title = "Index";
 }
-
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <h2 style="color:black;">College Students Courses Registration Records History</h2>
 
 <div class="alert alert-success" role="alert">
     <h4 style="color:black;">Total Student Class/Semester Registration Record Found Are:- @TempData["Totaluser"]  </h4>
 </div>
-@using (Html.BeginForm("index", "StudentCourseRegistrationHistories", FormMethod.Get))
-{
-    <p>
-        <label style="color:black;">Student Registration No:</label>@Html.TextBox("search")
-        <input type="submit" value="Search Student Records" class="btn btn-success card-hover" />
-    </p>
+@*</div>
+    @using (Html.BeginForm("index", "StudentCourseRegistrationHistories", FormMethod.Get))
+    {
+        <p>
+            <label style="color:black;">Student Registration No:</label>@Html.TextBox("search")
+            <input type="submit" value="Search Student Records" class="btn btn-success card-hover" />
+        </p>
 
 
+    }*@
+<div style="width:100%; overflow:auto">
+
+    <table id="example" class="table  table-bordered">
+
+        <thead>
+
+            <tr>
+                <th>
+                    @Html.DisplayName("Assigned Date")
+                </th>
+                <th>
+                    @Html.DisplayName("Assigned Process Id")
+                </th>
+                <th>
+                    @Html.DisplayName("Student Reg No")
+                </th>
+                <th>
+                    @Html.DisplayName("Student Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Registration Year")
+                </th>
+
+                <th>
+                    @Html.DisplayName("Program Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Class Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Comments")
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Regid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Studentid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.year)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProgramName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comments)
+                </td>
+                @if (User.IsInRole("Administration"))
+                {
+                    <td>
+                        <a class="btn btn-success" href="@Url.Action("Details", "StudentCourseRegistrationHistories", new { id = item.id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a>
+                        <a class="btn btn-danger" href="@Url.Action("Delete", "StudentCourseRegistrationHistories", new { id = item.id })"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a class="btn btn-success" href="@Url.Action("Details", "StudentCourseRegistrationHistories", new { id = item.id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a>
+                    </td>
+                }
+            </tr>
+        }
+
+    </table>
+</div>
+@*<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
+
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+@*.................Script side datatable searching and pagination...................*@
+@section scripts{
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable()
+
+
+
+
+        });
+
+    </script>
 }
-<table class="table-bordered table-hover table-responsive">
-    <tr>
-        <th>
-            @Html.DisplayName("Assigned Date")
-        </th>
-        <th>
-            @Html.DisplayName("Assigned Process Id")
-        </th>
-        <th>
-            @Html.DisplayName("Student Reg No")
-        </th>
-        <th>
-            @Html.DisplayName("Student Name")
-        </th>
-        <th>
-            @Html.DisplayName("Registration Year")
-        </th>
-
-        <th>
-            @Html.DisplayName("Program Name")
-        </th>
-        <th>
-            @Html.DisplayName("Class Name")
-        </th>
-        <th>
-            @Html.DisplayName("Comments")
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssignedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Regid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Studentid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.year)
-        </td>
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.ProgramName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClassName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comments)
-        </td>
-       @if (User.IsInRole("Administration"))
-       {
-        <td>
-
-            @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
-            @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
-        </td>
-       }
-       else
-       {
-        <td>
-            @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
-        </td>
-            }
-</tr>
-}
-
-</table>
-<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
-
-
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

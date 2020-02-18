@@ -69,111 +69,113 @@
 <div class="form-group">
     <a class="btn btn-primary mt-10" @Html.ActionLink("Register New Student", "Create")</a>
 </div>
-<table id="example" class="table table-striped table-bordered" style="width:100%">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayName("RegNo")
-            </th>
-            @*<th>
-                    @Html.DisplayNameFor(model => model.Classes.ClassName)
-                </th>*@
-            <th>
-                @Html.DisplayName("Student Name")
-            </th>
-            <th>
-                @Html.DisplayName("Gurdian Name")
-            </th>
-            <th>
-                @Html.DisplayName("Address")
-            </th>
-            <th>
-                @Html.DisplayName("Contact Information")
-            </th>
-            <th>
-                @Html.DisplayName("Current Sem/Class")
-            </th>
+<div style="width:100%; overflow:auto">
+    <table id="example" class="table table-striped table-bordered" >
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("RegNo")
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.Classes.ClassName)
+                    </th>*@
+                <th>
+                    @Html.DisplayName("Student Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Gurdian Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Address")
+                </th>
+                <th>
+                    @Html.DisplayName("Contact Information")
+                </th>
+                <th>
+                    @Html.DisplayName("Current Sem/Class")
+                </th>
 
-            <th>
-                @Html.DisplayName("Admission Date")
-            </th>
-            <th>
-                @Html.DisplayName("Program")
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+                <th>
+                    @Html.DisplayName("Admission Date")
+                </th>
+                <th>
+                    @Html.DisplayName("Program")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
 
-    @foreach (var item in Model)
-    {
-        <tr>
+        @foreach (var item in Model)
+        {
+            <tr>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StudentName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GuardianName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactInfo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentSemclass)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddmissionDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Programs.ProgramName)
-            </td>
-            @if (User.IsInRole("Administration"))
-            {
                 <td>
-                    <a class="btn btn-warning" href="@Url.Action("Edit", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
-                    <a class="btn btn-success" href="@Url.Action("Details", "Students", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
-                    <a class="btn btn-danger" href="@Url.Action("Delete", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
+                    @Html.DisplayFor(modelItem => item.Id)
                 </td>
-            }
-            else
-            {
                 <td>
-                    <a class="btn btn-warning" href="@Url.Action("Edit", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
-                    <a class="btn btn-success" href="@Url.Action("Details", "Students", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
+                    @Html.DisplayFor(modelItem => item.StudentName)
                 </td>
-            }
+                <td>
+                    @Html.DisplayFor(modelItem => item.GuardianName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactInfo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentSemclass)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddmissionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Programs.ProgramName)
+                </td>
+                @if (User.IsInRole("Administration"))
+                {
+                    <td>
+                        <a class="btn btn-warning" href="@Url.Action("Edit", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="btn btn-success" href="@Url.Action("Details", "Students", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
+                        <a class="btn btn-danger" href="@Url.Action("Delete", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a class="btn btn-warning" href="@Url.Action("Edit", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="btn btn-success" href="@Url.Action("Details", "Students", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
+                    </td>
+                }
 
-        </tr>
+            </tr>
+        }
+
+    </table>
+    </div>
+    @*<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
+
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+    <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+    <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+    @*.................Script side datatable searching and pagination...................*@
+    @section scripts{
+        <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('#example').DataTable()
+
+
+
+
+            });
+
+        </script>
     }
-
-</table>
-@*<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
-
-
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
-<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
-<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
-@*.................Script side datatable searching and pagination...................*@
-@section scripts{
-    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
-
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable()
-
-
-
-
-        });
-
-    </script>
-}

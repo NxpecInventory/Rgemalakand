@@ -7,68 +7,69 @@
 <h2 style="color:black;"> Student Registered Classes/Semester Bucket</h2>
 
 
-<table class="table-bordered table-hover table table-responsive">
-    <tr>
-        <th>
-            @Html.DisplayName("Registration Date")
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Regid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Studentid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StudentName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.year)
-        </th>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.ProgramId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClassId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comments)
-        </th>
-        <th></th>
-    </tr>
+    <table class="table-bordered table-hover table table-responsive">
+        <tr>
+            <th>
+                @Html.DisplayName("Registration Date")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Regid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Studentid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.year)
+            </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssignedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Regid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Studentid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.year)
-        </td>
-      
-        <td>
-            @Html.DisplayFor(modelItem => item.ProgramId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClassId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comments)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
-         
-        </td>
-    </tr>
-}
+            <th>
+                @Html.DisplayNameFor(model => model.ProgramId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Regid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Studentid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.year)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProgramId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comments)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
+
+                </td>
+            </tr>
+        }
+
+    </table>

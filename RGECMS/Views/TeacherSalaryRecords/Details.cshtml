@@ -6,109 +6,180 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>TeacherSalaryRecords</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Teachers.TeacherName)
-        </dt>
+<div class="container">
+    <div class="form-horizontal">
+        <h4>TeacherSalaryRecords</h4>
+        <hr />
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Teachers.TeacherName)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Teachers.TeacherName)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Teachers.TeacherName)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Name)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FatherName)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Name)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.FatherName)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SubmissionDate)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.FatherName)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.SubmissionDate)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.FatherName)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PayingAmount)
-        </dt>
+                </div>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.PayingAmount)
-        </dd>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.SubmissionDate)
+                </div>
 
-        <dt>
-            @Html.DisplayName("Extra Classes Amount")
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.SubmissionDate)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.OverTime)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PaymentMethod)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.PayingAmount)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.PaymentMethod)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.PayingAmount)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.checkNo)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.checkNo)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayName("Extra Classes Amount")
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GrossTotalAmount)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.OverTime)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.GrossTotalAmount)
-        </dd>
+                </div>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Recievingstatus)
-        </dt>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.PaymentMethod)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Recievingstatus)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.PaymentMethod)
+                    </div>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Year)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.checkNo)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Year)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.checkNo)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.GrossTotalAmount)
+                    @Html.DisplayNameFor(model => model.checkNo)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Remarks)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.GrossTotalAmount)
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Remarks)
-        </dd>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Recievingstatus)
+                </div>
 
-    </dl>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Recievingstatus)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Year)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Year)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Remarks)
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.Remarks)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm ">
+                    <div class="col-md-offset-2 col-md-10 ">
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+            </div>
+<div class="form-group">
+    <a class="btn btn-danger mt-10" href="@Url.Action("Index", "TeacherSalaryRecords")">Back to List</a>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

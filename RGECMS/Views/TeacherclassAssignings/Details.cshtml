@@ -7,60 +7,97 @@
  
 <h2 style="color:black;">Assigned Subjects Program Class Details</h2>
     </div>
-<div>
- 
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Program.ProgramName)
-        </dt>
+<div class="container">
+    <div class="form-horizontal">
 
-        <dd>
-            @Html.DisplayFor(model => model.Program.ProgramName)
-        </dd>
+        <hr />
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Program.ProgramName)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Teacherid)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Program.ProgramName)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Teacherid)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Teacherid)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Teacherid)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AssignedDate)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.AssignedDate)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Name)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClassName)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Name)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClassName)
-        </dd>
+                </div>
+            </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SubjectName)
-        </dt>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.AssignedDate)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.SubjectName)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.AssignedDate)
+                    </div>
 
-    </dl>
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.ClassName)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.ClassName)
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.SubjectName)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.SubjectName)
+                    </div>
+
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+     
+      
+<div class="form-group">
+    <a class="btn btn-danger mt-10" href="@Url.Action("Index", "TeacherclassAssignings")">Back to List</a>
 </div>
-<p>
-    @Html.ActionLink("Back to Main List", "Index")
-</p>
