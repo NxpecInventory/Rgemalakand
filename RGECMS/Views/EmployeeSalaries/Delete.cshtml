@@ -7,114 +7,202 @@
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>EmployeeSalary</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CollegeEmployees.EmployeeName)
-        </dt>
+<div class="container">
+    <div class="form-horizontal">
+        <h4>EmployeeSalary</h4>
+        <hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.CollegeEmployees.EmployeeName)
-        </dd>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.CollegeEmployees.EmployeeName)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.CollegeEmployees.EmployeeName)
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FatherName)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.FatherName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SubmissionDate)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Name)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.SubmissionDate)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Name)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PayingAmount)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.PayingAmount)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.FatherName)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.OverTime)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.FatherName)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.OverTime)
-        </dd>
+                </div>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PaymentMethod)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PaymentMethod)
-        </dd>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.SubmissionDate)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.checkNo)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.SubmissionDate)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.checkNo)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GrossTotalAmount)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.PayingAmount)
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.GrossTotalAmount)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.PayingAmount)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Recievingstatus)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Recievingstatus)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.OverTime)
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Year)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.OverTime)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Year)
-        </dd>
+                </div>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Remarks)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Remarks)
-        </dd>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.PaymentMethod)
+                </div>
 
-    </dl>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.PaymentMethod)
 
-    @using (Html.BeginForm()) {
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.checkNo)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.checkNo)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.GrossTotalAmount)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.GrossTotalAmount)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    @Html.DisplayNameFor(model => model.Recievingstatus)
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Recievingstatus)
+                    </div>
+                </div>
+            </div>
+
+            
+                <div class="form-group col-sm">
+                    <div class="control-label col-sm">
+                        <div class=" font-weight-bold">
+                            @Html.DisplayNameFor(model => model.Year)
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.Year)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm">
+                    <div class="control-label col-sm">
+                        @Html.DisplayNameFor(model => model.Remarks)
+                    </div>
+                   
+                
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.Remarks)
+                        </div>
+                    </div>
+                    </div>
+          
+
+                </div>
+            </div>
+        </div>
+
+ 
+
+
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="container">
+            <div class="form-horizontal">
+                <div class="form-group col-sm-4">
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-default" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-danger mt-10" href="@Url.Action("Index", "EmployeeSalaries")">Back to List</a>
         </div>
     }
-</div>
+

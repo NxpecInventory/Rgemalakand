@@ -7,58 +7,110 @@
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>transactionrecords</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TransactionDate)
-        </dt>
+<div class="container">
+    <div class="form-horizontal">
+        <h4>transactionrecords</h4>
+        <hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.TransactionDate)
-        </dd>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.TransactionDate)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TransactionType)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.TransactionDate)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TransactionType)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonId)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.TransactionType)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.PersonId)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.TransactionType)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TransactionYear)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TransactionYear)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.PersonId)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TransactionAmount)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.PersonId)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TransactionAmount)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                </div>
+            </div>
         </div>
-    }
+
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.TransactionYear)
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.TransactionYear)
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm-4">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.TransactionAmount)
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.TransactionAmount)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="form-horizontal">
+            <div class="form-group col-sm-4">
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <a class="btn btn-primary mt-10" href="@Url.Action("Index", "transactionrecords")">Back to List</a>
+    </div>
+}
+    

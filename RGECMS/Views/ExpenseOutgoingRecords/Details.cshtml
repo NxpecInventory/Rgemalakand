@@ -6,69 +6,135 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>ExpenseOutgoingRecords</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TransactionDate)
-        </dt>
+<div class="container">
+    <div class="form-horizontal">
+        <h4>ExpenseOutgoingRecords</h4>
+        <hr />
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.TransactionDate)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TransactionDate)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.TransactionDate)
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TransactionType)
-        </dt>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TransactionType)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RecordId)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.TransactionType)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.RecordId)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.TransactionType)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TransactionYear)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TransactionYear)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.RecordId)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TransactionAmount)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.RecordId)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TransactionAmount)
-        </dd>
+                </div>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonName)
-        </dt>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.TransactionYear)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.PersonName)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.TransactionYear)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Personid)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Personid)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.TransactionAmount)
+                    </div>
+                </div>
 
-    </dl>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.TransactionAmount)
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.PersonName)
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.PersonName)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Personid)
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Personid)
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group col-sm ">
+                <div class="col-md-offset-2 col-md-10 ">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+        </div>
+<div class="form-group">
+    <a class="btn btn-danger mt-10" href="@Url.Action("Index", "ExpenseOutgoingRecords")">Back to List</a>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

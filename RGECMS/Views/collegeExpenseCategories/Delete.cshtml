@@ -6,27 +6,49 @@
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>collegeExpenseCategories</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Categories)
-        </dt>
+<h3 class="text-danger">Are you sure you want to delete this?</h3>
+<div class="container">
+    <div class="form-horizontal">
+        <h4>College Expense Categories</h4>
+        <hr />
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Categories)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Categories)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Categories)
 
-    </dl>
+                    </div>
 
-    @using (Html.BeginForm()) {
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="container">
+            <div class="form-horizontal">
+                <div class="form-group col-sm-4">
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-primary mt-10" href="@Url.Action("Index", "collegeExpenseCategories")">Back to List</a>
         </div>
     }
-</div>
+

@@ -6,21 +6,38 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>employeeDesignationCategory</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DesignationName)
-        </dt>
+<div class="container">
+    <div class="form-horizontal">
+        <h4>employeeDesignationCategory</h4>
+        <hr />
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.DesignationName)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.DesignationName)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.DesignationName)
+                    </div>
 
-    </dl>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group col-sm ">
+                <div class="col-md-offset-2 col-md-10 ">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+<div class="form-group">
+    <a class="btn btn-danger mt-10" href="@Url.Action("Index", "employeeDesignationCategories")">Back to List</a>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
