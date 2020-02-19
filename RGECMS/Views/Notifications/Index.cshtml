@@ -42,8 +42,9 @@
     @Html.ActionLink("View Previuos Notifications", "Previuos", new { @class = "btn btn-primary" })
 }
 else
-{
-    <table id="example" class="table table-striped table-bordered" style="width:100%">
+{ 
+    <div style="width:100%; overflow:auto">
+    <table id="example" class="table table-striped table-bordered" >
         @if (User.IsInRole("Administration"))
         {
             <thead>
@@ -144,6 +145,7 @@ else
 
 
     </table>
+        </div>
     <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
     <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
     @*.................Script side datatable searching and pagination...................*@
@@ -165,4 +167,4 @@ else
 
         </script>
     }
-}
+    }

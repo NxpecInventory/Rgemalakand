@@ -6,61 +6,118 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>AttendanceRecordsdata</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Attendanceoptions.Options)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Attendanceoptions.Options)
-        </dd>
+<div class="container">
+    <div class="form-horizontal">
+        <h4>AttendanceRecordsdata</h4>
+        <hr />
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Attendanceoptions.Options)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Studentid)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Attendanceoptions.Options)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Studentid)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Studentid)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Studentid)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClassId)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClassId)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.dataofattendance)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Name)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.dataofattendance)
-        </dd>
+                </div>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Remarks)
-        </dt>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.ClassId)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Remarks)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.ClassId)
+                    </div>
 
-    </dl>
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.dataofattendance)
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.dataofattendance)
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Remarks)
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Remarks)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm ">
+                <div class="col-md-offset-2 col-md-10 ">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+         
+       
+<div class="form-group">
+    <a class="btn btn-danger mt-10" href="@Url.Action("Index", "AttendanceRecordsdatas")">Back to List</a>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
