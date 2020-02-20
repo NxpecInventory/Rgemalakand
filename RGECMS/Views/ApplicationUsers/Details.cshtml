@@ -6,115 +6,214 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>ApplicationUser</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.RegistrationNo)
-        </dt>
+<div class="container">
+    <div class="form-horizontal">
+        <h4>ApplicationUser</h4>
+        <hr />
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.RegistrationNo)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.RegistrationNo)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Roles)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.RegistrationNo)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Roles)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Roles)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Roles)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EmailConfirmed)
-        </dt>
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.EmailConfirmed)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Email)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PasswordHash)
-        </dt>
+                </div>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.PasswordHash)
-        </dd>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.EmailConfirmed)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SecurityStamp)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.EmailConfirmed)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.SecurityStamp)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.PasswordHash)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.PasswordHash)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumberConfirmed)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.SecurityStamp)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TwoFactorEnabled)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.SecurityStamp)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TwoFactorEnabled)
-        </dd>
+                </div>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LockoutEndDateUtc)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LockoutEndDateUtc)
-        </dd>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LockoutEnabled)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.PhoneNumber)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.LockoutEnabled)
-        </dd>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AccessFailedCount)
-        </dt>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.AccessFailedCount)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.PhoneNumberConfirmed)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.TwoFactorEnabled)
+                    </div>
+                </div>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.TwoFactorEnabled)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.LockoutEndDateUtc)
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.LockoutEndDateUtc)
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.LockoutEnabled)
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.LockoutEnabled)
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.AccessFailedCount)
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.AccessFailedCount)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-sm">
+            <div class="control-label col-sm">
+                <div class=" font-weight-bold">
+                    @Html.DisplayNameFor(model => model.UserName)
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <div class="form-control">
+                    @Html.DisplayFor(model => model.UserName)
+                </div>
+
+            </div>
+        </div>
+
+  </div>
+    </div>
+   
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>

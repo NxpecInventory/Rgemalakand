@@ -34,86 +34,88 @@
 
 <script src="~/Scripts/bootstrap.min.js"></script>
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<table id="example" class="table table-striped table-bordered" style="width:100%">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Teacherid)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Assignedprocessid)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AssignedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProgramName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClassName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SubjectName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+<div style="width:100%; overflow:auto">
+    <table id="example" class="table table-striped table-bordered" >
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Teacherid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Assignedprocessid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AssignedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProgramName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClassName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubjectName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Teacherid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Assignedprocessid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AssignedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProgramName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClassName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubjectName)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Teacherid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Assignedprocessid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProgramName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubjectName)
+                </td>
 
-            <td>
+                <td>
 
 
-                @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
-            </td>
+                    @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
+                </td>
 
-        </tr>
-    }
+            </tr>
+        }
 
-</table>
-<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
-<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
-@*.................Script side datatable searching and pagination...................*@
-@section scripts{
-    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+    </table>
+    </div>
+    <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+    <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+    @*.................Script side datatable searching and pagination...................*@
+    @section scripts{
+        <script src="//code.jquery.com/jquery-3.3.1.js"></script>
 
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-    <script>
+        <script>
         $(document).ready(function () {
             $('#example').DataTable()
 
@@ -122,7 +124,7 @@
 
         });
 
-    </script>
-}
+        </script>
+    }
 
 

@@ -22,8 +22,10 @@
 </script>
 <h2 style="color:black;">RGE College Users Accounts Registration System</h2>
 <div class="alert alert-info" role="alert">
-    <h4 style="color:black;">Create Students,Employees and Teacher Records On The basis Of Their Roles ,The roles list is given below to give the acces according to user roles please properly
-    select user role while registration.</h4>
+    <h4 style="color:black;">
+        Create Students,Employees and Teacher Records On The basis Of Their Roles ,The roles list is given below to give the acces according to user roles please properly
+        select user role while registration.
+    </h4>
 </div>
 <div class="alert alert-danger" role="alert">
     <h4 style="color:black;">
@@ -35,60 +37,71 @@
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
- 
+
     @Html.AntiForgeryToken()
+<div class="container">
     <h4>Create New User Account.</h4>
     <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+    <div class=" font-weight-bold">
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        </div>
+        <div class="row">
+            <div class="form-group col-sm">
+                @Html.LabelFor(m => m.UserName, new { @class = "col-sm control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                @Html.LabelFor(m => m.RegistrationNo, new { @class = "col-sm control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.RegistrationNo, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                @Html.LabelFor(m => m.Email, new { @class = "col-sm control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm">
+                @Html.LabelFor(m => m.Password, new { @class = "col-sm control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "myInput1" })
+                    <input type="checkbox" onclick="myFunction1()"><label style="color:black;">View Password</label>
+                </div>
+
+            </div>
+            <div class="form-group col-sm">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-sm control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @id = "myInput2" })
+                    <input type="checkbox" onclick="myFunction2()"><label style="color:black;">View Password</label>
+                </div>
+
+            </div>
+            <div class="form-group col-sm">
+                @Html.LabelFor(m => m.RolesName, new { @class = "col-sm control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.RolesName, new SelectList(ViewBag.RolesList, "Value", "Text"), new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Register" />
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.RegistrationNo, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.RegistrationNo, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control",@id="myInput1" })
-            <input type="checkbox" onclick="myFunction1()"><label style="color:black;">View Password</label>
-        </div>
-     
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" ,@id = "myInput2" })
-            <input type="checkbox" onclick="myFunction2()"><label style="color:black;">View Password</label>
-        </div>
-     
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.RolesName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.RolesName, new SelectList(ViewBag.RolesList, "Value", "Text"), new { @class = "form-control" });
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-   
-}
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    }
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

@@ -27,7 +27,8 @@
 <div class="form-group">
     <a class="btn btn-primary mt-10" @Html.ActionLink("Upload New Files", "Create")</a>
     </div>
-    <table id="example" class="table table-striped table-bordered" style="width:100%">
+<div style="width:100%; overflow:auto">
+    <table id="example" class="table table-striped table-bordered" >
         <thead>
             <tr>
                 <th>
@@ -72,6 +73,7 @@
             }
 
     </table>
+    </div>
     <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
     <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
     @*.................Script side datatable searching and pagination...................*@

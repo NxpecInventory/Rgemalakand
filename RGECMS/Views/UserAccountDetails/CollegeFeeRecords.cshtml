@@ -31,54 +31,55 @@
     }
     else
     {*@
-<table id="example" class="table table-striped table-bordered" style="width:100%">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayName("SlipId")
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Students.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FatherName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SemesterClass)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SubmissionDate)
-            </th>
-            <th>
-                @Html.DisplayName("AdmissionFee/TutionFee")
-            </th>
-            <th>
-                @Html.DisplayName("HostelFee")
-            </th>
-            <th>
-                @Html.DisplayName("SecCharges")
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GrossTotalAmount)
-            </th>
+<div style="width:100%; overflow:auto">
+    <table id="example" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("SlipId")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Students.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FatherName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SemesterClass)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubmissionDate)
+                </th>
+                <th>
+                    @Html.DisplayName("AdmissionFee/TutionFee")
+                </th>
+                <th>
+                    @Html.DisplayName("HostelFee")
+                </th>
+                <th>
+                    @Html.DisplayName("SecCharges")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GrossTotalAmount)
+                </th>
 
-            <th>
-                @Html.DisplayNameFor(model => model.PaymentMethod)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Remarks)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Year)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Payingstatus)
-            </th>
-           
-        </tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PaymentMethod)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Remarks)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Payingstatus)
+                </th>
+
+            </tr>
         </thead>
 
         @foreach (var item in Model)
@@ -132,29 +133,30 @@
         }
 
 
-</table>
-@*}*@
-<hr />
+    </table>
+    </div>
+    @*}*@
+    <hr />
 
-<div class="alert alert-info" role="alert"><b>In Case Of Further Fees Details Contact Your College Administration For more Details About Fees Records</b></div>
-<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
-<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
-@*.................Script side datatable searching and pagination...................*@
-@section scripts{
-    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+    <div class="alert alert-info" role="alert"><b>In Case Of Further Fees Details Contact Your College Administration For more Details About Fees Records</b></div>
+    <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+    <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+    @*.................Script side datatable searching and pagination...................*@
+    @section scripts{
+        <script src="//code.jquery.com/jquery-3.3.1.js"></script>
 
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable()
-
-
+        <script>
+            $(document).ready(function () {
+                $('#example').DataTable()
 
 
-        });
 
-    </script>
-}
+
+            });
+
+        </script>
+    }

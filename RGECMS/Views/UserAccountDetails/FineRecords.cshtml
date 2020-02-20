@@ -29,91 +29,93 @@
     }
     else
     {*@
-<table id="example" class="table table-striped table-bordered" style="width:100%">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayName("FineSlipId")
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Students.StudentName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SemesterClass)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SubmissionDate)
-            </th>
+<div style="width:100%; overflow:auto">
+    <table id="example" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("FineSlipId")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Students.StudentName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SemesterClass)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubmissionDate)
+                </th>
 
-            <th>
-                @Html.DisplayNameFor(model => model.FineAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalAmount)
-            </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FineAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalAmount)
+                </th>
 
-            <th>
-                @Html.DisplayNameFor(model => model.Remarks)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Payingstatus)
-            </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Remarks)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Payingstatus)
+                </th>
 
-        </tr>
-    </thead>
+            </tr>
+        </thead>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Students.StudentName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SemesterClass)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubmissionDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FineAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalAmount)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Students.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SemesterClass)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubmissionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FineAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount)
+                </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Remarks)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Payingstatus)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payingstatus)
+                </td>
 
-        </tr>
-    }
+            </tr>
+        }
 
-</table>
+    </table>
+    </div>
 
-@*}*@
-<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
-<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
-@*.................Script side datatable searching and pagination...................*@
-@section scripts{
-    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+    @*}*@
+    <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+    <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+    @*.................Script side datatable searching and pagination...................*@
+    @section scripts{
+        <script src="//code.jquery.com/jquery-3.3.1.js"></script>
 
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-    <script>
+        <script>
         $(document).ready(function () {
             $('#example').DataTable()
 
@@ -122,5 +124,5 @@
 
         });
 
-    </script>
-}
+        </script>
+    }

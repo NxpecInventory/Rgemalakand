@@ -26,47 +26,49 @@
 <div class="form-group">
     <a class="btn btn-primary mt-10" @Html.ActionLink("Add new", "Create")</a>
 </div>
-<table id="example" class="table table-striped table-bordered" style="width:100%">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ShelfName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShelfName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a class="btn btn-warning" href="@Url.Action("Edit", "LibarayShelfCats", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a> |
-                <a class="btn btn-success" href="@Url.Action("Details", "LibarayShelfCats", new { id = item.Id })"><span class="glyphicon glyphicon-th-list"></span></a> |
-                <a class="btn btn-danger" href="@Url.Action("Delete", "LibarayShelfCats", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
-            </td>
-        </tr>
-    }
+<div style="width:100%; overflow:auto">
+    <table id="example" class="table table-striped table-bordered" >
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShelfName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShelfName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "LibarayShelfCats", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a> |
+                    <a class="btn btn-success" href="@Url.Action("Details", "LibarayShelfCats", new { id = item.Id })"><span class="glyphicon glyphicon-th-list"></span></a> |
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "LibarayShelfCats", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+        }
 
-</table>
-<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
-<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
-@*.................Script side datatable searching and pagination...................*@
-@section scripts{
-    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+    </table>
+    </div>
+    <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+    <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+    @*.................Script side datatable searching and pagination...................*@
+    @section scripts{
+        <script src="//code.jquery.com/jquery-3.3.1.js"></script>
 
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-    <script>
+        <script>
         $(document).ready(function () {
             $('#example').DataTable()
 
@@ -75,5 +77,5 @@
 
         });
 
-    </script>
-}
+        </script>
+    }

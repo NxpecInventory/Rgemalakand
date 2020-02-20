@@ -38,96 +38,97 @@
 
     </div>
 }
+    <div style="width:100%; overflow:auto">
+        <table id="example" class="table table-striped table-bordered" >
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Teacherid)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Assignedprocessid)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AssignedDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProgramName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClassName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SubjectName)
+                    </th>
+                    <th></th>
+                </tr>
+            <thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Teacherid)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Assignedprocessid)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AssignedDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProgramName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClassName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SubjectName)
+                        </td>
 
-<table id="example" class="table table-striped table-bordered" style="width:100%">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Teacherid)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Assignedprocessid)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AssignedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProgramName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClassName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SubjectName)
-            </th>
-            <th></th>
-        </tr>
-    <thead>
-        @foreach (var item in Model)
+                        <td>
+
+
+                            @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
+                        </td>
+
+                    </tr>
+                }
+
+        </table>
+        </div>
+
+        @if (TempData["Countp"].ToString() == "0")
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Teacherid)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Assignedprocessid)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AssignedDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProgramName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClassName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SubjectName)
-                </td>
-
-                <td>
+            <div class="alert alert-danger" role="alert">
 
 
-                    @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success" })
-                </td>
+                <h3><strong>Opps It Seems You Are In Rahman Group Of Education From One Year And did not Spent One year in Rahman Group Of Education After Passing One Year In College Your Allocated Records Will Moved Towards Here As A Subject Allocated History </strong></h3>
 
-            </tr>
+            </div>
         }
+        <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+        <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+        @*.................Script side datatable searching and pagination...................*@
+        @section scripts{
+            <script src="//code.jquery.com/jquery-3.3.1.js"></script>
 
-</table>
+            <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-@if (TempData["Countp"].ToString() == "0")
-{
-    <div class="alert alert-danger" role="alert">
+            <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-
-        <h3><strong>Opps It Seems You Are In Rahman Group Of Education From One Year And did not Spent One year in Rahman Group Of Education After Passing One Year In College Your Allocated Records Will Moved Towards Here As A Subject Allocated History </strong></h3>
-
-    </div>
-}
-<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
-<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
-@*.................Script side datatable searching and pagination...................*@
-@section scripts{
-    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
-
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-
-    <script>
+            <script>
         $(document).ready(function () {
             $('#example').DataTable()
 
@@ -136,6 +137,6 @@
 
         });
 
-    </script>
-}
+            </script>
+        }
 
