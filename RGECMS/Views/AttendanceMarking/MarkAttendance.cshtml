@@ -10,43 +10,51 @@
 </div>
 
 @using (Html.BeginForm("MarkAttendance", "AttendanceMarking", FormMethod.Post))
-{     @Html.AntiForgeryToken()
-    <div class="form-group">
-            @Html.Label("Clasess/Semester List", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ClassId",null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ClassId, "", new { @class = "text-danger" })
-             
+
+{
+    <div class="container">
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="form-group col-sm-4">
+                @Html.Label("Clasess/Semester List", htmlAttributes: new { @class = "control-label col-sm" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ClassId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ClassId, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm-4">
+                @Html.Label("Attendance Date", htmlAttributes: new { @class = "control-label col-sm" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.Label("Attendance Date", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
+        <div class="form-group col-sm">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Attendance Sheet" class="btn btn-default" />
             </div>
         </div>
-    
-}
-@if (TempData["success"] != null)
-{
-    <div class="alert alert-success" role="alert">
-        @TempData["success"]
-    </div>
-}
-@if (TempData["failmesage"] != null)
-{
-    <div class="alert alert-danger" role="alert">
-        @TempData["failmesage"]
-    </div>
-}
+        </div>
+        
+
+        }
+        @if (TempData["success"] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                @TempData["success"]
+            </div>
+        }
+        @if (TempData["failmesage"] != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                @TempData["failmesage"]
+            </div>
+        }
 
 
 

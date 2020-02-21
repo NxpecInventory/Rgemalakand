@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
 }
 <style>
+
     table#example.dataTable thead:hover {
         background-color: #8fa5c7;
     }
@@ -33,8 +34,11 @@
 <div class="form-group">
     <a class="btn btn-primary mt-10" @Html.ActionLink("Add new", "Create")</a>
 </div>
+<div class="form-group">
+    <a class="btn btn-primary mt-10" @Html.ActionLink("Add new", "Create")</a>
+</div>
 <div style="width:100%; overflow:auto">
-    <table id="example" class="table table-striped table-bordered" >
+    <table id="example" class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>
@@ -102,25 +106,26 @@
         }
 
     </table>
-    </div>
-    <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
-    <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
-    @*.................Script side datatable searching and pagination...................*@
-    @section scripts{
-        <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+</div>
 
-        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+@*.................Script side datatable searching and pagination...................*@
+@section scripts{
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
 
-        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-        <script>
-            $(document).ready(function () {
-                $('#example').DataTable()
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable()
 
 
 
 
-            });
+        });
 
-        </script>
-    }
+    </script>
+}

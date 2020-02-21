@@ -7,43 +7,51 @@
 
 
 <h3 style="color:black;">Teacher Salarys/Pay OutComes Reports Generating Pannel</h3>
-<div class="alert alert-info"><b style="color:black">Generate Teachers Salary/Pays Reports On 
-    The basis Of Month and Year,give the month and year Detail for generating specifically that year and month Salary Reports.</b></div>
+<div class="alert alert-info">
+    <b style="color:black">
+        Generate Teachers Salary/Pays Reports On
+        The basis Of Month and Year,give the month and year Detail for generating specifically that year and month Salary Reports.
+    </b>
+</div>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="form-horizontal">
 
-    <div class="form-horizontal">
+            <hr />
+            <div class="row">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group col-sm-4">
+                    @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-sm" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control", @placeholder = "Example 2019 " } })
+                        @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control", @placeholder = "Example 2019 " } })
-                @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                <div class="form-group col-sm-4">
+                    @Html.LabelFor(model => model.Month, htmlAttributes: new { @class = "control-label col-sm" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Month, new { htmlAttributes = new { @class = "form-control", @placeholder = "Example January " } })
+                        @Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Generate Teacher Salary Report" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
+            }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Month, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Month, new { htmlAttributes = new { @class = "form-control", @placeholder = "Example January " } })
-                @Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger" })
+            <div>
+
             </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Generate Teacher Salary Report" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-
-</div>
 
 
