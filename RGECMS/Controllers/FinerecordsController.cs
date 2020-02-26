@@ -128,7 +128,7 @@ namespace RGECMS.Controllers
                 TempData["Fineid"] = getid;
                 //here  saving the created record of each specific tranaction
                 db.transactionecords.Add(transaction);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
 
                 return RedirectToAction("PrintfineSlip");
             }

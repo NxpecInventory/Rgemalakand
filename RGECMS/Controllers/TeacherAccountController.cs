@@ -55,6 +55,12 @@ namespace RGECMS.Controllers
             TempData["Countp"] = salaryRecords.Count();
             return View(salaryRecords);
         }
+        public ActionResult Details(int? id)
+        {
+            TeacherCoursesRecord detail= db.TeacherCoursesRecord.Find(id);
+            return View(detail);
+
+        }
 
 
     }

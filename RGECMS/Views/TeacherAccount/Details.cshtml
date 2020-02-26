@@ -1,0 +1,181 @@
+﻿@model RGECMS.Models.TeacherCoursesRecord
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <div class="container">
+        <div class="form-horizontal">
+            <h4>TeacherCoursesRecord</h4>
+            <hr />
+            <div class="row">
+                <div class="form-group col-sm">
+                    <div class="control-label col-sm">
+                        <div class=" font-weight-bold">
+                            @Html.DisplayNameFor(model => model.Teacherid)
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.Teacherid)
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="form-group col-sm">
+                    <div class="control-label col-sm">
+                        <div class=" font-weight-bold">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.Name)
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-sm">
+                    <div class="control-label col-sm">
+                        <div class=" font-weight-bold">
+                            @Html.DisplayNameFor(model => model.Assignedprocessid)
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.Assignedprocessid)
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm">
+                    <div class="control-label col-sm">
+                        <div class=" font-weight-bold">
+                            @Html.DisplayNameFor(model => model.AssignedDate)
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.AssignedDate)
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-sm">
+                    <div class="control-label col-sm">
+                        <div class=" font-weight-bold">
+                            @Html.DisplayNameFor(model => model.ProgramId)
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.ProgramId)
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-sm">
+                    <div class="control-label col-sm">
+                        <div class=" font-weight-bold">
+                            @Html.DisplayNameFor(model => model.ClassId)
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.ClassId)
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm">
+                    <div class="control-label col-sm">
+                        <div class=" font-weight-bold">
+                            @Html.DisplayNameFor(model => model.SubjectId)
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.SubjectId)
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-sm">
+                    <div class="control-label col-sm">
+                        <div class=" font-weight-bold">
+                            @Html.DisplayNameFor(model => model.ClassName)
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.ClassName)
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-sm">
+                    <div class="control-label col-sm">
+                        <div class=" font-weight-bold">
+                            @Html.DisplayNameFor(model => model.ProgramName)
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.ProgramName)
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <div class="control-label col-sm">
+                        <div class=" font-weight-bold">
+                            @Html.DisplayNameFor(model => model.SubjectName)
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.SubjectName)
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+
+           
+            </div>
+    </div>
+                        <p>
+                            @*@Html.ActionLink("Edit", "Edit", new { id = Model.id }) |*@
+                            @*@Html.ActionLink("Back to List", "Index")*@
+                        </p>
