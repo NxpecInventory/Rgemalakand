@@ -20,17 +20,18 @@ namespace RGECMS.Controllers
         public ActionResult Index(string search, int? page)
         {
             var students = db.students.Include(s => s.Programs).ToList();
-
+         
             if (!string.IsNullOrWhiteSpace(search))
             {
                 int convertsearch = Convert.ToInt32(search);
                 page = 1;
 students = students.Where(m => m.Id == convertsearch).ToList();
-                TempData["Totaluser"] = students.Count();
+                TempData["student"] = students.Count();
+             
             }
             if (string.IsNullOrWhiteSpace(search))
             {
-                TempData["Totaluser"] = students.Count();
+                TempData["student"] = students.Count();
             }
             int pageSize = 15;
             int pageNumber = (page ?? 1);

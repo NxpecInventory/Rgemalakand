@@ -12,53 +12,55 @@
 @using (Html.BeginForm("Create", "CollegeFilesadmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-<div class="container">
-    <div class="form-horizontal">
-        <h5>Upload Colleges Files</h5>
-        <hr />
-        <div class="row">
+    <div class="container">
+        <div class="form-horizontal">
+            <h5>Upload Colleges Files</h5>
+            <hr />
+
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group col-sm">
-                @Html.Label("Description", htmlAttributes: new { @class = "control-label col-sm" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FileDescription, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FileDescription, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="form-group col-sm">
+                    @Html.Label("Description", htmlAttributes: new { @class = "control-label col-sm" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FileDescription, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FileDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group col-sm">
+                    @Html.Label("Uploaded File", htmlAttributes: new { @class = "control-label col-sm" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.file, new { type = "file", accept = ".pdf,.docx,.ppt,.xls,.xlsx" })
+                        @Html.ValidationMessageFor(model => model.file)
+                    </div>
+                </div>
+
+                <div class="form-group col-sm">
+                    @Html.Label("File Category", htmlAttributes: new { @class = "control-label col-sm" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FileCat, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FileCat, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Upload Confirm" class="btn btn-success" />
                 </div>
             </div>
-
-            <div class="form-group col-sm">
-                @Html.Label("Uploaded File", htmlAttributes: new { @class = "control-label col-sm" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.file, new { type = "file", accept = ".pdf,.docx,.ppt,.xls,.xlsx" })
-                    @Html.ValidationMessageFor(model => model.file)
-                </div>
-            </div>
-
-            <div class="form-group col-sm">
-                @Html.Label("File Category", htmlAttributes: new { @class = "control-label col-sm" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FileCat, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FileCat, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
         </div>
     </div>
-    <div class="row">
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Upload Confirm" class="btn btn-success" />
-            </div>
-        </div>
-        </div>
-    </div>
 
-        }
+}
 
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
 
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-        }
+<div class="form-group">
+    <a class="btn btn-danger mt-10" href="@Url.Action("Index", "CollegeFilesadmins")">Back to List</a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

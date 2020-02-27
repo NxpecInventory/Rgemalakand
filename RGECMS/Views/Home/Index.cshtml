@@ -5,233 +5,282 @@
 <div class="alert alert-success" role="alert">
     <h3 style="color:black;">Welcome,@User.Identity.Name To Rahman Group Of Education Management System.</h3>
 </div>
-    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-    <!--<link rel="stylesheet" href="css/style.css">-->
-    <style>
-        li {
-            list-style: none;
-        }
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<!--<link rel="stylesheet" href="css/style.css">-->
+<style>
+    li {
+        list-style: none;
+    }
 
-        a {
-            text-decoration: none;
-        }
+    a {
+        text-decoration: none;
+    }
 
-        .carousel {
-            width: 100%;
+    .carousel {
+        width: 100%;
+        height: 400px;
+        /*margin: 30px auto;*/
+        overflow: hidden;
+        position: center;
+    }
+
+    .ct {
+        position: relative;
+    }
+
+        .ct img {
             height: 400px;
-            /*margin: 30px auto;*/
-            overflow: hidden;
-            position:center;
-       
+            width: 1000px;
         }
 
-        .ct {
-            position: relative;
+        .ct li {
+            float: left;
         }
 
-            .ct img {
-                height: 400px;
-                width: 1000px;
-            }
-
-            .ct li {
-                float: left;
-            }
-
-        .bullet {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 10px;
-        }
-    </style>
+    .bullet {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+    }
+</style>
 
 
 
 
-   
-        <!--<div id="jquery-script-menu">
-        <div class="jquery-script-center">
-        <ul>
-        <li><a href="http://www.jqueryscript.net/slider/Easy-Responsive-Automatic-Carousel-Slider-With-jQuery.html">Download This Plugin</a></li>
-        <li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
-        </ul>
-        <div class="jquery-script-ads"><script type="text/javascript"><!--
-        google_ad_client = "ca-pub-2783044520727903";
-        /* jQuery_demo */
-        google_ad_slot = "2780937993";
-        google_ad_width = 728;
-        google_ad_height = 90;
-        //-->
-        <!--</script>
-        <script type="text/javascript"
-        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-        </script></div>
-        <div class="jquery-script-clear"></div>
+
+<!--<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/slider/Easy-Responsive-Automatic-Carousel-Slider-With-jQuery.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+<!--</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>-->
+
+
+<div class="carousel">
+    <ul class="ct clearfix">
+        <li><a href="#"><img src="~/Images/first.jpg"></a></li>
+        <li><a href="#"><img src="~/Images/second.jpg"></a></li>
+        <li><a href="#"><img src="~/Images/third.png"></a></li>
+        <li><a href="#"><img src="~/Images/fourth.png"></a></li>
+    </ul>
+    <a href="#" class="arrow pre"><</a>
+    <a href="#" class="arrow next">></a>
+    <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<br />
+@if (User.IsInRole("Administration"))
+{
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card alert alert-success " role="alert" @*style="width: 20rem; height:11rem;"*@>
+                <a class="" href="@Url.Action("Index", "CollegeEmployees")">
+                    <div class="card-body">
+                        <div class="">
+                            <h3 style="color:black;text-align:center">Total Employees</h3>
+                            <h1 style="color:dimgray;margin-top:45px;text-align:center">@TempData["Totaluser"]  </h1>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
-        </div>-->
-   
-        
-        <div class="carousel">
-            <ul class="ct clearfix">
-                <li><a href="#"><img src="~/Images/first.jpg"></a></li>
-                <li><a href="#"><img src="~/Images/second.jpg"></a></li>
-                <li><a href="#"><img src="~/Images/third.png"></a></li>
-                <li><a href="#"><img src="~/Images/fourth.png"></a></li>
-            </ul>
-            <a href="#" class="arrow pre"><</a>
-            <a href="#" class="arrow next">></a>
-            <ul class="bullet">
-                <li class="active"></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+
+
+        <div class="col-sm-4">
+            <div class="card alert alert-success h-auto " role="alert" @*style="width: 20rem; height:11rem;"*@>
+                <a class="" href="@Url.Action("Index", "Students")">
+                    <div class="card-body">
+                        <div class="">
+                            <h3 style="color:black;text-align:center">Total Enroll Students:</h3>
+                            <h1 style="color:dimgray;margin-top:45px; text-align:center"> @TempData["student"]  </h1>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card alert alert-success " role="alert" @*style="width: 20rem; height:11rem;"*@>
+                <a class="" href="@Url.Action("Index", "CollegeEmployees")">
+                    <div class="card-body">
+                        <div class="">
+                            <h3 style="color:black;text-align:center">Total Absent Employees:</h3>
+                            <h1 style="color:dimgray;margin-top:45px;text-align:center"> @TempData["Totaluser"]  </h1>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
 
+    </div>
+}
 
-        <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-        <script>
-        $.fn.carousel = function () {
-            this.each(function () {
 
-                var Carousel = (function () {
 
-                    function Carousel($node) {
-                        this.imgCt = $node.find('.ct')
-                        this.item = this.imgCt.find('li')
-                        this.itemWidth = this.item.width()
-                        this.itemCount = this.item.size()
-                        this.pre = $node.find('.pre')
-                        this.next = $node.find('.next')
-                        this.bullet = $node.find('.bullet')
 
-                        this.imgCt.prepend(this.item.last().clone())
-                        this.imgCt.append(this.item.first().clone())
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    $.fn.carousel = function () {
+        this.each(function () {
 
-                        this.newItemCount = $node.find('.ct').children().size()
-                        this.imgCt.css({
-                            width: this.newItemCount * this.itemWidth,
-                            left: -this.itemWidth,
+            var Carousel = (function () {
+
+                function Carousel($node) {
+                    this.imgCt = $node.find('.ct')
+                    this.item = this.imgCt.find('li')
+                    this.itemWidth = this.item.width()
+                    this.itemCount = this.item.size()
+                    this.pre = $node.find('.pre')
+                    this.next = $node.find('.next')
+                    this.bullet = $node.find('.bullet')
+
+                    this.imgCt.prepend(this.item.last().clone())
+                    this.imgCt.append(this.item.first().clone())
+
+                    this.newItemCount = $node.find('.ct').children().size()
+                    this.imgCt.css({
+                        width: this.newItemCount * this.itemWidth,
+                        left: -this.itemWidth,
+                    })
+
+                    this.curIdx = 0
+                    this.isAnimate = false
+
+                    this.init()
+                }
+
+                Carousel.prototype = {
+                    bind: function () {
+                        var _this = this
+                        _this.pre.on('click', function () {
+                            _this.doPre()
                         })
-
-                        this.curIdx = 0
-                        this.isAnimate = false
-
-                        this.init()
-                    }
-
-                    Carousel.prototype = {
-                        bind: function () {
-                            var _this = this
-                            _this.pre.on('click', function () {
-                                _this.doPre()
-                            })
-                            _this.next.on('click', function () {
-                                _this.doNext()
-                            })
-                            _this.bullet.find('li').on('click', function () {
-                                var idx = $(this).index()
-                                if (idx < _this.curIdx) {
-                                    _this.doPre(_this.curIdx - idx)
-                                }
-                                else {
-                                    _this.doNext(idx - _this.curIdx)
-                                }
-                            })
-                        },
-
-                        doPre: function (idx) {
-                            var _this = this
-                            idx = idx || 1
-                            if (!_this.isAnimate) {
-                                _this.isAnimate = true
-                                _this.stop()
-                                _this.imgCt.animate({
-                                    left: '+=' + _this.itemWidth * idx
-                                }, function () {
-                                    _this.curIdx = (_this.itemCount + _this.curIdx - idx) % _this.itemCount
-                                    if (_this.curIdx === _this.itemCount - 1) {
-                                        _this.imgCt.css('left', -_this.itemCount * _this.itemWidth)
-                                    }
-                                    _this.auto()
-                                    _this.setBullet()
-                                    _this.isAnimate = false
-                                })
+                        _this.next.on('click', function () {
+                            _this.doNext()
+                        })
+                        _this.bullet.find('li').on('click', function () {
+                            var idx = $(this).index()
+                            if (idx < _this.curIdx) {
+                                _this.doPre(_this.curIdx - idx)
                             }
-                        },
-
-                        doNext: function (idx) {
-                            var _this = this
-                            idx = idx || 1
-                            if (!_this.isAnimate) {
-                                _this.isAnimate = true
-                                _this.stop()
-                                _this.imgCt.animate({
-                                    left: '-=' + _this.itemWidth * idx
-                                }, function () {
-                                    _this.curIdx = (_this.curIdx + idx) % _this.itemCount
-                                    if (_this.curIdx === 0) {
-                                        _this.imgCt.css('left', -_this.itemWidth)
-                                    }
-                                    _this.auto()
-                                    _this.setBullet()
-                                    _this.isAnimate = false
-                                })
+                            else {
+                                _this.doNext(idx - _this.curIdx)
                             }
-                        },
+                        })
+                    },
 
-                        setBullet: function () {
-                            this.bullet.children().removeClass('active').eq(this.curIdx).addClass('active')
-                        },
-
-                        auto: function () {
-                            var _this = this
-                            this.clock = setInterval(function () {
-                                _this.doNext()
-                            }, 2000)
-                        },
-
-                        stop: function () {
-                            clearInterval(this.clock)
-                        },
-
-                        init: function () {
-                            this.bind()
-                            this.auto()
+                    doPre: function (idx) {
+                        var _this = this
+                        idx = idx || 1
+                        if (!_this.isAnimate) {
+                            _this.isAnimate = true
+                            _this.stop()
+                            _this.imgCt.animate({
+                                left: '+=' + _this.itemWidth * idx
+                            }, function () {
+                                _this.curIdx = (_this.itemCount + _this.curIdx - idx) % _this.itemCount
+                                if (_this.curIdx === _this.itemCount - 1) {
+                                    _this.imgCt.css('left', -_this.itemCount * _this.itemWidth)
+                                }
+                                _this.auto()
+                                _this.setBullet()
+                                _this.isAnimate = false
+                            })
                         }
+                    },
 
+                    doNext: function (idx) {
+                        var _this = this
+                        idx = idx || 1
+                        if (!_this.isAnimate) {
+                            _this.isAnimate = true
+                            _this.stop()
+                            _this.imgCt.animate({
+                                left: '-=' + _this.itemWidth * idx
+                            }, function () {
+                                _this.curIdx = (_this.curIdx + idx) % _this.itemCount
+                                if (_this.curIdx === 0) {
+                                    _this.imgCt.css('left', -_this.itemWidth)
+                                }
+                                _this.auto()
+                                _this.setBullet()
+                                _this.isAnimate = false
+                            })
+                        }
+                    },
+
+                    setBullet: function () {
+                        this.bullet.children().removeClass('active').eq(this.curIdx).addClass('active')
+                    },
+
+                    auto: function () {
+                        var _this = this
+                        this.clock = setInterval(function () {
+                            _this.doNext()
+                        }, 2000)
+                    },
+
+                    stop: function () {
+                        clearInterval(this.clock)
+                    },
+
+                    init: function () {
+                        this.bind()
+                        this.auto()
                     }
 
-                    return Carousel
+                }
 
-                })()
+                return Carousel
 
-                new Carousel($(this))
-            })
+            })()
 
-        }
+            new Carousel($(this))
+        })
+
+    }
 
 
 
-        $('.carousel').carousel()
+    $('.carousel').carousel()
 
-        </script>
+</script>
 
-        <script type="text/javascript">
+<script type="text/javascript">
 
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-36251023-1']);
-        _gaq.push(['_setDomainName', 'jqueryscript.net']);
-        _gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
 
-        (function () {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
-        </script>
-  
+</script>
+
 
 

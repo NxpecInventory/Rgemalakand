@@ -31,9 +31,7 @@
     </h5>
 </div>
 
-<div class="form-group">
-    <a class="btn btn-primary mt-10" @Html.ActionLink("Add new", "Create")</a>
-</div>
+
 <div class="form-group">
     <a class="btn btn-primary mt-10" @Html.ActionLink("Add new", "Create")</a>
 </div>
@@ -60,29 +58,30 @@
 
             if (item.status == "UnReaded")
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MessageDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Fullname)
-                    </td>
+               
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MessageDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fullname)
+                        </td>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.status)
-                    </td>
-                    <td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.status)
+                        </td>
+                        <td>
 
-                        <a class="btn btn-success" href="@Url.Action("Details", "Publicmessages", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
-                        <a class="btn btn-danger" href="@Url.Action("Delete", "Publicmessages", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a class="btn btn-success" href="@Url.Action("Details", "Publicmessages", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
+                            <a class="btn btn-danger" href="@Url.Action("Delete", "Publicmessages", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
 
-                    </td>
+                        </td>
 
-                </tr>
-            }
-            else
-            {
-                <thead>
+                    </tr>
+                    }
+                    else
+                    {
+           
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.MessageDate)
@@ -101,11 +100,11 @@
                         </td>
 
                     </tr>
-                </thead>
-            }
-        }
+           
+                }
+                }
 
-    </table>
+            </table>
 </div>
 
 <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
