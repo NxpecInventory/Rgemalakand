@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using RGECMS.Models;
 using PagedList;
+using System.IO;
 
 namespace RGECMS.Controllers
 {
@@ -65,13 +66,25 @@ students = students.Where(m => m.Id == convertsearch).ToList();
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create( Students students)
+        public async Task<ActionResult> Create(Students students,HttpPostedFileBase ImageFile)
         {
             if (ModelState.IsValid)
             {
-                students.ClassId = 0;
+
+                if (ImageFile != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(students.ImageFile.FileName);
+                    string extension = Path.GetExtension(students.ImageFile.FileName);
+
+                    fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                    students.Uploadimage = "~/image/" + fileName;
+                    students.ImageFile.SaveAs(Path.Combine(Server.MapPath("~/image/"), fileName));
+                }
+
+                    students.ClassId = 0;
                 students.Status = "Present";
                 students.CurrentSemclass = "N/A";
+             
                 db.students.Add(students);
                 await db.SaveChangesAsync();
                 db.Entry(students).GetDatabaseValues();
@@ -95,6 +108,7 @@ students = students.Where(m => m.Id == convertsearch).ToList();
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Students students = await db.students.FindAsync(id);
+            TempData["photo"] = students.Uploadimage;
             if (students == null)
             {
                 return HttpNotFound();
@@ -108,12 +122,32 @@ students = students.Where(m => m.Id == convertsearch).ToList();
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit( Students students)
+        public async Task<ActionResult> Edit( Students students, HttpPostedFileBase ImageFile)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(students).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                if (ImageFile != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(students.ImageFile.FileName);
+                    string extension = Path.GetExtension(students.ImageFile.FileName);
+
+                    fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                    students.Uploadimage = "~/image/" + fileName;
+                    students.ImageFile.SaveAs(Path.Combine(Server.MapPath("~/image/"), fileName));
+                    using (ApplicationDbContext db = new ApplicationDbContext())
+                    {
+                        db.Entry(students).State = EntityState.Modified;
+
+                        db.SaveChanges();
+                    }
+                }
+
+                else
+                {
+                    students.Uploadimage = TempData["photo"].ToString();
+                    db.Entry(students).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                }
                 return RedirectToAction("Index");
             }
             ViewBag.ProgramId = new SelectList(db.programs, "Id", "ProgramName", students.ProgramId);//here i replace the class with programs

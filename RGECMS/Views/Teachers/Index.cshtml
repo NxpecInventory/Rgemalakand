@@ -89,50 +89,56 @@
                 <th>
                     @Html.DisplayName("Specialization")
                 </th>
+                <th>
+                    @Html.DisplayName("Uploadimage")
+                </th>
                 <th>Actions</th>
             </tr>
         </thead>
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.teacherdesignationcategory.DepartmentName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TeacherName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FatherName)
-                </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.teacherdesignationcategory.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FatherName)
+            </td>
 
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JoiningDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialization)
+            </td>
+            <td>
+                @*<img src="@Url.Content(item.Uploadimage)" Height="200" Width="150" />*@
+            </td>
+            @if (User.IsInRole("Administration"))
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.Status)
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Teachers", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a class="btn btn-success" href="@Url.Action("Details", "Teachers", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "Teachers", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
                 </td>
+            }
+            else
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.JoiningDate)
+                    <a class="btn btn-success" href="@Url.Action("Details", "Teachers", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a>
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Specialization)
-                </td>
-                @if (User.IsInRole("Administration"))
-                {
-                    <td>
-                        <a class="btn btn-warning" href="@Url.Action("Edit", "Teachers", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="btn btn-success" href="@Url.Action("Details", "Teachers", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
-                        <a class="btn btn-danger" href="@Url.Action("Delete", "Teachers", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
-                    </td>
-                }
-                else
-                {
-                    <td>
-                        <a class="btn btn-success" href="@Url.Action("Details", "Teachers", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a>
-                    </td>
-                }
-            </tr>
+            }
+        </tr>
         }
 
     </table>

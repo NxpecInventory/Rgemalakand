@@ -2,6 +2,49 @@
 @{
     ViewBag.Title = "UserProfile";
 }
+<style>
+    dt {
+        float: left;
+        clear: left;
+        margin-top: 20px;
+        margin-right: 20px;
+        margin-left: 20px;
+        font-weight: bold;
+        width: 180px;
+        font-size: 20px;
+    }
+    img {
+        border-radius: 50%;
+        /*border:solid;*/
+        float: left;
+        margin-top: -10px;
+        margin-left:-20px;
+    }
+
+
+    dd {
+        float: left;
+        margin-top: 20px;
+        margin-right: 20px;
+        font-size: 20px;
+        display: block;
+    }
+        .contanier
+
+    {
+        margin-top: -5px;
+        float: left;
+    }
+
+    .contain {
+        float: left;
+    }
+
+    .contein {
+        float: left;
+        margin-left: 120px;
+    }
+    </style>
 
 <div class="alert alert-primary" role="alert">
     <h3>RGE Student Account Profile Information</h3>
@@ -12,113 +55,88 @@
     <div class="form-horizontal">
 
         <hr />
+        <div class="contanier">
+            <dl class="dl-horizontal">
 
-        <div class="row">
-            <div class="form-group col-sm">
-                <div class="control-label col-sm">
+                <dt>
+                    <img src="@Url.Content(Model.Uploadimage)" Height="200" Width="175" />
+                </dt>
+            </dl>
+        </div>
+        <div class="contain">
+            <dl class="dl-horizontal">
+
+                <dt>
                     @Html.DisplayName("Current Semester/Class")
-                </div>
+                </dt>
 
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.CurrentSemclass)
-                    </div>
+                <dd>
+                    @Html.DisplayFor(model => model.CurrentSemclass)
 
-                </div>
-            </div>
 
-            <div class="form-group col-sm">
-                <div class="control-label col-sm">
+                <dt>
                     @Html.DisplayNameFor(model => model.StudentName)
-                </div>
+                </dt>
 
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.StudentName)
-                    </div>
+                <dd>
+                    @Html.DisplayFor(model => model.StudentName)
+                </dd>
 
-                </div>
-            </div>
-
-            <div class="form-group col-sm">
-                <div class="control-label col-sm">
+                <dt>
                     @Html.DisplayNameFor(model => model.GuardianName)
-                </div>
+                </dt>
 
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.GuardianName)
-                    </div>
+                <dd>
+                    @Html.DisplayFor(model => model.GuardianName)
+                </dd>
 
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="form-group col-sm">
-                <div class="control-label col-sm">
+                <dt>
                     @Html.DisplayNameFor(model => model.Address)
-                </div>
+                </dt>
 
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.Address)
-                    </div>
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+                </dl>
+        </div>
+        <div class="contein">
+            <dl class="dl-horizontal">
 
-                </div>
-            </div>
-            <div class="form-group col-sm">
-                <div class="control-label col-sm">
+                <dt>
                     @Html.DisplayNameFor(model => model.ContactInfo)
-                </div>
+                </dt>
 
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.ContactInfo)
-                    </div>
+                <dd>
+                    @Html.DisplayFor(model => model.ContactInfo)
+                </dd>
 
-                </div>
-            </div>
-            <div class="form-group col-sm">
-                <div class="control-label col-sm">
+                <dt>
                     @Html.DisplayNameFor(model => model.Status)
-                    </div>
+                </dt>
 
-                    <div class="col-md-10">
-                        <div class="form-control">
-                            @Html.DisplayFor(model => model.Status)
-                        </div>
+                <dd>
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
 
-                    </div>
-                </div>
-                </div>
-
-        <div class="row">
-            <div class="form-group col-sm-4">
-                <div class="control-label col-sm-4">
+                <dt>
                     @Html.DisplayNameFor(model => model.AddmissionDate)
-                </div>
+                </dt>
 
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.AddmissionDate)
-                    </div>
+                <dd>
+                    @Html.DisplayFor(model => model.AddmissionDate)
+                </dd>
 
-                </div>
-            </div>
-            <div class="form-group col-sm-4">
-                <div class="control-label col-sm-5">
+                <dt>
                     @Html.DisplayNameFor(model => model.Programs.ProgramName)
-                </div>
+                </dt>
 
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.Programs.ProgramName)
-                    </div>
+                <dd>
+                    @Html.DisplayFor(model => model.Programs.ProgramName)
+                </dd>
+                </dl>
 
-                </div>
-            </div>
-</div>
+                
         </div>
 
-</div>
+    </div>
+    </div>

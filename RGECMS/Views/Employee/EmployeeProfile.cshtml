@@ -2,7 +2,48 @@
 @{
     ViewBag.Title = "EmployeeProfile";
 }
+<style>
+    dt {
+        float: left;
+        clear: left;
+        margin-top: 20px;
+        margin-right: 20px;
+        margin-left: 20px;
+        font-weight: bold;
+        width: 180px;
+        font-size: 20px;
+    }
 
+    img {
+        border-radius: 50%;
+        /*border:solid;*/
+        float: left;
+        margin-top: -10px;
+    }
+
+
+    dd {
+        float: left;
+        margin-top: 20px;
+        margin-right: 20px;
+        font-size: 20px;
+        display: block;
+    }
+
+    .contanier {
+        margin-top: -5px;
+        float: left;
+    }
+
+    .contain {
+        float: left;
+    }
+
+    .contein {
+        float: left;
+        margin-left: 120px;
+    }
+</style>
 <div class="alert alert-primary" role="alert">
     <h3>RGE College Accounts Employee  Profile Information</h3>
 </div>
@@ -10,135 +51,92 @@
 <div class="container">
     <div class="form-horizontal">
         <hr />
-        <div class="row">
-            <div class="form-group col-sm">
-                <div class="control-label col-sm">
-                    <div class=" font-weight-bold">
-                        @Html.DisplayNameFor(model => model.Id)
-                    </div>
-                </div>
+        <div class="contanier">
+            <dl class="dl-horizontal">
 
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.Id)
-
-                    </div>
-
-                </div>
-            </div>
-            <div class="form-group col-sm">
-                <div class="control-label col-sm">
-                    <div class=" font-weight-bold">
-                        @Html.DisplayNameFor(model => model.EmployeeName)
-                    </div>
-                </div>
-
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.EmployeeName)
-                    </div>
-
-                </div>
-            </div>
-            <div class="form-group col-sm">
-                <div class="control-label col-sm">
-                    <div class=" font-weight-bold">
-                        @Html.DisplayNameFor(model => model.FatherName)
-                    </div>
-                </div>
-
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.FatherName)
-                    </div>
-
-                </div>
-            </div>
+                <dt>
+                    <img src="@Url.Content(Model.Uploadimage)" Height="200" Width="175" />
+                </dt>
+            </dl>
         </div>
+        <div class="contain">
+            <dl class="dl-horizontal">
 
-        <div class="row">
-            <div class="form-group col-sm">
-                <div class="control-label col-sm">
-                    <div class=" font-weight-bold">
-                        @Html.DisplayName("DesignationName")
-                        @Html.DisplayNameFor(model => model.FatherName)
-                    </div>
-                </div>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
 
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @TempData["name"]
-                    </div>
+                <dd>
+                    @Html.DisplayFor(model => model.Id)
 
-                </div>
-            </div>
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.EmployeeName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EmployeeName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FatherName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FatherName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("DesignationName")
+               
+                </dt>
 
 
-
-            <div class="form-group col-sm">
-                <div class="control-label col-sm">
-                    <div class=" font-weight-bold">
-                        @Html.DisplayNameFor(model => model.Address)
-                    </div>
-                </div>
-
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.Address)
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="form-group col-sm">
-                <div class="control-label col-sm">
-                    <div class=" font-weight-bold">
-                        @Html.DisplayNameFor(model => model.ContactInfo)
-                    </div>
-                </div>
-
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.ContactInfo)
-                    </div>
-
-                </div>
-            </div>
+                <dd>
+                    @TempData["name"]
+                </dd>
+            </dl>
         </div>
+        <div class="contein">
+            <dl class="dl-horizontal">
 
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
 
-        <div class="row">
-            <div class="form-group col-sm-4">
-                <div class="control-label col-sm">
-                    <div class=" font-weight-bold">
-                        @Html.DisplayNameFor(model => model.Status)
-                    </div>
-                </div>
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
 
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.Status)
-                    </div>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ContactInfo)
+                </dt>
 
-                </div>
-            </div>
+                <dd>
+                    @Html.DisplayFor(model => model.ContactInfo)
+                </dd>
 
-            <div class="form-group col-sm-4">
-                <div class="control-label col-sm">
-                    <div class=" font-weight-bold">
-                        @Html.DisplayNameFor(model => model.JoiningDate)
-                    </div>
-                </div>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
 
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.JoiningDate)
-                    </div>
+                <dd>
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
 
-                </div>
-            </div>
-            </div>
+                <dt>
+                    @Html.DisplayNameFor(model => model.JoiningDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.JoiningDate)
+                </dd>
+
+                <dt>
+            </dl>
         </div>
+    </div>
     </div>
 
  

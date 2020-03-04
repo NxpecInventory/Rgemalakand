@@ -38,6 +38,11 @@ namespace RGECMS.Models
         public int ProgramId { get; set; }
         public virtual Programs Programs { get; set; }
         public string CurrentSemclass { get; set; }
+      
+        public string Uploadimage { get; set; }
+        [NotMapped]
+
+        public HttpPostedFileBase ImageFile { get; set; }
 
     }
 }

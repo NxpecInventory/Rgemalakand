@@ -9,86 +9,164 @@
 
 <h2>Confirm Book Assigning</h2>
 
-<div>
-    <h4>Library Books Assign Confirmation Details</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.BookTitle)
-        </dt>
+<div class="container">
+    <div class="form-horizontal">
+        <h4>Library Books Assign Confirmation Details</h4>
+        <hr />
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.BookTitle)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookTitle)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.BookTitle)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AssignedBy)
-        </dt>
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.AssignedBy)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.AssignedBy)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.AssignedBy)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AssignedDate)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.AssignedDate)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.AssignedDate)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ReturnDate)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.AssignedDate)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.ReturnDate)
-        </dd>
+                </div>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudedRegId)
-        </dt>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.ReturnDate)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudedRegId)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.ReturnDate)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentName)
-        </dt>
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.StudedRegId)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentName)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.StudedRegId)
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentDepartment)
-        </dt>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentDepartment)
-        </dd>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.StudentName)
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentClass)
-        </dt>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.StudentName)
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentClass)
-        </dd>
+                </div>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comments)
-        </dt>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.StudentDepartment)
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comments)
-        </dd>
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.StudentDepartment)
+                    </div>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Save&Print Slip", "SaveAndPrint",new { id = Model.Id })
-    @Html.ActionLink("Cancel", "Cancel", new { onclick = "return confirm('Are You sure to Cancel This Process?');" },new { id = Model.Id }))
-</p>
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.StudentClass)
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.StudentClass)
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class=" font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Comments)
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Comments)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm ">
+                <div class="col-md-offset-2 col-md-10 ">
+                    @Html.ActionLink("Save&Print Slip", "SaveAndPrint", new { id = Model.Id})
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    </div>
+                    <p>
+                       
+
+                        @Html.ActionLink("Cancel", "Cancel", new { onclick = "return confirm('Are You sure to Cancel This Process?');" }, new { id = Model.Id })
+                    </p>
 

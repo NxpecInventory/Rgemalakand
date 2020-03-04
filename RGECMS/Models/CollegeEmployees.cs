@@ -31,5 +31,9 @@ namespace RGECMS.Models
         [ForeignKey("employeeDesignationCategory")]
         public int DesignationId { get; set; }
         public employeeDesignationCategory employeeDesignationCategory { get; set; }//like accounts officer or peon lab etc
+        public string Uploadimage { get; set; }
+        [NotMapped]
+
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

@@ -7,15 +7,38 @@
     dt {
         float: left;
         clear: left;
-        margin-right: 5px;
+        margin-top: 20px;
+        margin-right: 20px;
+        margin-left: 20px;
         font-weight: bold;
-        width:180px;
-        font-size:20px;
+        width: 180px;
+        font-size: 20px;
+    }
+    img {
+        border-radius: 50%;
+        /*border:solid;*/
+        float: left;
+        margin-top: -10px;
     }
 
+
     dd {
-        margin-left: 0px;
-        font-size:20px;
+        float: left;
+        margin-top: 20px;
+        margin-right: 20px;
+        font-size: 20px;
+        display: block;
+    }
+    .contanier{
+        margin-top:-5px;
+        float: left;
+    }
+    .contain{
+        float: left;
+    }
+    .contein {
+        float: left;
+        margin-left:120px;
     }
 </style>
 <div>
@@ -23,71 +46,86 @@
         <h3>RGE College Teacher Profile Information</h3>
     </div>
     <hr />
-    <dl class="dl-horizontal">
+    <div class="contanier">
+        <dl class="dl-horizontal">
+
+            <dt>
+                <img src="@Url.Content(Model.Uploadimage)" Height="200" Width="175" />
+            </dt>
+        </dl>
+    </div>
       
+    <div class="contain">
+        <dl class="dl-horizontal">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TeacherName):
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.TeacherName):
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TeacherName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TeacherName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FatherName):
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.FatherName):
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FatherName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.teacherdesignationcategory.DepartmentName):
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FatherName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.teacherdesignationcategory.DepartmentName):
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.teacherdesignationcategory.DepartmentName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Address):
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.teacherdesignationcategory.DepartmentName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Address):
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+            </dl>
+        </div>
+            <div class="contein">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ContactInfo):
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactInfo):
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ContactInfo)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ContactInfo)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Status):
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Status):
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.JoiningDate):
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.JoiningDate):
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.JoiningDate)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.JoiningDate)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Specialization):
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Specialization):
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Specialization)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Specialization)
-        </dd>
 
-    </dl>
+                </dl>
+            </div>
 </div>
+
 

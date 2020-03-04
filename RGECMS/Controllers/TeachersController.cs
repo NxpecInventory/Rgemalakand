@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using RGECMS.Models;
 using PagedList;
+using System.IO;
 
 namespace RGECMS.Controllers
 {
@@ -63,19 +64,54 @@ namespace RGECMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,TeacherName,FatherName,Address,ContactInfo,Status,JoiningDate,DesignationId,Specialization")] Teachers teachers)
+        public ActionResult Create(HttpPostedFileBase ImageFile,Teachers model)
         {
             if (ModelState.IsValid)
             {
-                
-                db.Teachers.Add(teachers);
-                db.SaveChanges();
-                TempData["msg"] = "SucessFully Created Teacher Record Of  Name:" + teachers.TeacherName;
-                return RedirectToAction("Index");
+                if (ImageFile != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+                    string extension = Path.GetExtension(model.ImageFile.FileName);
+
+                    fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                    model.Uploadimage = "~/image/" + fileName;
+                    model.ImageFile.SaveAs(Path.Combine(Server.MapPath("~/image/"), fileName));
+                    /////////////
+                    ///
+
+                    //string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+                    //string extension = Path.GetExtension(model.ImageFile.FileName).Substring(1);
+                    ////file
+                    ////  extension = ImageFile.Substring(ImageFile.lastIndexOf('.') + 1).toLowerCase();
+                    ////if (extension == "jpg" || extension == "png" || extension == "bmp")
+                    ////{
+                    ////    if (!supportedTypes.Contains(extension))
+                    ////    {
+                    ////        result = false;
+                    ////    }
+                    ////    else
+                    ////    {
+                    ////        file storage
+                    //    fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                    //        model.Uploadimage = extension;
+                    //        model.ImageFile.SaveAs(Path.Combine(Server.MapPath("~/image"), extension));
+
+
+
+
+
+                    using (ApplicationDbContext db = new ApplicationDbContext())
+                    {
+                        db.Teachers.Add(model);
+                        db.SaveChanges();
+                        TempData["msg"] = "SucessFully Created Teacher Record Of  Name:" + model.TeacherName;
+                    }
+                    return RedirectToAction("Index");
+                }
             }
 
-            ViewBag.DesignationId = new SelectList(db.teacherdesignationcategory, "Id", "DepartmentName", teachers.DesignationId);
-            return View(teachers);
+            ViewBag.DesignationId = new SelectList(db.teacherdesignationcategory, "Id", "DepartmentName", model.DesignationId);
+            return View(model);
         }
 
         // GET: Teachers/Edit/5
@@ -86,6 +122,7 @@ namespace RGECMS.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Teachers teachers = db.Teachers.Find(id);
+            TempData["image"] = teachers.Uploadimage;
             if (teachers == null)
             {
                 return HttpNotFound();
@@ -99,13 +136,33 @@ namespace RGECMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,TeacherName,FatherName,Address,ContactInfo,Status,JoiningDate,DesignationId,Specialization")] Teachers teachers)
+        public ActionResult Edit(HttpPostedFileBase ImageFile,/*[Bind(Include = "Id,TeacherName,FatherName,Address,ContactInfo,Status,JoiningDate,DesignationId,Specialization,Uploadimage,")]*/ Teachers teachers)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(teachers).State = EntityState.Modified;
-                db.SaveChanges();
+                if (ImageFile != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(teachers.ImageFile.FileName);
+                    string extension = Path.GetExtension(teachers.ImageFile.FileName);
+
+                    fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                    teachers.Uploadimage = "~/image/" + fileName;
+                    teachers.ImageFile.SaveAs(Path.Combine(Server.MapPath("~/image/"), fileName));
+                    using (ApplicationDbContext db = new ApplicationDbContext())
+                    {
+                        db.Entry(teachers).State = EntityState.Modified;
+                      
+                        db.SaveChanges();
+                    }
+                }
+                else
+                {
+                    teachers.Uploadimage = TempData["image"].ToString();
+                    db.Entry(teachers).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
+               
             }
             ViewBag.DesignationId = new SelectList(db.teacherdesignationcategory, "Id", "DepartmentName", teachers.DesignationId);
             return View(teachers);

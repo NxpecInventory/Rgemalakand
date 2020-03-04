@@ -451,6 +451,22 @@
     <Compile Include="Migrations\201912221615580_newupdated.Designer.cs">
       <DependentUpon>201912221615580_newupdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003021147460_images.cs" />
+    <Compile Include="Migrations\202003021147460_images.Designer.cs">
+      <DependentUpon>202003021147460_images.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003041012433_student.cs" />
+    <Compile Include="Migrations\202003041012433_student.Designer.cs">
+      <DependentUpon>202003041012433_student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003041113122_students.cs" />
+    <Compile Include="Migrations\202003041113122_students.Designer.cs">
+      <DependentUpon>202003041113122_students.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003041209269_collegeemplyee.cs" />
+    <Compile Include="Migrations\202003041209269_collegeemplyee.Designer.cs">
+      <DependentUpon>202003041209269_collegeemplyee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendanceoptions.cs" />
@@ -850,6 +866,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="image\" />
     <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
@@ -1019,6 +1036,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912221615580_newupdated.resx">
       <DependentUpon>201912221615580_newupdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021147460_images.resx">
+      <DependentUpon>202003021147460_images.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003041012433_student.resx">
+      <DependentUpon>202003041012433_student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003041113122_students.resx">
+      <DependentUpon>202003041113122_students.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003041209269_collegeemplyee.resx">
+      <DependentUpon>202003041209269_collegeemplyee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
