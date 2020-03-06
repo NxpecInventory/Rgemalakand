@@ -14,8 +14,9 @@
         <div class="form-horizontal">
             <h4>Student Fees Records </h4>
             <hr />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="row">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group col-sm">
                     @Html.LabelFor(model => model.StudentId, "StudentId", htmlAttributes: new { @class = "control-label col-sm" })
                     <div class="col-md-10">

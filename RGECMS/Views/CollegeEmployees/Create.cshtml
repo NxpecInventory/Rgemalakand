@@ -13,8 +13,9 @@
         <div class="form-horizontal">
             <h4>CollegeEmployees</h4>
             <hr />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="row">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group col-sm">
                     @Html.LabelFor(model => model.EmployeeName, htmlAttributes: new { @class = "control-label col-sm" })
                     <div class="col-md-10">
@@ -78,13 +79,17 @@
                 </div>
 
                 <div class="form-group col-sm-4">
-                    <div class="form-control">
-                        <div class="col-md-10">
-                            <input type="file" name="ImageFile" id="ImageFile" accept="image/*" />
-                            @*accept="image/*"*@     @*accept="image/x-png,image/gif,image/jpeg"*@
+                  
+                        <div class="control-label col-sm">
+                            <label>Upload Image</label>
+                            <div class="col-md-12">
+                                <div class="form-control">
+                                    <input type="file" name="ImageFile" id="ImageFile" accept="image/*" />
+                                    @*accept="image/*"*@     @*accept="image/x-png,image/gif,image/jpeg"*@
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="row">
@@ -96,6 +101,7 @@
             </div>
         </div>
     </div>
+        </div>
    
 }
 <div class="form-group">

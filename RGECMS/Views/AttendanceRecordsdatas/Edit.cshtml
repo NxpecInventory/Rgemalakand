@@ -13,8 +13,9 @@
         <div class="form-horizontal">
             <h4>AttendanceRecordsdata</h4>
             <hr />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="row">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.Id)
                 @Html.HiddenFor(model => model.Studentid)
                 @Html.HiddenFor(model => model.Name)
@@ -78,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
         </div>
         
             }

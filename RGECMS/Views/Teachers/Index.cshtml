@@ -89,9 +89,9 @@
                 <th>
                     @Html.DisplayName("Specialization")
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayName("Uploadimage")
-                </th>
+                </th>*@
                 <th>Actions</th>
             </tr>
         </thead>
@@ -121,9 +121,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Specialization)
             </td>
-            <td>
-                @*<img src="@Url.Content(item.Uploadimage)" Height="200" Width="150" />*@
-            </td>
+            @*<td>
+                <img src="@Url.Content(item.Uploadimage)" Height="200" Width="150" />
+            </td>*@
             @if (User.IsInRole("Administration"))
             {
                 <td>

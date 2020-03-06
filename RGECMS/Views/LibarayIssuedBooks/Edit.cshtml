@@ -15,8 +15,9 @@
         <div class="form-horizontal">
             <h4>LibarayIssuedBooks</h4>
             <hr />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="row">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.Id)
                 @Html.HiddenFor(model => model.BookTitle)
                 @Html.HiddenFor(model => model.BookId)
@@ -66,7 +67,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
         </div>
         }
 
