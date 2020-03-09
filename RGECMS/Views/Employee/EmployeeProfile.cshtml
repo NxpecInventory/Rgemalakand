@@ -14,12 +14,12 @@
         font-size: 20px;
     }
 
-    img {
+    /*img {
         border-radius: 50%;
         /*border:solid;*/
-        float: left;
+        /*float: left;
         margin-top: -10px;
-    }
+    }*/
 
 
     dd {
@@ -55,7 +55,9 @@
             <dl class="dl-horizontal">
 
                 <dt>
-                    <img src="@Url.Content(Model.Uploadimage?? "~/image")" alt="Image" height="150" width="150" class="img-circle img-responsive" />
+                    <img src="@Url.Content(Model.Uploadimage?? "~/image")" alt="Image" height="150" width="150" style="border-radius: 50%;      /*border:solid;*/
+        float: left;
+        margin-top: -10px;" class="img-circle img-responsive" />
                 </dt>
             </dl>
         </div>
