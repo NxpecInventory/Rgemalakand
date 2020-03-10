@@ -209,6 +209,7 @@ namespace RGECMS.Controllers
                 }
                 else
                 {
+                 
                     var checkuser = await db.CollegeEmployees.FindAsync(model.RegistrationNo);
                     if (checkuser == null)
                     {

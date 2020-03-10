@@ -23,7 +23,7 @@
         /*margin: 30px auto;*/
         overflow: hidden;
         position: center;
-        wi
+      
     }
 
     .ct {
@@ -101,12 +101,12 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 {
     <div class="row">
         <div class="col-sm-4">
-            <div class="card alert alert-success " role="alert" @*style="width: 20rem; height:11rem;"*@>
+            <div class="card bg-success " role="alert" @*style="width: 20rem; height:11rem;"*@>
                 <a class="" href="@Url.Action("Index", "CollegeEmployees")">
                     <div class="card-body">
                         <div class="">
                             <h3 style="color:black;text-align:center">Total Employees</h3>
-                            <h1 style="color:dimgray;margin-top:45px;text-align:center">@TempData["Totaluser"]  </h1>
+                            <h1 style="color:white;margin-top:45px;text-align:center">@TempData["Totaluser"]  </h1>
 
                         </div>
                     </div>
@@ -116,25 +116,25 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 
         <div class="col-sm-4">
-            <div class="card alert alert-success h-auto " role="alert" @*style="width: 20rem; height:11rem;"*@>
+            <div class="card bg-warning h-auto " role="alert" @*style="width: 20rem; height:11rem;"*@>
                 <a class="" href="@Url.Action("Index", "Students")">
                     <div class="card-body">
                         <div class="">
                             <h3 style="color:black;text-align:center">Total Enroll Students:</h3>
-                            <h1 style="color:dimgray;margin-top:45px; text-align:center"> @TempData["student"]  </h1>
-
+                            <h1 style="color: white;margin-top:45px; text-align:center"> @TempData["student"]  </h1>
+                            @*dimgray*@
                         </div>
                     </div>
                 </a>
             </div>
         </div>
         <div class="col-sm-4">
-            <div class="card alert alert-success " role="alert" @*style="width: 20rem; height:11rem;"*@>
-                <a class="" href="@Url.Action("Index", "CollegeEmployees")">
+            <div class="card bg-danger " role="alert" @*style="width: 20rem; height:11rem;"*@>
+                <a class="" href="@Url.Action("Index", "Teachers")">
                     <div class="card-body">
                         <div class="">
-                            <h3 style="color:black;text-align:center">Total Absent Employees:</h3>
-                            <h1 style="color:dimgray;margin-top:45px;text-align:center"> @TempData["Totaluser"]  </h1>
+                            <h3 style="color:black;text-align:center">Total Teacher:</h3>
+                            <h1 style="color:white;margin-top:45px;text-align:center"> @TempData["Teacher"]  </h1>
 
                         </div>
                     </div>

@@ -18,6 +18,7 @@ namespace RGECMS.Controllers
 
             TempData["Totaluser"] =  db.CollegeEmployees.Count();
             TempData["student"] = db.students.Count();
+            TempData["Teacher"] = db.Teachers.Count();
 
 
 

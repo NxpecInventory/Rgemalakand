@@ -26,11 +26,11 @@ namespace RGECMS.Controllers
                 int convertsearch = Convert.ToInt32(search);
                 page = 1;
                 teachers = teachers.Where(m => m.Id == convertsearch).ToList();
-                TempData["Totaluser"] = teachers.Count();
+                TempData["Teacher"] = teachers.Count();
             }
             if (string.IsNullOrWhiteSpace(search))
             {
-                TempData["Totaluser"] = teachers.Count();
+                TempData["Teacher"] = teachers.Count();
             }
             int pageSize = 15;
             int pageNumber = (page ?? 1);
