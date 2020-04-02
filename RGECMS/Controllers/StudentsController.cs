@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -21,14 +21,14 @@ namespace RGECMS.Controllers
         public ActionResult Index(string search, int? page)
         {
             var students = db.students.Include(s => s.Programs).ToList();
-         
+
             if (!string.IsNullOrWhiteSpace(search))
             {
                 int convertsearch = Convert.ToInt32(search);
                 page = 1;
-students = students.Where(m => m.Id == convertsearch).ToList();
+                students = students.Where(m => m.Id == convertsearch).ToList();
                 TempData["student"] = students.Count();
-             
+
             }
             if (string.IsNullOrWhiteSpace(search))
             {
@@ -36,7 +36,7 @@ students = students.Where(m => m.Id == convertsearch).ToList();
             }
             int pageSize = 15;
             int pageNumber = (page ?? 1);
-            return View( students.OrderByDescending(a=>a.AddmissionDate).ToPagedList(pageNumber, pageSize));
+            return View(students.OrderByDescending(a => a.AddmissionDate).ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Students/Details/5
@@ -57,7 +57,7 @@ students = students.Where(m => m.Id == convertsearch).ToList();
         // GET: Students/Create
         public ActionResult Create()
         {
-            ViewBag.ProgramId = new SelectList(db.programs, "Id","ProgramName");
+            ViewBag.ProgramId = new SelectList(db.programs, "Id", "ProgramName");
             return View();
         }
 
@@ -66,7 +66,7 @@ students = students.Where(m => m.Id == convertsearch).ToList();
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Students students,HttpPostedFileBase ImageFile)
+        public async Task<ActionResult> Create(Students students, HttpPostedFileBase ImageFile)
         {
             if (ModelState.IsValid)
             {
@@ -81,10 +81,10 @@ students = students.Where(m => m.Id == convertsearch).ToList();
                     students.ImageFile.SaveAs(Path.Combine(Server.MapPath("~/image/"), fileName));
                 }
 
-                    students.ClassId = 0;
+                students.ClassId = 0;
                 students.Status = "Present";
                 students.CurrentSemclass = "N/A";
-             
+
                 db.students.Add(students);
                 await db.SaveChangesAsync();
                 db.Entry(students).GetDatabaseValues();
@@ -122,7 +122,7 @@ students = students.Where(m => m.Id == convertsearch).ToList();
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit( Students students, HttpPostedFileBase ImageFile)
+        public async Task<ActionResult> Edit(Students students, HttpPostedFileBase ImageFile)
         {
             if (ModelState.IsValid)
             {
@@ -179,6 +179,14 @@ students = students.Where(m => m.Id == convertsearch).ToList();
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+   
+        //public async Task<ActionResult> AssignBook(Students students)
+        //{
+            
+        //    return View(await db.LibarayIssuedBooks.Where(x=>x.StudedRegId==students.Id).ToListAsync());
+
+
+        //}
 
         protected override void Dispose(bool disposing)
         {

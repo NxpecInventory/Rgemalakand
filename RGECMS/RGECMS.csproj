@@ -582,6 +582,7 @@
     <Content Include="fonts\fa-solid-900.ttf" />
     <Content Include="fonts\fa-solid-900.woff" />
     <Content Include="fonts\fa-solid-900.woff2" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\third.png" />
     <Content Include="Images\Updatedimagelogo.JPG" />
@@ -863,6 +864,8 @@
     <Content Include="Views\LibarayIssuedBooks\Edit.cshtml" />
     <Content Include="Views\LibarayIssuedBooks\Index.cshtml" />
     <Content Include="Views\TeacherAccount\Details.cshtml" />
+    <Content Include="Views\LibarayIssuedBooks\StudentShowAssignbooks.cshtml" />
+    <Content Include="Views\Students\AssignBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
