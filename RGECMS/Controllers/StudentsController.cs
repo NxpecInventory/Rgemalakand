@@ -179,11 +179,32 @@ namespace RGECMS.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-   
+        //public ActionResult show()
+        //{
+        //    var students = db.students.Include(s => s.Programs).ToList();
+  
+        //    return View(students);
+
+        //}
+        //public async Task<ActionResult> AssignBook(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    //Students students = await db.students.FindAsync(id);
+        //    return View(await db.LibarayIssuedBooks.Where(x => x.StudedRegId ==id).ToListAsync());
+        //    //if (students == null)
+        //    //{
+        //    //    return HttpNotFound();
+        //    //}
+        //    //return View(students);
+        //}
+
         //public async Task<ActionResult> AssignBook(Students students)
         //{
-            
-        //    return View(await db.LibarayIssuedBooks.Where(x=>x.StudedRegId==students.Id).ToListAsync());
+
+        //    return View(await db.LibarayIssuedBooks.Where(x => x.StudedRegId == students.Id).ToListAsync());
 
 
         //}

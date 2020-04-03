@@ -135,19 +135,22 @@
                 </td>
                 @if (User.IsInRole("Administration"))
                 {
-                    <td>
-                        <a class="btn btn-warning" href="@Url.Action("Edit", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="btn btn-success" href="@Url.Action("Details", "Students", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
-                        <a class="btn btn-danger" href="@Url.Action("Delete", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
-                    </td>
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a class="btn btn-success" href="@Url.Action("Details", "Students", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
+                    
+                </td>
                 }
                 else
                 {
                     <td>
                         <a class="btn btn-warning" href="@Url.Action("Edit", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
                         <a class="btn btn-success" href="@Url.Action("Details", "Students", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
+                       
                     </td>
                 }
+        
 
             </tr>
         }

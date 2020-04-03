@@ -865,7 +865,7 @@
     <Content Include="Views\LibarayIssuedBooks\Index.cshtml" />
     <Content Include="Views\TeacherAccount\Details.cshtml" />
     <Content Include="Views\LibarayIssuedBooks\StudentShowAssignbooks.cshtml" />
-    <Content Include="Views\Students\AssignBook.cshtml" />
+    <Content Include="Views\UserAccountDetails\AssignBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
