@@ -86,6 +86,9 @@
                 <th>
                     @Html.DisplayName("Paying Status")
                 </th>
+                <th>
+                    @Html.DisplayName("Remarks")
+                </th>
 
                 <th>Actions</th>
             </tr>
@@ -93,49 +96,52 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Students.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FatherName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SemesterClass)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SubmissionDate)
-                </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Students.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FatherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SemesterClass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmissionDate)
+            </td>
 
 
+            <td>
+                @Html.DisplayFor(modelItem => item.GrossTotalAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payingstatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+            @if (User.IsInRole("Administration"))
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.GrossTotalAmount)
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "StudentFeeRecords", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a class="btn btn-success" href="@Url.Action("Details", "StudentFeeRecords", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "StudentFeeRecords", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
                 </td>
+            }
+            else
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.Payingstatus)
+                    <a class="btn btn-success" href="@Url.Action("Details", "StudentFeeRecords", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a>
                 </td>
-                @if (User.IsInRole("Administration"))
-                {
-                    <td>
-                        <a class="btn btn-warning" href="@Url.Action("Edit", "StudentFeeRecords", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="btn btn-success" href="@Url.Action("Details", "StudentFeeRecords", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
-                        <a class="btn btn-danger" href="@Url.Action("Delete", "StudentFeeRecords", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
-                    </td>
-                }
-                else
-                {
-                    <td>
-                        <a class="btn btn-success" href="@Url.Action("Details", "StudentFeeRecords", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a>
-                    </td>
-                }
+            }
 
-            </tr>
+        </tr>
         }
 
     </table>

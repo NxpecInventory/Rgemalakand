@@ -6,15 +6,16 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "CollegeEmployees", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <div class="container">
         <div class="form-horizontal">
             <h4>CollegeEmployees</h4>
             <hr />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="row">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group col-sm">
                     @Html.LabelFor(model => model.EmployeeName, htmlAttributes: new { @class = "control-label col-sm" })
                     <div class="col-md-10">
@@ -76,17 +77,32 @@
                         @Html.ValidationMessageFor(model => model.DesignationId, "", new { @class = "text-danger" })
                     </div>
                 </div>
-            </div>
-            <div class="row">
 
-                <div class="form-group col-sm">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default" />
-                    </div>
+                <div class="form-group col-sm-4">
+                  
+                        <div class="control-label col-sm">
+                            <label>Upload Image</label>
+                            <div class="col-md-12">
+                                <div class="form-control">
+                                    <input type="file" name="ImageFile" id="ImageFile" accept="image/*" />
+                                    @*accept="image/*"*@     @*accept="image/x-png,image/gif,image/jpeg"*@
+                                </div>
+
+                            </div>
+                        </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="form-group col-sm">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
         </div>
     </div>
+        </div>
+   
 }
 <div class="form-group">
     <a class="btn btn-danger mt-10" href="@Url.Action("Index", "CollegeEmployees")">Back to List</a>

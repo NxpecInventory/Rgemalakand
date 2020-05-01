@@ -49,8 +49,9 @@ namespace RGECMS.Models
         [ForeignKey("Students")]
         public int StudentId { get; set; }
         public virtual Students Students { get; set; }
+        public DateTime AddedOn { get; set; }
 
-     
+
 
 
     }

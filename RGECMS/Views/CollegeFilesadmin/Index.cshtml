@@ -70,7 +70,11 @@
                 <td>
                     <a class="btn btn-warning" href="@Url.Action("Edit", "CollegeFiles", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
                     <a class="btn btn-danger" href="@Url.Action("Delete", "CollegeFiles", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
-                    <a href="@item.filepath" class=" btn btn-success"><span class="glyphicon glyphicon-download"></span></a>
+                    @{string path = item.filepath.Remove(0, 2); <a href="@path" class=" btn btn-success">Download</a>
+
+
+
+                    }
                 </td>
             </tr>
         }

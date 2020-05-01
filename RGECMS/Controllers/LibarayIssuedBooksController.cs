@@ -18,7 +18,10 @@ namespace RGECMS.Controllers
         // GET: LibarayIssuedBooks
         public async Task<ActionResult> Index()
         {
+         
             return View(await db.LibarayIssuedBooks.ToListAsync());
+      
+
         }
 
         // GET: LibarayIssuedBooks/Details/5

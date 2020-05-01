@@ -69,8 +69,9 @@
         <div class="form-horizontal">
             <h4>TeacherclassAssigning</h4>
             <hr />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="row">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group col-sm">
                     @Html.LabelFor(model => model.ProgramId, htmlAttributes: new { @class = "control-label col-sm" })
                     <div class="col-md-10">
@@ -113,7 +114,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
         </div>
         
             }

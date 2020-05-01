@@ -1,73 +1,85 @@
 ﻿@model RGECMS.Models.Publicmessages
 
 @{
+    /**/
+
     ViewBag.Title = "Create";
-  
+
 }
 
 @if (TempData["shownote"] == null)
 {
- 
-<h3 style="color:black;">
-    Rehman Group Of Education Contact Form
-</h3>
-<div class="alert alert-primary" role="alert">
+
     <h3 style="color:black;">
-        We Are here To Help you about any issues,questions and Any Queries Get In Touch with Us, Feel Free To
-Ask Any Query/Questions.
+        Rehman Group Of Education Contact Form
     </h3>
-</div>
+    <div class="alert alert-primary" role="alert">
+        <h3 style="color:black;">
+            We Are here To Help you about any issues,questions and Any Queries Get In Touch with Us, Feel Free To
+            Ask Any Query/Questions.
+        </h3>
+    </div>
 
-using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="form-horizontal">
+            <h4 style="color:black;">
+                Please Provide the Required Information Below ,So That we Will be able to Give you Valuable Response.
+            </h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="form-group col-sm">
+                    @Html.Label("Full Name", htmlAttributes: new { @class = "control-label col-sm" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Fullname, new { htmlAttributes = new { @class = "form-control", @placeholder = "Provide Full Name " } })
+                        @Html.ValidationMessageFor(model => model.Fullname, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-    <div class="form-horizontal">
-        <h4 style="color:black;">
-            Please Provide the Required Information Below ,So That we Will be able to Give you Valuable Response.
-        </h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.Label("Full Name", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Fullname, new { htmlAttributes = new { @class = "form-control", @placeholder = "Provide Full Name " } })
-                @Html.ValidationMessageFor(model => model.Fullname, "", new { @class = "text-danger" })
+                <div class="form-group col-sm">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-sm" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Provide Email " } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group col-sm">
+                    @Html.Label("Phone Number", htmlAttributes: new { @class = "control-label col-sm" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.phoneno, new { htmlAttributes = new { @class = "form-control", @placeholder = "Provide Phone Number(Optional) " } })
+                        @Html.ValidationMessageFor(model => model.phoneno, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="form-group col-sm-4">
+                @Html.Label("Message/Question", htmlAttributes: new { @class = "control-label col-sm" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Message, new { htmlAttributes = new { @class = "", @placeholder = "Please Type Your Message Here... " } })
+                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Provide Email " } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Phone Number", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.phoneno, new { htmlAttributes = new { @class = "form-control", @placeholder = "Provide Phone Number(Optional) " } })
-                @Html.ValidationMessageFor(model => model.phoneno, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Message/Question", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Message, new { htmlAttributes = new { @class = "", @placeholder = "Please Type Your Message Here... " } })
-                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Send Message" class="btn btn-default" />
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Send Message" class="btn btn-default" />
+                </div>
             </div>
         </div>
     </div>
-}
+
+    }
 }
 
 @if (TempData["shownote"] != null)
@@ -79,8 +91,8 @@ using (Html.BeginForm())
     </div>
 }
 <div>
-    <a class="btn btn-primary"  href="http://www.rgemalakand.com">Back To Home</a>
-      
+    <a class="btn btn-primary" href="http://www.rgemalakand.com">Back To Home</a>
+
 </div>
 
 

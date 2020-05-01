@@ -40,16 +40,17 @@ namespace RGECMS.Models
 
         [Required]
             public int Year { get; set; }
-     
+     [Required]
             public string Remarks { get; set; }
 
             [Required(ErrorMessage = "Please Select Teacher RegNo")]
             [ForeignKey("Teachers")]
             public int TeacherId { get; set; }
             public virtual Teachers Teachers { get; set; }
+        public DateTime AddedOn { get; set; }
 
 
 
 
-        }
+    }
     }

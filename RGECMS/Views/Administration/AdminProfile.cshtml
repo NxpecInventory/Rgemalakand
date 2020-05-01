@@ -1,33 +1,84 @@
 ﻿@model RGECMS.Models.CollegeEmployees
+
 @{
     ViewBag.Title = "AdminProfile";
 }
+<style>
+    dt {
+        float: left;
+        clear: left;
+        margin-top: 20px;
+        margin-right: 20px;
+        margin-left: 20px;
+        font-weight: bold;
+        width: 180px;
+        font-size: 20px;
+    }
+
+    /*.images {
+        border-radius: 50%;
+        border:solid;
+        float: left;
+        margin-top: -10px;
+    }*/
 
 
+    dd {
+        float: left;
+        margin-top: 20px;
+        margin-right: 20px;
+        font-size: 20px;
+        display: block;
+    }
+</style>
 
-<div class="alert alert-primary" role="alert">
-    <h3>RGE College Administration Profile Information</h3>
-</div>
+<h2>AdminProfile</h2>
 
-<div class="container">
-    <div class="form-horizontal">
-        <hr />
+<div>
+    <h4></h4>
+    <hr />
+    <div class="container">
+        <div class="form-horizontal">
+          
+            <div class="contanier">
+                <div class="images">
+                    <dl class="dl-horizontal">
+
+                        <dt>
+                            <img src="@Url.Content(Model.Uploadimage?? "~/image")" alt="Image" height="150" width="150" style="border-radius: 50%;      /*border:solid;*/
+        float: left;
+        margin-top: -10px;"   class="img-circle img-responsive" />
+                        </dt>
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+   
+    <div class="container">
+
         <div class="row">
             <div class="form-group col-sm">
                 <div class="control-label col-sm">
-                    @Html.DisplayNameFor(model => model.Id)
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Id)
+                    </div>
                 </div>
 
                 <div class="col-md-10">
                     <div class="form-control">
                         @Html.DisplayFor(model => model.Id)
+
                     </div>
 
                 </div>
             </div>
+
             <div class="form-group col-sm">
                 <div class="control-label col-sm">
-                    @Html.DisplayNameFor(model => model.EmployeeName)
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.EmployeeName)
+                    </div>
                 </div>
 
                 <div class="col-md-10">
@@ -37,9 +88,13 @@
 
                 </div>
             </div>
+
+
             <div class="form-group col-sm">
                 <div class="control-label col-sm">
-                    @Html.DisplayNameFor(model => model.FatherName)
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.FatherName)
+                    </div>
                 </div>
 
                 <div class="col-md-10">
@@ -54,7 +109,24 @@
         <div class="row">
             <div class="form-group col-sm">
                 <div class="control-label col-sm">
-                    @Html.DisplayName("DesignationName")
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Status)
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Status)
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class="font-weight-bold">
+                        @Html.DisplayName("DesignationName")
+
+                    </div>
                 </div>
 
                 <div class="col-md-10">
@@ -69,20 +141,9 @@
 
             <div class="form-group col-sm">
                 <div class="control-label col-sm">
-                    @Html.DisplayNameFor(model => model.Address)
-                </div>
-
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.Address)
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.ContactInfo)
                     </div>
-
-                </div>
-            </div>
-
-            <div class="form-group col-sm">
-                <div class="control-label col-sm">
-                    @Html.DisplayNameFor(model => model.ContactInfo)
                 </div>
 
                 <div class="col-md-10">
@@ -95,22 +156,13 @@
         </div>
 
         <div class="row">
+
+
             <div class="form-group col-sm-4">
                 <div class="control-label col-sm">
-                    @Html.DisplayNameFor(model => model.Status)
-                </div>
-
-                <div class="col-md-10">
-                    <div class="form-control">
-                        @Html.DisplayFor(model => model.Status)
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.JoiningDate)
                     </div>
-
-                </div>
-            </div>
-
-            <div class="form-group col-sm-4">
-                <div class="control-label col-sm">
-                    @Html.DisplayNameFor(model => model.JoiningDate)
                 </div>
 
                 <div class="col-md-10">
@@ -120,8 +172,24 @@
 
                 </div>
             </div>
+            <div class="form-group col-sm-4">
+                <div class="control-label col-sm">
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Address)
 
-      </div>
-       
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Address)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
     </div>
+        </div>
 </div>

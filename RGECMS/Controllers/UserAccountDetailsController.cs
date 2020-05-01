@@ -178,5 +178,18 @@ namespace RGECMS.Controllers
 
           
         }
+        public ActionResult AssignBook()
+        {
+            Students student = db.students.Find(user.RegistrationNo);
+            var AssinBook = (from alias in db.LibarayIssuedBooks where alias.StudedRegId == user.RegistrationNo /*&& alias.ClassId == student.ClassId*/ select alias).ToList();
+            if (AssinBook.Count == 0)// here i changed the check logic from null to list count 
+            {
+
+                TempData["cur"] = "No Issue Books";
+                return View(AssinBook);
+            }
+
+            return View(AssinBook);
+        }
     }
 }

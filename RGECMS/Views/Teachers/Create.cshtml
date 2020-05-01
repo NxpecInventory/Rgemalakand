@@ -6,7 +6,7 @@
 
 <h2 style="color:black;">Create New RGE College Teacher Record</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Teachers", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <div class="container">
@@ -15,12 +15,13 @@
                 <h3 style="color:black;">Please Provide The Following Teacher Details For Adding New Teacher Record.</h3>
             </div>
             <hr />
-            <div class="row">
+           
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+             <div class="row">
                 <div class="form-group col-sm">
-                    @Html.LabelFor(model => model.TeacherName, htmlAttributes: new { @class = "control-label col-sm" })
+                    @Html.LabelFor(model => model.TeacherName, htmlAttributes: new { @class = "control-label col-sm " })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.TeacherName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.TeacherName, new { htmlAttributes = new { @class = "form-control " } })
                         @Html.ValidationMessageFor(model => model.TeacherName, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -67,7 +68,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-sm-4">
+                <div class="form-group col-sm">
                     @Html.LabelFor(model => model.DesignationId, "DesignationId", htmlAttributes: new { @class = "control-label col-sm" })
                     <div class="col-md-10">
                         @Html.DropDownList("DesignationId", null, htmlAttributes: new { @class = "form-control" })
@@ -75,24 +76,38 @@
                     </div>
                 </div>
 
-                <div class="form-group col-sm-4">
+                <div class="form-group col-sm">
                     @Html.LabelFor(model => model.Specialization, htmlAttributes: new { @class = "control-label col-sm" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Specialization, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                </div>
+
 
                 <div class="form-group col-sm-4">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create Record" class="btn btn-default" />
+                    <div class="control-label col-sm">
+                        <label>Upload Image</label>
+                        </div>
+                        <div class="form-control">
+                            <div class="col-md-08">
+                                <input type="file" name="ImageFile" id="ImageFile" accept="image/*" />
+                                @*accept="image/*"*@     @*accept="image/x-png,image/gif,image/jpeg"*@
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+
+            <div class="form-group col-sm">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create Record" class="btn btn-default" />
                 </div>
             </div>
         </div>
-            }
+    </div>
+}
 
-            <div class="form-group">
-                <a class="btn btn-danger mt-10" href="@Url.Action("Index", "Teachers")">Back to List</a>
-            </div>
+<div class="form-group">
+    <a class="btn btn-danger mt-10" href="@Url.Action("Index", "Teachers")">Back to List</a>
+</div>

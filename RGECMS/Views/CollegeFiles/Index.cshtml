@@ -45,8 +45,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Uploadername)
                 </th>
-                <th></th>
+                <th>Actions</th>
             </tr>
+            </thead>
 
             @foreach (var item in Model)
             {
@@ -64,16 +65,14 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Uploadername)
                     </td>
-                    
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
+                        <a class="btn btn-warning" href="@Url.Action("Edit", "CollegeFiles", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="btn btn-danger" href="@Url.Action("Delete", "CollegeFiles", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
 
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
                         @{string path = item.filepath.Remove(0, 2);
 
-                        <a href="@path" class=" btn btn-success">Download</a>
-                            }
-                        @*@Html.ActionLink("Download", item.filepath,new { })*@
+                            <a class="btn btn-success" href="@path"><span class="glyphicon glyphicon-download"></span></a>
+                        }
                     </td>
                 </tr>
             }

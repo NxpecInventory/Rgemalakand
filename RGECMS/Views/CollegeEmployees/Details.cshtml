@@ -11,6 +11,14 @@
         <h4>College Employees</h4>
         <hr />
         <div class="row">
+            <div class="form-group col-sm ">
+                <div class="col-md-offset-2 col-md-10 ">
+                    <img src="@Url.Content(Model.Uploadimage?? "~/image")" alt="Image" height="150" width="150" class="img-circle img-responsive" />
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="form-group col-sm">
                 <div class="control-label col-sm">
                     @Html.DisplayNameFor(model => model.employeeDesignationCategory.DesignationName)

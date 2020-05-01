@@ -26,7 +26,7 @@ namespace RGECMS.Controllers
                 TempData["name"] = getname;
                 return View(employee);
             }
-            return View();
+            return View(employee);
         }
 
         // GET: Administration/Details/5

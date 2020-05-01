@@ -4,90 +4,208 @@
 }
 
 <style>
+ 
     dt {
         float: left;
         clear: left;
-        margin-right: 5px;
+        margin-top: 20px;
+        margin-right: 20px;
+        margin-left: 20px;
         font-weight: bold;
-        width:180px;
-        font-size:20px;
+        width: 180px;
+        font-size: 20px;
     }
+    /*img {
+        border-radius: 50%;
+        /*border:solid;*/
+        /*float: left;
+        margin-top: -10px;
+    }*/
+
 
     dd {
-        margin-left: 0px;
-        font-size:20px;
+        float: left;
+        margin-top: 20px;
+        margin-right: 20px;
+        font-size: 20px;
+      
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    .contanier{
+        margin-top:-5px;
+        float: left;
+    }
+    .contain{
+        float: left;
+        border:solid;
+    
+       
+    }
+    .contein {
+        float: left;
+        margin-left: 50px;
+        border:solid;
+        width:36%;
+    height:50%;
+      
     }
 </style>
 <div>
-    <div class="alert alert-primary" role="alert">
-        <h3>RGE College Teacher Profile Information</h3>
+    @*@using (Html.BeginForm("Edit", "Teachers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()*@
+        <div class="alert alert-primary" role="alert">
+            <h3>RGE College Teacher Profile Information</h3>
+        </div>
+        <hr />
+        <div class="contanier">
+            <dl class="dl-horizontal">
+             
+                <dt>
+                    <img src="@Url.Content(Model.Uploadimage?? "~/image")" alt="Image" height="150" width="150" style="border-radius: 50%;      /*border:solid;*/
+        float: left;
+        margin-top: -10px;" class="img-circle img-responsive" />
+
+
+                </dt>
+             
+            </dl>
+        </div>
+   
+               
+         
+    @*}*@
+
+    <div class="container">
+
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.TeacherName):
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.TeacherName)
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.FatherName):
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.FatherName)
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.teacherdesignationcategory.DepartmentName):
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.teacherdesignationcategory.DepartmentName)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Specialization):
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Specialization)
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.ContactInfo):
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.ContactInfo)
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm">
+                <div class="control-label col-sm">
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Status):
+                    </div>
+
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Status)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <div class="control-label col-sm">
+                    <div class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.JoiningDate):
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.JoiningDate)
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm-4">
+                <div class="control-label col-sm">
+                    <div class="font-weight-bold">
+
+                        @Html.DisplayNameFor(model => model.Address):
+                    </div>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Address)
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-    <hr />
-    <dl class="dl-horizontal">
-      
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TeacherName):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TeacherName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FatherName):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FatherName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.teacherdesignationcategory.DepartmentName):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.teacherdesignationcategory.DepartmentName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Address):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactInfo):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ContactInfo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Status):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.JoiningDate):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.JoiningDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Specialization):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Specialization)
-        </dd>
-
-    </dl>
 </div>
+
 

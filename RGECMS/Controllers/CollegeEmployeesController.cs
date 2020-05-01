@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using RGECMS.Models;
 using PagedList;
+using System.IO;
+
 namespace RGECMS.Controllers
 {
     public class CollegeEmployeesController : Controller
@@ -67,11 +69,22 @@ namespace RGECMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,EmployeeName,FatherName,Address,ContactInfo,Status,JoiningDate,DesignationId")] CollegeEmployees collegeEmployees)
+        public async Task<ActionResult> Create(HttpPostedFileBase ImageFile, /*[Bind(Include = "Id,EmployeeName,FatherName,Address,ContactInfo,Status,JoiningDate,DesignationId")]*/ CollegeEmployees collegeEmployees)
         {
             if (ModelState.IsValid)
             {
-                db.CollegeEmployees.Add(collegeEmployees);
+                if (ImageFile != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(collegeEmployees.ImageFile.FileName);
+                    string extension = Path.GetExtension(collegeEmployees.ImageFile.FileName);
+
+                    fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                    collegeEmployees.Uploadimage = "~/image/" + fileName;
+                    collegeEmployees.ImageFile.SaveAs(Path.Combine(Server.MapPath("~/image/"), fileName));
+
+                }
+                   
+                    db.CollegeEmployees.Add(collegeEmployees);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -88,6 +101,7 @@ namespace RGECMS.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CollegeEmployees collegeEmployees = await db.CollegeEmployees.FindAsync(id);
+            TempData["show"] = collegeEmployees.Uploadimage;
             if (collegeEmployees == null)
             {
                 return HttpNotFound();
@@ -101,12 +115,31 @@ namespace RGECMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,EmployeeName,FatherName,Address,ContactInfo,Status,JoiningDate,DesignationId")] CollegeEmployees collegeEmployees)
+        public async Task<ActionResult> Edit(HttpPostedFileBase ImageFile, /*[Bind(Include = "Id,EmployeeName,FatherName,Address,ContactInfo,Status,JoiningDate,DesignationId")]*/ CollegeEmployees collegeEmployees)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(collegeEmployees).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                if (ImageFile != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(collegeEmployees.ImageFile.FileName);
+                    string extension = Path.GetExtension(collegeEmployees.ImageFile.FileName);
+
+                    fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                    collegeEmployees.Uploadimage = "~/image/" + fileName;
+                    collegeEmployees.ImageFile.SaveAs(Path.Combine(Server.MapPath("~/image/"), fileName));
+                    using (ApplicationDbContext db = new ApplicationDbContext())
+                    {
+                        db.Entry(collegeEmployees).State = EntityState.Modified;
+
+                        db.SaveChanges();
+                    }
+                }
+                else
+                {
+                    collegeEmployees.Uploadimage = TempData["show"].ToString();
+                    db.Entry(collegeEmployees).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                }
                 return RedirectToAction("Index");
             }
             ViewBag.DesignationId = new SelectList(db.employeeDesignationCategory, "Id", "DesignationName", collegeEmployees.DesignationId);

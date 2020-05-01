@@ -80,5 +80,6 @@ namespace RGECMS.Models
         public DbSet<RGECMS.Models.LibararyBooks> LibararyBooks { get; set; }
         public DbSet<LibarayIssuedBooks> LibarayIssuedBooks { get; set; }
 
+        //public System.Data.Entity.DbSet<RGECMS.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

@@ -81,49 +81,71 @@
                 </th>
                 <th>Actions</th>
             </tr>
-            </thead>
+        </thead>
 
-            @foreach (var item in Model)
-            {
-                <tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProgramName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Teacherid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubjectName)
+                </td>
+                @if (User.IsInRole("Administration"))
+                {
                     <td>
-                        @Html.DisplayFor(modelItem => item.ProgramName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Teacherid)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AssignedDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ClassName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SubjectName)
-                    </td>
-                    @if (User.IsInRole("Administration"))
-                    {
-                        <td>
 
-                            <a class="btn btn-success" href="@Url.Action("Details", "TeacherclassAssignings", new { id = item.id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a>
-                            <a class="btn btn-danger" href="@Url.Action("Delete", "TeacherclassAssignings", new { id = item.id })"><span class="glyphicon glyphicon-trash"></span></a>
-                        </td>
-                    }
-                    else
-                    {
-                        <td>
-                            <a class="btn btn-success" href="@Url.Action("Details", "TeacherclassAssignings", new { id = item.id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a>
-                        </td>
-                    }
-                </tr>
-            }
+                        <a class="btn btn-success" href="@Url.Action("Details", "TeacherclassAssignings", new { id = item.id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a>
+                        <a class="btn btn-danger" href="@Url.Action("Delete", "TeacherclassAssignings", new { id = item.id })"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a class="btn btn-success" href="@Url.Action("Details", "TeacherclassAssignings", new { id = item.id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a>
+                    </td>
+                }
+            </tr>
+        }
 
     </table>
-    </div>
-    @*<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
+</div>
+@*<a style="color:black;">Showing Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</a>
 
 
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="stylesheet" />
+<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="stylesheet" />
+@*.................Script side datatable searching and pagination...................*@
+@section scripts{
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable()
+
+
+
+
+        });
+
+    </script>
+}
+

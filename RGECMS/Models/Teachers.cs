@@ -34,6 +34,11 @@ namespace RGECMS.Models
         public  teacherdesignationcategory teacherdesignationcategory { get; set; } //like lecturer professor also including department
         [Required]
         public string Specialization { get; set; }
+        public string Uploadimage { get; set; }
+        [NotMapped]
+
+        public HttpPostedFileBase ImageFile { get; set; }
+
 
     }
 
