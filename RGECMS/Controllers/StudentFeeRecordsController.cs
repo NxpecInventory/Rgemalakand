@@ -118,9 +118,9 @@ namespace RGECMS.Controllers
                 transaction.TransactionDate = finalslip.SubmissionDate;
                 transaction.TransactionYear = finalslip.batch;
                 transaction.TransactionType = "Fees";
-       
 
-               
+                finalslip.AddedOn = DateTime.UtcNow.AddHours(5);
+
                 db.StudentFeeRecords.Add(finalslip);
                 db.SaveChanges();
                 db.Entry(finalslip).GetDatabaseValues();

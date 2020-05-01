@@ -89,6 +89,7 @@ namespace RGECMS.Controllers
                 {
                     teacherSalaryRecords.Remarks="N/A";
                 }
+                teacherSalaryRecords.AddedOn = DateTime.UtcNow.AddHours(5);
                 db.TeacherSalaryRecords.Add(teacherSalaryRecords);
                 db.SaveChanges();
                 db.Entry(teacherSalaryRecords).GetDatabaseValues();
@@ -103,6 +104,7 @@ namespace RGECMS.Controllers
                 expensetransection.TransactionDate = teacherSalaryRecords.SubmissionDate;
                 expensetransection.TransactionYear = teacherSalaryRecords.Year;
                 expensetransection.TransactionAmount = teacherSalaryRecords.GrossTotalAmount;
+
                 db.ExpenseOutgoingRecords.Add(expensetransection);
                 db.SaveChanges();
                 return RedirectToAction("PrintSalarySlip");

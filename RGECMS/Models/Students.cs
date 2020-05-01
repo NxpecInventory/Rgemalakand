@@ -43,6 +43,7 @@ namespace RGECMS.Models
         [NotMapped]
 
         public HttpPostedFileBase ImageFile { get; set; }
+        public DateTime AddedOn { get; set; }
 
     }
 }

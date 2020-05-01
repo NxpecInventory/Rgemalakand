@@ -89,6 +89,7 @@ namespace RGECMS.Controllers
                 {
                     EmployeeSalary.Remarks = "N/A";
                 }
+                EmployeeSalary.AddedOn = DateTime.UtcNow.AddHours(5);
                 db.EmployeeSalary.Add(EmployeeSalary);
                 db.SaveChanges();
                 db.Entry(EmployeeSalary).GetDatabaseValues();

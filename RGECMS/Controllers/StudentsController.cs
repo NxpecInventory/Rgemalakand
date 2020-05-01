@@ -84,7 +84,8 @@ namespace RGECMS.Controllers
                 students.ClassId = 0;
                 students.Status = "Present";
                 students.CurrentSemclass = "N/A";
-
+                //onSideLeads.CreatedOn = DateTime.UtcNow.AddHours(5);
+                students.AddedOn = DateTime.UtcNow.AddHours(5);
                 db.students.Add(students);
                 await db.SaveChangesAsync();
                 db.Entry(students).GetDatabaseValues();

@@ -1,7 +1,13 @@
 ﻿
 @{
+    /**/
+
     ViewBag.Title = "UserHome";
 }
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/Chart.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
 <div class="alert alert-success" role="alert">
     <h3 style="color:black;">Welcome,@User.Identity.Name To Rahman Group Of Education Management System.</h3>
@@ -70,8 +76,6 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <div class="jquery-script-clear"></div>
 </div>
 </div>-->
-
-
 @if (User.IsInRole("Administration"))
 {
     <div class="row">
@@ -118,7 +122,70 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
         </div>
 
     </div>
+    //polarchart
+    <div class="row">
+        <div class="col-12 col-lg-6 col-xl-6">
+            <div class="card bg-cyan">
+
+
+
+                <div class="card-body text-center px-0">
+                    <h3 class="" style="color:white">Student Registration</h3>
+                    <div class="chart-container-10 d-flex align-items-center justify-content-center">
+                        <canvas id="polarAreaChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 col-xl-6">
+            <div class="card bg-orange">
+
+
+
+                <div class="card-body text-center px-0">
+                    <h3 class="">Student Fee</h3>
+                    <div class="chart-container-10 d-flex align-items-center justify-content-center">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-6 col-xl-6">
+            <div class="card bg-danger">
+
+
+
+                <div class="card-body text-center px-0">
+                    <h3 class="">Employee Salary</h3>
+                    <div class="chart-container-10 d-flex align-items-center justify-content-center">
+                        <canvas id="line"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 col-xl-6">
+            <div class="card bg-light">
+
+
+
+                <div class="card-body text-center px-0">
+                    <h3 class="">Teacher Salary</h3>
+                    <div class="chart-container-10 d-flex align-items-center justify-content-center">
+                        <canvas id="Employeeline"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 }
+
+
 <div class="carousel">
     <ul class="ct clearfix">
         <li><a href="#"><img src="~/Images/first.jpg"></a></li>
@@ -142,6 +209,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
         <li></li>
     </ul>
 </div>
+<br />
 
 
 
@@ -149,146 +217,559 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
-    $.fn.carousel = function () {
-        this.each(function () {
+            $.fn.carousel = function () {
+                this.each(function () {
 
-            var Carousel = (function () {
+                    var Carousel = (function () {
 
-                function Carousel($node) {
-                    this.imgCt = $node.find('.ct')
-                    this.item = this.imgCt.find('li')
-                    this.itemWidth = this.item.width()
-                    this.itemCount = this.item.size()
-                    this.pre = $node.find('.pre')
-                    this.next = $node.find('.next')
-                    this.bullet = $node.find('.bullet')
+                        function Carousel($node) {
+                            this.imgCt = $node.find('.ct')
+                            this.item = this.imgCt.find('li')
+                            this.itemWidth = this.item.width()
+                            this.itemCount = this.item.size()
+                            this.pre = $node.find('.pre')
+                            this.next = $node.find('.next')
+                            this.bullet = $node.find('.bullet')
 
-                    this.imgCt.prepend(this.item.last().clone())
-                    this.imgCt.append(this.item.first().clone())
+                            this.imgCt.prepend(this.item.last().clone())
+                            this.imgCt.append(this.item.first().clone())
 
-                    this.newItemCount = $node.find('.ct').children().size()
-                    this.imgCt.css({
-                        width: this.newItemCount * this.itemWidth,
-                        left: -this.itemWidth,
-                    })
-
-                    this.curIdx = 0
-                    this.isAnimate = false
-
-                    this.init()
-                }
-
-                Carousel.prototype = {
-                    bind: function () {
-                        var _this = this
-                        _this.pre.on('click', function () {
-                            _this.doPre()
-                        })
-                        _this.next.on('click', function () {
-                            _this.doNext()
-                        })
-                        _this.bullet.find('li').on('click', function () {
-                            var idx = $(this).index()
-                            if (idx < _this.curIdx) {
-                                _this.doPre(_this.curIdx - idx)
-                            }
-                            else {
-                                _this.doNext(idx - _this.curIdx)
-                            }
-                        })
-                    },
-
-                    doPre: function (idx) {
-                        var _this = this
-                        idx = idx || 1
-                        if (!_this.isAnimate) {
-                            _this.isAnimate = true
-                            _this.stop()
-                            _this.imgCt.animate({
-                                left: '+=' + _this.itemWidth * idx
-                            }, function () {
-                                _this.curIdx = (_this.itemCount + _this.curIdx - idx) % _this.itemCount
-                                if (_this.curIdx === _this.itemCount - 1) {
-                                    _this.imgCt.css('left', -_this.itemCount * _this.itemWidth)
-                                }
-                                _this.auto()
-                                _this.setBullet()
-                                _this.isAnimate = false
+                            this.newItemCount = $node.find('.ct').children().size()
+                            this.imgCt.css({
+                                width: this.newItemCount * this.itemWidth,
+                                left: -this.itemWidth,
                             })
-                        }
-                    },
 
-                    doNext: function (idx) {
-                        var _this = this
-                        idx = idx || 1
-                        if (!_this.isAnimate) {
-                            _this.isAnimate = true
-                            _this.stop()
-                            _this.imgCt.animate({
-                                left: '-=' + _this.itemWidth * idx
-                            }, function () {
-                                _this.curIdx = (_this.curIdx + idx) % _this.itemCount
-                                if (_this.curIdx === 0) {
-                                    _this.imgCt.css('left', -_this.itemWidth)
+                            this.curIdx = 0
+                            this.isAnimate = false
+
+                            this.init()
+                        }
+
+                        Carousel.prototype = {
+                            bind: function () {
+                                var _this = this
+                                _this.pre.on('click', function () {
+                                    _this.doPre()
+                                })
+                                _this.next.on('click', function () {
+                                    _this.doNext()
+                                })
+                                _this.bullet.find('li').on('click', function () {
+                                    var idx = $(this).index()
+                                    if (idx < _this.curIdx) {
+                                        _this.doPre(_this.curIdx - idx)
+                                    }
+                                    else {
+                                        _this.doNext(idx - _this.curIdx)
+                                    }
+                                })
+                            },
+
+                            doPre: function (idx) {
+                                var _this = this
+                                idx = idx || 1
+                                if (!_this.isAnimate) {
+                                    _this.isAnimate = true
+                                    _this.stop()
+                                    _this.imgCt.animate({
+                                        left: '+=' + _this.itemWidth * idx
+                                    }, function () {
+                                        _this.curIdx = (_this.itemCount + _this.curIdx - idx) % _this.itemCount
+                                        if (_this.curIdx === _this.itemCount - 1) {
+                                            _this.imgCt.css('left', -_this.itemCount * _this.itemWidth)
+                                        }
+                                        _this.auto()
+                                        _this.setBullet()
+                                        _this.isAnimate = false
+                                    })
                                 }
-                                _this.auto()
-                                _this.setBullet()
-                                _this.isAnimate = false
-                            })
+                            },
+
+                            doNext: function (idx) {
+                                var _this = this
+                                idx = idx || 1
+                                if (!_this.isAnimate) {
+                                    _this.isAnimate = true
+                                    _this.stop()
+                                    _this.imgCt.animate({
+                                        left: '-=' + _this.itemWidth * idx
+                                    }, function () {
+                                        _this.curIdx = (_this.curIdx + idx) % _this.itemCount
+                                        if (_this.curIdx === 0) {
+                                            _this.imgCt.css('left', -_this.itemWidth)
+                                        }
+                                        _this.auto()
+                                        _this.setBullet()
+                                        _this.isAnimate = false
+                                    })
+                                }
+                            },
+
+                            setBullet: function () {
+                                this.bullet.children().removeClass('active').eq(this.curIdx).addClass('active')
+                            },
+
+                            auto: function () {
+                                var _this = this
+                                this.clock = setInterval(function () {
+                                    _this.doNext()
+                                }, 2000)
+                            },
+
+                            stop: function () {
+                                clearInterval(this.clock)
+                            },
+
+                            init: function () {
+                                this.bind()
+                                this.auto()
+                            }
+
                         }
-                    },
 
-                    setBullet: function () {
-                        this.bullet.children().removeClass('active').eq(this.curIdx).addClass('active')
-                    },
+                        return Carousel
 
-                    auto: function () {
-                        var _this = this
-                        this.clock = setInterval(function () {
-                            _this.doNext()
-                        }, 2000)
-                    },
+                    })()
 
-                    stop: function () {
-                        clearInterval(this.clock)
-                    },
+                    new Carousel($(this))
+                })
 
-                    init: function () {
-                        this.bind()
-                        this.auto()
-                    }
-
-                }
-
-                return Carousel
-
-            })()
-
-            new Carousel($(this))
-        })
-
-    }
+            }
 
 
 
-    $('.carousel').carousel()
+            $('.carousel').carousel()
 
 </script>
 
 <script type="text/javascript">
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-36251023-1']);
-    _gaq.push(['_setDomainName', 'jqueryscript.net']);
-    _gaq.push(['_trackPageview']);
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-36251023-1']);
+            _gaq.push(['_setDomainName', 'jqueryscript.net']);
+            _gaq.push(['_trackPageview']);
 
-    (function () {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
 
 </script>
+@*////////Polar Chart*@
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+            var Jan =@ViewBag.JanuaryCount;
+        var Feb =@ViewBag.FebCount;
+        var Mar =@ViewBag.MarCount;
+        var Apr =@ViewBag.AprCount;
+        var May =@ViewBag.MayCount;
+        var Jun =@ViewBag.JunCount;
+        var Jul =@ViewBag.JulCount;
+        var Aug =@ViewBag.AugCount;
+        var Sep =@ViewBag.SepCount;
+        var Oct =@ViewBag.OctCount;
+        var Nov =@ViewBag.NovCount;
+        var Dec =@ViewBag.DecCount;
 
 
 
+
+
+
+        if ($('#pieChart').length) {
+            var ctx = document.getElementById("polarAreaChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'polarArea',
+                data: {
+                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    datasets: [{
+                        backgroundColor: [
+
+                            "#009432",
+                            "#C4E538",
+                            "#8395a7",
+                            "#CD5C5C",
+                            "	#FFA07A",
+                            "#800000",
+                            "#FFFF00",
+                            "#00FF00",
+                            "#008080",
+                            "#000080",
+                            "#800080",
+                            "#C0C0C0",
+
+                        ],
+                        data: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec],
+                        borderWidth: [0, 0, 0, 0, 0, 0]
+
+                    }]
+
+                },
+                options: {
+                    maintainAspectRatio: true,
+                    cutoutPercentage: 70,
+                    legend: {
+                        display:true,
+                        position: "bottom",
+
+
+                        labels: {
+                            fontColor: '#e4e6eb',
+                            boxWidth: 12,
+
+
+                        }
+                    },
+                    // scales: {
+                    //    //yAxes: [{
+                    //    //    ticks: {
+                    //    //        beginAtZero: true
+                    //    //    }
+                    //    // }]
+                    //     //   xAxes: [{
+                    //     //    ticks: {
+                    //     //        beginAtZero: true
+                    //     //    }
+                    //     //}]
+                    //}
+                }
+            });
+
+        }
+    });
+</script>
+@*////////Pie Chart*@
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+           var Janes =@ViewBag.JanuaryCountes;
+        var Febes =@ViewBag.FebCountes;
+        var Mares =@ViewBag.MarCountes;
+        var Apres =@ViewBag.AprCountes;
+        var Mayes =@ViewBag.MayCountes;
+        var Junes =@ViewBag.JunCountes;
+        var Jules =@ViewBag.JulCountes;
+        var Auges =@ViewBag.AugCountes;
+        var Sepes =@ViewBag.SepCountes;
+        var Octes =@ViewBag.OctCountes;
+        var Noves =@ViewBag.NovCountes;
+        var Deces =@ViewBag.DecCountes;
+        debugger
+           var Jans =@ViewBag.JanuaryCounts;
+        var Febs =@ViewBag.FebCounts;
+        var Mars =@ViewBag.MarCounts;
+        var Aprs =@ViewBag.AprCounts;
+        var Mays =@ViewBag.MayCounts;
+        var Juns =@ViewBag.JunCounts;
+        var Juls =@ViewBag.JulCounts;
+        var Augs =@ViewBag.AugCounts;
+        var Seps =@ViewBag.SepCounts;
+        var Octs =@ViewBag.OctCounts;
+        var Novs =@ViewBag.NovCounts;
+        var Decs =@ViewBag.DecCounts;
+        debugger
+
+
+
+
+
+
+
+        if ($('#pieChart').length) {
+            var ctx = document.getElementById("pieChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    datasets: [{
+                        label: 'Student Paid Fee',
+                        fill: false,
+                        backgroundColor: 'blue',
+                        borderColor: 'blue',
+
+                        //backgroundColor: [
+
+                        //    "#009432",
+                        //    "#C4E538",
+
+
+                        //],
+                        data: [Janes, Febes, Mares, Apres, Mayes, Junes, Jules, Auges, Sepes, Octes, Noves, Deces],
+                        //borderWidth: [0, 0, 0, 0, 0, 0]
+                    },
+                        {
+                            label: 'Student NotPaid Fee',
+                            fill: false,
+                            backgroundColor: 'red',
+                            borderColor: 'red',
+
+
+                            data: [Jans, Febs, Mars, Aprs, Mays, Juns, Juls, Augs, Seps, Octs, Novs, Decs],
+                            //borderWidth: [0, 0, 0, 0, 0, 0]
+
+                    }]
+
+                },
+                options: {
+                    maintainAspectRatio: true,
+                    cutoutPercentage: 70,
+                    legend: {
+                        display:true,
+                        position: "bottom",
+
+
+
+                        labels: {
+                            fontColor: '#e4e6eb',
+                            boxWidth: 12,
+
+
+                        }
+                    },
+                     scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtOne: true
+                            }
+                         }]
+                    //     //   xAxes: [{
+                    //     //    ticks: {
+                    //     //        beginAtZero: true
+                    //     //    }
+                    //     //}]
+                    }
+                }
+            });
+
+        }
+    });
+</script>
+@*//////////////////Employee salary////////////////////*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+     
+        var Jansse =@ViewBag.JanuaryCountsse;
+        var Febsse =@ViewBag.FebCountsse;
+        var Marsse =@ViewBag.MarCountsse;
+        var Aprsse =@ViewBag.AprCountsse;
+     
+        var Maysse =@ViewBag.MayCountsse;
+   
+        var Junsse =@ViewBag.JunCountsse;
+        var Julsse =@ViewBag.JulCountsse;
+        var Augsse =@ViewBag.AugCountsse;
+        var Sepsse =@ViewBag.SepCountsse;
+        var Octsse =@ViewBag.OctCountsse;
+        var Novsse =@ViewBag.NovCountsse;
+        var Decsse =@ViewBag.DecCountsse;
+ 
+        var Jansssee =@ViewBag.JanuaryCountsssee;
+        var Febsssee =@ViewBag.FebCountsssee;
+        var Marsssee =@ViewBag.MarCountsssee;
+        var Aprsssee =@ViewBag.AprCountsssee;
+        var Maysssee =@ViewBag.MayCountsssee;
+        var Junsssee =@ViewBag.JunCountsssee;
+        var Julsssee =@ViewBag.JulCountsssee;
+        var Augsssee =@ViewBag.AugCountsssee;
+        var Sepsssee =@ViewBag.SepCountsssee;
+        var Octsssee =@ViewBag.OctCountsssee;
+        var Novsssee =@ViewBag.NovCountsssee;
+        var Decsssee =@ViewBag.DecCountsssee;
+
+        if ($('#pieChart').length) {
+            var ctx = document.getElementById("line").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    datasets: [{
+                        label: 'Paid Employee salary',
+                        Color:'red',
+                        fill: false,
+                        backgroundColor: 'green',
+                        borderColor: 'green',
+
+                        //backgroundColor: [
+
+                        //    "#009432",
+                        //    "#C4E538",
+
+
+                        //],
+                        data: [Jansse, Febsse, Marsse, Aprsse, Maysse, Junsse, Julsse, Augsse, Sepsse, Octsse, Novsse, Decsse],
+                        //borderWidth: [0, 0, 0, 0, 0, 0]
+                    },
+                        {
+                            label: 'UnPaid Employee salary',
+                            fill: false,
+                            backgroundColor:'red',
+                            borderColor: 'red',
+
+                            //backgroundColor: [
+
+                            //    "#009432",
+                            //    "#C4E538",
+
+
+                            //],
+                            data: [Jansssee, Febsssee, Marsssee, Aprsssee, Maysssee, Junsssee, Julsssee, Augsssee, Sepsssee, Octsssee, Novsssee, Decsssee],
+                            //borderWidth: [0, 0, 0, 0, 0, 0]
+
+                    }]
+
+                },
+                options: {
+                    maintainAspectRatio: true,
+                    cutoutPercentage: 70,
+                    legend: {
+                        display:true,
+                        position: "bottom",
+
+
+
+                        labels: {
+                            fontColor: '#e4e6eb',
+                            boxWidth: 12,
+
+
+                        }
+                    },
+                     scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtOne: true
+                            }
+                         }]
+                    //     //   xAxes: [{
+                    //     //    ticks: {
+                    //     //        beginAtZero: true
+                    //     //    }
+                    //     //}]
+                    }
+                }
+            });
+
+        }
+    });
+</script>
+@*//////////////////////////////Teacher salary/////////////*@
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        debugger
+        var Janss =@ViewBag.JanuaryCountss;
+        var Febss =@ViewBag.FebCountss;
+        var Marss =@ViewBag.MarCountss;
+        var Aprss =@ViewBag.AprCountss;
+        var Mayss =@ViewBag.MayCountss;
+        var Junss =@ViewBag.JunCountss;
+        var Julss =@ViewBag.JulCountss;
+        var Augss =@ViewBag.AugCountss;
+        var Sepss =@ViewBag.SepCountss;
+        var Octss =@ViewBag.OctCountss;
+        var Novss =@ViewBag.NovCountss;
+        var Decss =@ViewBag.DecCountss;
+
+        var Jansss =@ViewBag.JanuaryCountsss;
+        var Febsss =@ViewBag.FebCountsss;
+        var Marsss =@ViewBag.MarCountsss;
+        var Aprsss =@ViewBag.AprCountsss;
+        var Maysss =@ViewBag.MayCountsss;
+        var Junsss =@ViewBag.JunCountsss;
+        var Julsss =@ViewBag.JulCountsss;
+        var Augsss =@ViewBag.AugCountsss;
+        var Sepsss =@ViewBag.SepCountsss;
+        var Octsss =@ViewBag.OctCountsss;
+        var Novsss =@ViewBag.NovCountsss;
+        var Decsss =@ViewBag.DecCountsss;
+
+
+
+
+
+
+
+
+
+        if ($('#pieChart').length) {
+            var ctx = document.getElementById("Employeeline").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    datasets: [{
+                        label: 'Paid',
+                        fill: false,
+                        backgroundColor: 'green',
+                        borderColor: 'green',
+
+                        //backgroundColor: [
+
+                        //    "#009432",
+                        //    "#C4E538",
+
+
+                        //],
+                        data: [Janss, Febss, Marss, Aprss, Mayss, Junss, Julss, Augss, Sepss, Octss, Novss, Decss],
+                        borderWidth: [0, 0, 0, 0, 0, 0]
+                    },
+                        {
+                            label: 'UnPaid',
+                            fill: false,
+                            backgroundColor:'red',
+                            borderColor: 'red',
+
+                            //backgroundColor: [
+
+                            //    "#009432",
+                            //    "#C4E538",
+
+
+                            //],
+                            data: [Jansss, Febsss, Marsss, Aprsss, Maysss, Junsss, Julsss, Augsss, Sepsss, Octsss, Novsss, Decsss],
+                            borderWidth: [0, 0, 0, 0, 0, 0]
+
+                    }]
+
+                },
+                options: {
+                    maintainAspectRatio: true,
+                    cutoutPercentage: 70,
+                    legend: {
+                        display:true,
+                        position: "bottom",
+
+
+
+                        labels: {
+                            fontColor: '#e4e6eb',
+                            boxWidth: 12,
+
+
+                        }
+                    },
+                     scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtOne: true
+                            }
+                         }]
+                    //     //   xAxes: [{
+                    //     //    ticks: {
+                    //     //        beginAtZero: true
+                    //     //    }
+                    //     //}]
+                    }
+                }
+            });
+
+        }
+    });
+</script>

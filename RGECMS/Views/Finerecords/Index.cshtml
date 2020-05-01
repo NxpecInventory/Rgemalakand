@@ -132,11 +132,14 @@
                 </td>
                 @if (User.IsInRole("Administration"))
                 {
-                    <td>
-                        <a class="btn btn-warning" href="@Url.Action("Edit", "Finerecords", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="btn btn-success" href="@Url.Action("Details", "Finerecords", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a>
-                        <a class="btn btn-danger" href="@Url.Action("Delete", "Finerecords", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
-                    </td>
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Finerecords", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
+
+                    <a class="btn btn-success" href="@Url.Action("Details", "Finerecords", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a>
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "Finerecords", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
+
+
+                </td>
                 }
                 else
                 {

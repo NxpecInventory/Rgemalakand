@@ -467,6 +467,22 @@
     <Compile Include="Migrations\202003041209269_collegeemplyee.Designer.cs">
       <DependentUpon>202003041209269_collegeemplyee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004061035121_student1.cs" />
+    <Compile Include="Migrations\202004061035121_student1.Designer.cs">
+      <DependentUpon>202004061035121_student1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004091019496_fee.cs" />
+    <Compile Include="Migrations\202004091019496_fee.Designer.cs">
+      <DependentUpon>202004091019496_fee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004131156530_teacher.cs" />
+    <Compile Include="Migrations\202004131156530_teacher.Designer.cs">
+      <DependentUpon>202004131156530_teacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005010736510_employee.cs" />
+    <Compile Include="Migrations\202005010736510_employee.Designer.cs">
+      <DependentUpon>202005010736510_employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendanceoptions.cs" />
@@ -523,6 +539,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Chart.css" />
+    <Content Include="Content\Chart.min.css" />
     <Content Include="Content\fontawesome-all.css" />
     <Content Include="Content\material-design-iconic-font.css" />
     <Content Include="Content\materialdesignicons.min.css" />
@@ -588,6 +606,8 @@
     <Content Include="Images\Updatedimagelogo.JPG" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\custom.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -734,7 +754,6 @@
     <Content Include="Views\UserAccountDetails\UserProfile.cshtml" />
     <Content Include="Views\UserAccountDetails\CollegeFeeRecords.cshtml" />
     <Content Include="Views\UserAccountDetails\FineRecords.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\AttendanceMarking\MarkAttendance.cshtml" />
     <Content Include="Views\AttendanceRecordsdatas\Create.cshtml" />
     <Content Include="Views\AttendanceRecordsdatas\Delete.cshtml" />
@@ -866,6 +885,7 @@
     <Content Include="Views\TeacherAccount\Details.cshtml" />
     <Content Include="Views\LibarayIssuedBooks\StudentShowAssignbooks.cshtml" />
     <Content Include="Views\UserAccountDetails\AssignBook.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1051,6 +1071,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003041209269_collegeemplyee.resx">
       <DependentUpon>202003041209269_collegeemplyee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004061035121_student1.resx">
+      <DependentUpon>202004061035121_student1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004091019496_fee.resx">
+      <DependentUpon>202004091019496_fee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004131156530_teacher.resx">
+      <DependentUpon>202004131156530_teacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005010736510_employee.resx">
+      <DependentUpon>202005010736510_employee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
