@@ -36,6 +36,7 @@ namespace RGECMS.Models
         [Required(ErrorMessage = "Please Select the Program Of Class")]
         [ForeignKey("Programs")]
         public int ProgramId { get; set; }
+        public byte[] PrintBinary { get; set; }
         public virtual Programs Programs { get; set; }
         public string CurrentSemclass { get; set; }
 

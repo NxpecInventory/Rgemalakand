@@ -64,10 +64,16 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Uploadername)
                     </td>
+                    
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
+
                         @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
-                        <a href="@item.filepath" class=" btn btn-success">Download</a>
+                        @{string path = item.filepath.Remove(0, 2);
+
+                        <a href="@path" class=" btn btn-success">Download</a>
+                            }
+                        @*@Html.ActionLink("Download", item.filepath,new { })*@
                     </td>
                 </tr>
             }
