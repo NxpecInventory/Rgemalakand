@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Mvc;
 using RGECMS.Models;
 
 namespace RGECMS.Api
@@ -32,7 +33,7 @@ namespace RGECMS.Api
                 return NotFound();
             }
 
-            return Ok(students);
+            return Ok(students); 
         }
 
         // PUT: api/Students/5

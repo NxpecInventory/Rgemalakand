@@ -23,14 +23,15 @@ namespace RGECMS.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime dataofattendance { get; set; }
-     
-  
+        [NotMapped]
+        public byte[] PrintBinary { get; set; }
+
         [ForeignKey("Attendanceoptions")]
         public int StatusId { get; set; }
         public virtual Attendanceoptions Attendanceoptions { get; set; }
 
         public string Remarks { get; set; }
-
-
+     
+    
     }
 }

@@ -101,58 +101,74 @@
                 <th>
                     @Html.DisplayName("Program")
                 </th>
+                <th>Binary</th>
                 <th>Actions</th>
             </tr>
         </thead>
 
         @foreach (var item in Model)
         {
-            <tr>
+        <tr>
 
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GuardianName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentSemclass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddmissionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Programs.ProgramName)
+            </td>
+
+            @if(item.PrintBinary!=null)
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
+                    UnAvailable
                 </td>
+            }
+            else
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.StudentName)
+                    Available
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GuardianName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ContactInfo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CurrentSemclass)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AddmissionDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Programs.ProgramName)
-                </td>
-                @if (User.IsInRole("Administration"))
-                {
+            }
+
+
+            @if (User.IsInRole("Administration"))
+            {
                 <td>
                     <a class="btn btn-warning" href="@Url.Action("Edit", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
                     <a class="btn btn-success" href="@Url.Action("Details", "Students", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
                     <a class="btn btn-danger" href="@Url.Action("Delete", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-trash"></span></a>
-                    
-                </td>
-                }
-                else
-                {
-                    <td>
-                        <a class="btn btn-warning" href="@Url.Action("Edit", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="btn btn-success" href="@Url.Action("Details", "Students", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
-                       
-                    </td>
-                }
-        
 
-            </tr>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Students", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a class="btn btn-success" href="@Url.Action("Details", "Students", new { id = item.Id })"><span class="glyphicon glyphicon glyphicon-th-list"></span></a> |
+
+                </td>
+            }
+
+
+        </tr>
         }
 
     </table>
